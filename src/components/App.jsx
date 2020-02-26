@@ -1,5 +1,5 @@
 import React from 'react';
-//import './App.css';
+import './App.css';
 
 import {
   HashRouter as Router,
@@ -9,6 +9,7 @@ import {
 import { observer } from 'mobx-react';
 import FireBaseSerivces from '../utils/FireBaseSerivces';
 import FireStore from '../utils/FireStore';
+import Nav from './Nav';
 
 const App = observer( class App extends React.Component {
 
@@ -35,15 +36,43 @@ const App = observer( class App extends React.Component {
   render(){
     return (
       this.state.data? <div className="App">
-        {
-            this.state.data.map( (doc, i) => 
-            <div className='data' index={i}>
-              <h3>Registro: {doc.id}</h3>
-              <p className="pm2"><strong>PM 2.5:</strong> {doc.data().pm2}</p>
-              <p className="pm10"><strong>PM 10:</strong> {doc.data().pm10}</p>
-              <p className="humedity"><strong>Humendad:</strong> {doc.data().humedity}</p>
-            </div>)
-        }
+        <Nav/>
+        {/*
+        <section className="intro">
+          <img src="" alt=""/>
+
+          <div className="">
+            <h4>Álvaro Vasquez</h4>
+            <p>Cicloamigos</p>
+          </div>
+
+          <div className="">
+              <div className="">
+                <p>Rango</p>
+                <img src="" alt=""/>
+              </div>
+              <div className="">
+                <p>Principiante</p>
+                <span>Barra</span>
+              </div>
+          </div>
+        </section>
+        */}
+
+        <h3 className='title'>Datos</h3>
+        <section className="datos">
+          {
+              this.state.data.map( (doc, i) => 
+              <div className='data' index={i}>
+                <h4>Registro: {doc.id}</h4>
+                <hr/>
+                <p className="pm2"><strong>PM 2.5:</strong> {doc.data().pm2}</p>
+                <p className="pm10"><strong>PM 10:</strong> {doc.data().pm10}</p>
+                <p className="humedity"><strong>Humendad:</strong> {doc.data().humedity}</p>
+              </div>)
+          }
+        </section>
+
 
         
         {/* decomentar el router al probar que funciona 

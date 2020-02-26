@@ -1,0 +1,63 @@
+@import "../utils/vars";
+
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    *{font-family: 'Poppins', sans-serif;}
+
+    .Nav {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: flex-end;
+        a {
+            margin-right: 50px;
+        }
+    }
+
+    .intro {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .title{
+        width: 90%;
+        text-align: left;
+    }
+
+    .datos{
+        @include scrollBar();
+        max-height: 80vh;
+        width: 90%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+
+        .data{
+            width: 28%;
+            padding: 2px 16px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            margin-bottom: 25px;
+
+            &:hover {
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            }
+
+            hr{margin-bottom: 20px;}
+
+            h4{
+                color: #3da9fc;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}

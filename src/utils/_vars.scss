@@ -16,7 +16,7 @@ $base-font-size: 21.3;
     height: $param / $param2 * 100%;
 }
 
-@mixin centrado {
+@mixin center {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,4 +47,27 @@ $base-font-size: 21.3;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+@mixin scrollBar {
+    overflow-y: hidden;
+    &:hover {
+        overflow-y: auto
+    }
+
+    &::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #fff;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #3da9fcaf;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #3da9fc;
+    }
 }
