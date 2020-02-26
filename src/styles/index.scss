@@ -1,0 +1,42 @@
+@import "./utils/vars";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Locator;
+  @include font-size(16);
+  color: $primary-color;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    opacity: 0.2;
+  }
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  background-color: $primary-color;
+  height: 100%;
+  //padding: 0 66.47px;
+}
+
+.centrado {
+  @include centrado();
+}
+
+.colum {
+  @include colum();
+}
+
+.row {
+  @include row();
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
