@@ -1,0 +1,96 @@
+@import "../utils/vars";
+
+.Landing {
+    h4{
+        font-weight: bold;
+        color: $thrid-color;
+        margin-bottom: 0;
+    }
+
+    .description{
+        @include center();
+        background: rgba(235, 240, 240, 0.6);
+        padding: 60px 0;
+        margin-bottom: 40px;
+    
+        h6{
+            width: 60%;
+            color: $primary-color;
+            text-align: center;
+            strong{
+                color: $primary-color;
+            }
+        }
+    }
+
+    .advices{
+        padding: 0 10%;
+        margin-top: 50px;
+        .advice {
+            margin-bottom: 50px;
+            h5 {
+                color: $primary-color;
+            }
+
+            ul {
+                li {
+                    margin-bottom: 15px;
+
+                    &::before {
+                        content: "\2022";
+                        color: $primary-color;
+                        font-weight: bold;
+                        display: inline-block; 
+                        width: 1em;
+                        margin-left: -1.5em;
+                    }
+                }
+            }
+        }
+    }
+
+    .beneficios {
+        padding: 50px;
+
+        h6 {
+            color: $primary-color;
+            text-align: center;
+        }
+    }
+    
+    .stages{
+        padding: 20px 50px;
+        .col > div{
+            margin-bottom: 40px;
+            h6 {
+                color: $thrid-color;
+                font-weight: bold;
+            }
+
+            h5{
+                color: $primary-color;
+            }
+        }
+    }
+
+    .call-to-action{
+        background-color: $primary-color;
+        flex-direction: column;
+        padding: 50px 0;
+        @include center();
+        *{color: $secondary-color;}
+
+        h4 {
+            margin-bottom: 30px;
+        }
+
+        p {
+            width: 60%;
+            margin-bottom: 30px;
+        }
+
+        button {
+            margin-bottom: 20px;
+        }
+    }
+}

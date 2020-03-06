@@ -7,18 +7,18 @@ export default [
         ]
     },
     {
+        title: "Maneja los residuos",
+        advices: [
+            "Utilice los sistemas de recogida selectiva y la red de desecherías.",
+            "Procura la prevención de residuos desde el momento que adquieras un producto."
+        ]
+    },
+    {
         title: "Promueve la movilidad sostenible",
         advices: [
             "Desplázate a pie o en bicicleta en recorridos cortos.",
             "Utiliza el transporte público y reduce al máximo el uso del vehículo particular.",
             "Si es necesario, utilizar el transporte privado. Considere la opción de compartirlo siempre que sea posible."
-        ]
-    },
-    {
-        title: "Maneja los residuos",
-        advices: [
-            "Utilice los sistemas de recogida selectiva y la red de desecherías.",
-            "Procura la prevención de residuos desde el momento que adquieras un producto."
         ]
     },
     {

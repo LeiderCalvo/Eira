@@ -1,37 +1,6 @@
 @import "../utils/vars";
 
 .App {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    *{font-family: 'Poppins', sans-serif;}
-
-    .Nav {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: flex-end;
-        a {
-            margin-right: 50px;
-        }
-    }
-
-    .intro {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-end;
-    }
-
-    .title{
-        width: 90%;
-        text-align: left;
-    }
-
     .datos{
         @include scrollBar();
         max-height: 80vh;
