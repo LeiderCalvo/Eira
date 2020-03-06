@@ -1,43 +1,60 @@
 import React from 'react';
-import './App.css';
+//import './App.css';
 
 import {
   HashRouter as Router,
   Route,
   Switch,
 } from 'react-router-dom';
-import { observer } from 'mobx-react';
 import FireBaseSerivces from '../utils/FireBaseSerivces';
 import FireStore from '../utils/FireStore';
 import Nav from './Nav';
+import Landing from './Landing';
+import Loading from './Loading';
+import Footer from './Footer';
 
-const App = observer( class App extends React.Component {
+class App extends React.Component {
 
   constructor(props){
     super(props);
     FireBaseSerivces.init();
-
+    /*
     this.state = {
       data: null
     }
 
-    /*setInterval(()=>FireStore.ManageData('add', 'collection', 'data', 
+    setInterval(()=>FireStore.ManageData('add', 'collection', 'data', 
     {
       pm2: Math.random(),
       pm10: Math.random(),
       humedity: Math.random()
-    }, undefined, ()=>{}), 60000);*/
+    }, undefined, ()=>{}), 60000);
 
     FireStore.listener('collection', 'data' ,(data)=>{
       this.setState({data});
-    });    
+    });    */
   }
 
   render(){
     return (
-      this.state.data? <div className="App">
-        <Nav/>
-        {/*
+        <Router basename="">
+          <Nav/>
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/comolohacemos" component={Landing} />
+            <Route exact path="/donaciones" component={Landing} />
+            <Route exact path="/comunidad" component={Landing} />
+            <Route exact path="/login" component={Landing} />
+          </Switch>
+          <Footer/>
+        </Router>
+    );
+  }
+};
+
+export default App;
+
+{/*
         <section className="intro">
           <img src="" alt=""/>
 
@@ -57,7 +74,7 @@ const App = observer( class App extends React.Component {
               </div>
           </div>
         </section>
-        */}
+
 
         <h3 className='title'>Datos</h3>
         <section className="datos">
@@ -72,29 +89,4 @@ const App = observer( class App extends React.Component {
               </div>)
           }
         </section>
-
-
-        
-        {/* decomentar el router al probar que funciona 
-        <Router basename="">
-          <header>
-            {//maybe you need a logo or nav right here to be always present
-            }
-          </header>
-  
-          <Switch>
-            <Route exact path="/" component={} />
-          </Switch>
-  
-          <footer>
-            {//maybe your footer should be always present
-            }
-          </footer>
-        </Router>
-          */}
-      </div> : <div className="App">Cargando ...</div>
-    );
-  }
-});
-
-export default App;
+        */}

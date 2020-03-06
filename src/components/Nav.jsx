@@ -1,13 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Nav() {
     return(
-        <div className="Nav">
-            <a>¿Cómo lo hacemos?</a>
-            <a>Donaciones</a>
-            <a>Nuestra Comunidad</a>
-            <a>Iniciar Sesión</a>
-        </div>
+        <nav className="Nav">
+            <Link to='/'><img src="./images/logo.svg" alt="logo"/></Link>
+            <Link to='comolohacemos'>¿Cómo lo hacemos?</Link>
+            <Link to='donaciones'>Donaciones</Link>
+            <Link to='comunidad'>Nuestra Comunidad</Link>
+            <Link to='login'>Iniciar Sesión</Link>
+        </nav>
     )
 }
 
