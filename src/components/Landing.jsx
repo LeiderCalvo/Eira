@@ -45,7 +45,12 @@ function Landing() {
                     </div>)
                 }
             </div>
-            <div className="col"></div>
+            <div className="images col">
+                <img className='cero' src="./images/vinculation.svg" alt=""/>
+                <img className='uno' src="./images/monitoring.svg" alt=""/>
+                <img className='dos' src="./images/visualization.svg" alt=""/>
+                <img className='tres' src="./images/action.svg" alt=""/>
+            </div>
         </div>
 
         <section className='call-to-action container'>
@@ -56,10 +61,10 @@ function Landing() {
             <a>¿Quieres aportar de otra manera? <strong>Haz una donanción</strong></a>
         </section>
 
-        <section>
-            <img src="" alt=""/>
-            <img src="" alt=""/>
-            <img src="" alt=""/>
+        <section className='stakeholders row'>
+            <img src="./images/mtnm.svg" alt="mtnm"/>
+            <img src="./images/cicloamigos.svg" alt="cicloamigos"/>
+            <img src="./images/dagma.svg" alt="dagma"/>
         </section>
 
 

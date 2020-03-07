@@ -1,6 +1,7 @@
 import React from 'react';
 //import { observer } from 'mobx-react';
 import STORE from '../stores/Store';
+import '../styles/Testimonies.css';
 
 class Testimonies extends React.Component {
     constructor(props){
@@ -22,23 +23,25 @@ class Testimonies extends React.Component {
     
     render(){
         const testimony = STORE.Testimonies[this.state.count];
-        return <section className="Testimonies">
+        return <section className="Testimonies container">
 
-                <div className="testimonie">
-                    <img src="" alt="img"/>
-                    <h3>{testimony.name}</h3>
-                    <p>{testimony.team}, {testimony.exp}</p>
-                    <p>{testimony.quote}</p>
+                <div className="testimonie row">
+                    <img src="./images/chica.svg" alt="img"/>
+                    <div className="items">
+                        <h4>{testimony.name}</h4>
+                        <div className='des'>{testimony.team}, {testimony.exp}</div>
+                        <p>"{testimony.quote}"</p>
+                    </div>
                 </div>
 
                 <div className='tick-marks'>
                     {STORE.Testimonies.map((elem, index) => {
-                        return <span className={index === this.state.count ? 'selected' : ''} key={index}
+                        return <div className={index === this.state.count ? 'selected' : ''} key={index}
                             onClick={() => {
                                 clearInterval(this.state.timeout);
                                 let temp = setInterval(this.interval, 10000);
                                 this.setState({count: index, timeout: temp});
-                            }}></span>
+                            }}></div>
                     })}
                 </div>
         </section>

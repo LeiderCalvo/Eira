@@ -55,6 +55,7 @@
         h6 {
             color: $primary-color;
             text-align: center;
+            font-weight: bold;
         }
     }
     
@@ -69,6 +70,25 @@
 
             h5{
                 color: $primary-color;
+            }
+        }
+
+        .images {
+            flex-direction: column;
+            flex-wrap: nowrap;
+            img{
+                display: flex;
+                margin: -10px 0;
+                width: 32%;
+
+            }
+
+            .uno{
+                margin-left: 70%;
+            }
+
+            .tres{
+                margin-left: 70%;
             }
         }
     }
@@ -91,6 +111,15 @@
 
         button {
             margin-bottom: 20px;
+        }
+    }
+
+    .stakeholders{
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        img {
+            margin: 0 20px;
         }
     }
 }
