@@ -12,6 +12,7 @@ import Nav from './Nav';
 import Landing from './Landing';
 import Loading from './Loading';
 import Footer from './Footer';
+import Forum from './Forum';
 
 class App extends React.Component {
 
@@ -45,6 +46,7 @@ class App extends React.Component {
             <Route exact path="/donaciones" component={Landing} />
             <Route exact path="/comunidad" component={Landing} />
             <Route exact path="/login" component={Landing} />
+            <Route exact path="/foro" component={Forum} />
           </Switch>
           <Footer/>
         </Router>
