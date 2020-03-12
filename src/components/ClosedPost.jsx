@@ -1,13 +1,15 @@
 import React from 'react';
 
 function ClosedPost(props) {
-    return <article className="ClosedPost">
-        <p>Time</p>
-        <h5>{props.param.title}</h5>
-        <p>{props.param.userName}, {props.param.topic}</p>
+    return <article className="ClosedPost container">
+        <div className="row">
+            <h5 className='col'>{props.param.title}</h5>
+            <p className='col-md-auto'>Time</p>
+        </div>
+        <p className='name'>{props.param.userName}, {props.param.topic}</p>
         <p>{props.param.descrip}</p>
 
-        <div className="row">
+        <div className="actions row">
             <button>Like</button>
             <button>Comentar</button>
             <button>Compartir</button>

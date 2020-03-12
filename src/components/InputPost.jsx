@@ -35,13 +35,14 @@ class InputPost extends React.Component {
     render () {
         const {post, step, stepName} = this.state;
 
-        return <section>
-            <h6>¿Deseas compartir tu opinión respecto a la calidad del aire en la ciudad o tu experiencia en el proyecto? </h6>
+        return <section className='InputPost container'> <div className='row'>
+            <h6 className='col-4'>¿Deseas compartir tu opinión respecto a la calidad del aire en la ciudad o tu experiencia en el proyecto? </h6>
             {
                 step === 0?
-                    <input
+                    <input className='col'
                         type="text"
                         value={ post.message}
+                        placeholder='Escribe una descripción mensaje'
                         onChange={ e => {
                             let temp = post;
                             temp.message = e.target.value;
@@ -49,8 +50,9 @@ class InputPost extends React.Component {
                         } }/>
 
                 : step === 1?
-                    <input
+                    <input className='col'
                         type="text"
+                        placeholder= 'Escribe un titulo para la publicación max 200 caracteres'
                         value={ post.title }
                         onChange={ e => {
                             let temp = post;
@@ -59,8 +61,9 @@ class InputPost extends React.Component {
                         } }/>
 
                 : step === 2?
-                    <input
+                    <input className='col'
                         type="text"
+                        placeholder='Opcional. Sube un archivo'
                         value={ post.file }
                         onChange={ e => {
                             let temp = post;
@@ -68,22 +71,21 @@ class InputPost extends React.Component {
                             this.setState( { post: temp } );
                         } }/>
                 : 
-                    <select name="select" value={ post.topic } onChange={ e => {
+                    <select name="select" value={ post.topic } className='col'
+                    onChange={ e => {
                         let temp = post;
                         temp.topic = e.target.value;
                         this.setState( { post: temp } );
                     }}>
-                        {['','Calidad del Aire', 'Infraestructura vial', 'Transporte sostenible'].map(
+                        {['Escoge un tema','Calidad del Aire', 'Infraestructura vial', 'Transporte sostenible'].map(
                             (item, i) => <option key={i} value={item}>{item}</option>
                         )}
                     </select>
             }
 
-            
-
             <button onClick={this.handleClick}>Siguiente</button>
                 
-        </section>
+        </div></section>
     }
 }
 

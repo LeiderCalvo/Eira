@@ -1,0 +1,58 @@
+@import "../utils/vars";
+
+.Forum{
+    .InputPost {
+        position: relative;
+        margin: 50px 0;
+        div h6 {
+            color: $primary-color;
+            font-weight: bold;
+        }
+        button{
+            position: absolute;
+            right: 20px;
+            bottom: -15px;
+        }
+    }
+
+    .filters .row{
+        margin-bottom: 30px;
+        h6{
+            color: $thrid-color;
+            font-weight: bold;
+        }
+
+        select {
+            background-color: $primary-color;
+            color: $secondary-color;
+            border: none;
+            border-radius: 10px;
+
+            option {
+                color: $secondary-color;
+            }
+        }
+    }
+
+    .ClosedPost {
+        margin-bottom: 50px;
+
+        .row {
+            .col {
+                color: $thrid-color;
+                font-weight: bold;
+                margin-bottom: 0;
+            }
+        }
+        .name { margin-top: -10px;}
+
+        .actions {
+            justify-content: flex-end;
+            button {
+                background: none;
+                color: $thrid-color;
+                font-weight: bold;
+            }
+        }
+    }
+}
