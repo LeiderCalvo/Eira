@@ -11,11 +11,11 @@ class Store {
     ProyectStages = ProyectStages;
     Posts = Posts;
 
+    isLogging = false;
+
     //constructor(){console.log(GeneralAdvices)}
 
-    setter (prop, val) {
-        this[prop] = val;
-    }
+    setter = (prop, val) => this[prop] = val;
    /* @observable var = '';
     @computed get currentDate(){
         return "something operationalizable";
@@ -28,6 +28,7 @@ decorate(Store,
         Testimonies: observable,
         ProyectStages: observable,
         Posts: observable,
+        isLogging: observable,
         setter: action
     }
 );

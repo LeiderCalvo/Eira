@@ -13,6 +13,7 @@ import Landing from './Landing';
 import Loading from './Loading';
 import Footer from './Footer';
 import Forum from './Forum';
+import Log from './Log';
 
 class App extends React.Component {
 
@@ -39,6 +40,7 @@ class App extends React.Component {
   render(){
     return (
         <Router basename="">
+          <Log/>
           <Nav/>
           <Switch>
             <Route exact path="/" component={Landing} />

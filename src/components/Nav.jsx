@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import STORE from '../stores/Store';
 
 function Nav() {
     return(
@@ -21,7 +22,7 @@ function Nav() {
                         <Link className='nav-link' to='comunidad'>Nuestra Comunidad</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className='nav-link' to='login'>Iniciar Sesión</Link>
+                        <p className='nav-link' onClick={()=>STORE.setter('isLogging', true)}>Iniciar Sesión</p>
                     </li>
                 </ul>
             </div>
