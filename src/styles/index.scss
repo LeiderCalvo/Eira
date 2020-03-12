@@ -32,6 +32,10 @@ a{
     font-style: normal;
     font-weight: normal;
   }
+
+  div ul li p {
+    margin-bottom: 0;
+  }
 }
 
 button{
@@ -59,7 +63,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-footer{
+.Footer{
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
   background-color: $thrid-color;
   .row{
     justify-content: space-between;

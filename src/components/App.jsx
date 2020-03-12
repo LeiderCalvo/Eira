@@ -14,6 +14,7 @@ import Loading from './Loading';
 import Footer from './Footer';
 import Forum from './Forum';
 import Log from './Log';
+import Profile from './Profile';
 
 class App extends React.Component {
 
@@ -46,8 +47,7 @@ class App extends React.Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/comolohacemos" component={Landing} />
             <Route exact path="/donaciones" component={Landing} />
-            <Route exact path="/comunidad" component={Landing} />
-            <Route exact path="/login" component={Landing} />
+            <Route exact path="/perfil" component={Profile} />
             <Route exact path="/foro" component={Forum} />
           </Switch>
           <Footer/>
