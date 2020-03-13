@@ -2,24 +2,7 @@ import STORE from "../stores/Store";
 import FireStore from "./FireStore";
 
 let Auth = null;
-
-function setRef(auth) {
-  Auth = auth;
-}
-
-function Login(user, response, type){
-  let method = type === 'reg' ? 'createUserWithEmailAndPassword':'signInWithEmailAndPassword';
-  Auth[method](user.email, user.password).then((a)=>{
-    updateStore(user, type, response);
-
-      //FireStore.addNewUser(usuario);
-      
-      //STORE.setCurrentUser('rol', 'monitor');
-      //updateStore(usuario.nombre);
-  }).catch(function(error) {
-    error && response(false, error);
-  });
-}
+const setRef = auth => Auth = auth;
 
 function getTestimonials() {
   FireStore.ManageData('get', 'collection', 'testimonies', undefined, undefined, (isSuccess, response)=>{
@@ -30,59 +13,50 @@ function getTestimonials() {
   });
 }
 
-function updateStore(user, type, finalResponse) {
-  getTestimonials();
+///////////////////////////////////////////////
 
-  if(type === 'reg') {
-    FireStore.ManageData('add', 'collection', 'users', user, undefined, function (isSuccess, response) {
-      if(isSuccess === false){
+function updateStore(user, isReg, finalResponse) {
+  //getTestimonials();
+
+  if(isReg ) {
+    FireStore.ManageData('add', 'collection', 'users', user, undefined, (isSuccess, response) => {
+      isSuccess ?
+        addToLocal({...user, id: response.id})
+      :
         console.log({success: false , response});
-      }else {
-        addToLocal({...user, id: response.id});
-      }
+
       finalResponse(isSuccess , response);
     });
   }else {
     FireStore.ManageData('get', 'collection', 'users', undefined, ['email', '==', user.email], (isSuccess, response)=>{
-      if(isSuccess && response.empty === false){
-        response.forEach(function(doc) {
-          //console.log(doc.id, " => ", doc.data());
-          addToLocal({...doc.data(), id: doc.id});
-        });
-      }else {
-        console.log({success: false , response});
-      }
+      isSuccess && response.empty ?
+        console.log({success: false , response})
+      :
+        response.forEach( doc => addToLocal( {...doc.data(), id: doc.id} ));
+
       finalResponse(isSuccess , response);
     });
   }
-  /*
-  FireStore.getHorario(usuario);
-  STORE.setCurrentUser('nombre', usuario+'');
-  FireStore.updateHoras(usuario);
-  FireStore.updateRegistro(STORE.currentUser.nombre);
-  STORE.setNavItemSelected('Inicio');
-  STORE.setMonitorSelected(null);
-  */
+}
+
+function Login(user, isReg, response){
+  let method = isReg ? 'createUserWithEmailAndPassword':'signInWithEmailAndPassword';
+  Auth[method](user.email, user.password)
+    .then( a => updateStore(user, isReg, response) )
+    .catch( error => error && response(false, error) );
 }
 
 function addToLocal(user) {
   console.log('addToLocal');
-  STORE.setter( user ,'user');
+  STORE.setter('user', user);
   localStorage.setItem('isCurrentUser', 'true');
-}
-
-function ReadLocal() {
-  console.log('ReadLocal');
-  return localStorage.getItem('isCurrentUser') === 'true';
+  localStorage.setItem('user', JSON.stringify(user));
 }
 
 function updateLocal() {
   console.log('updateLocal');
-  if(localStorage.getItem('isCurrentUser') === 'true' ){
-    STORE.setter(JSON.parse(localStorage.getItem('user')), 'user');
-    STORE.setter(JSON.parse(localStorage.getItem('currentCourse')), 'currentCourse');
-    STORE.setter(JSON.parse(localStorage.getItem('testimonies')), 'testimonies');
-  }
+  localStorage.getItem('isCurrentUser') === 'true' &&
+    STORE.setter('user', JSON.parse(localStorage.getItem('user')) );
 }
 
-export default {setRef, Login, ReadLocal, addToLocal, updateLocal};
+export default {setRef, Login, addToLocal, updateLocal};

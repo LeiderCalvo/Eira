@@ -19,7 +19,7 @@ function ManageData(type, where, path, document, condition, response) {
 
   set, update, delete, get
   */
- console.log(where)
+ //console.log(where)
   if(type=== 'update' && path.includes('certificates')){
     document = {...document, fechas: Firebase.firestore.FieldValue.arrayUnion(Date.now())}
   }

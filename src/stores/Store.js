@@ -12,6 +12,7 @@ class Store {
     Posts = Posts;
 
     isLogging = false;
+    user = null;
 
     //constructor(){console.log(GeneralAdvices)}
 
@@ -29,6 +30,7 @@ decorate(Store,
         ProyectStages: observable,
         Posts: observable,
         isLogging: observable,
+        user: observable,
         setter: action
     }
 );
