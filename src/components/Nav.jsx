@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import STORE from '../stores/Store';
+import { observer } from 'mobx-react';
 
-function Nav() {
+const Nav = observer( function Nav() {
     return(
         <nav className="Nav navbar navbar-expand-md">
             <Link className='navbar-brand' to='/'><img src="./images/logo.svg" alt="logo"/></Link>
@@ -22,12 +23,17 @@ function Nav() {
                         <Link className='nav-link' to='comunidad'>Nuestra Comunidad</Link>
                     </li>
                     <li className="nav-item">
-                        <p className='nav-link' onClick={()=>STORE.setter('isLogging', true)}>Iniciar Sesión</p>
+                        {STORE.user === null ?
+                            <p className='nav-link' onClick={()=>STORE.setter('isLogging', true)}>Iniciar Sesión</p>
+                        :
+                            <Link className='nav-link' to='perfil'>{STORE.user.user}</Link>
+                        }
                     </li>
+
                 </ul>
             </div>
         </nav>
     )
-}
+});
 
 export default Nav;

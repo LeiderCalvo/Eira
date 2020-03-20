@@ -3,6 +3,7 @@ import { observer } from 'mobx-react';
 import '../styles/Log.css'
 import STORE from '../stores/Store';
 import FireAuth from '../utils/FireAuth';
+import { withRouter } from 'react-router-dom';
 
 const Log = observer( class Log extends React.Component {
 
@@ -26,7 +27,7 @@ const Log = observer( class Log extends React.Component {
         if(isSucces) {
             //STORE.displayToast('Bienvenido ' + STORE.user.name, 'success');
             STORE.setter('isLogging', false);
-            console.log(STORE.user, 'store');
+            this.props.history.push('/perfil');
             //console.log(response, 'succes')
         } else {
             //STORE.displayToast(response+'', 'error');
@@ -91,4 +92,4 @@ const Log = observer( class Log extends React.Component {
     }
 });
 
-export default Log;
+export default withRouter(Log);
