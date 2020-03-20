@@ -2,9 +2,12 @@ import React from 'react';
 import '../styles/Landing.css'
 import STORE from '../stores/Store';
 import Testimonies from './Testimonies';
+import Map from './Map';
 
 function Landing() {
-    return <article className="Landing container">
+    return <div className="">
+            <Map/>
+        <article className="Landing container">
         <div className="container description">
             <h6>Soñamos con una Cali donde <strong>todos los ciudadanos nos comprometemos</strong> a aportar para cuidar la <strong>calidad del aire que respiramos</strong></h6>
         </div>
@@ -68,7 +71,7 @@ function Landing() {
         </section>
 
 
-    </article>
+    </article></div>
 }
 
 export default Landing;
