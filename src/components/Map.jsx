@@ -11,12 +11,11 @@ class Map extends React.Component {
     constructor(props){
         super(props);
         const current = new Date().getTime();
-        console.log(data);
         this.state = {
             viewport: {
-                latitude: 3.614,
-                longitude: -76.573,
-                zoom: 8,
+                latitude: 3.414,
+                longitude: -76.533,
+                zoom: 12,
                 bearing: 0,
                 pitch: 0,
                 mapboxApiAccessToken: 'pk.eyJ1IjoibGVpZGVyY2Fsdm8iLCJhIjoiY2s4MGNlbHZ4MGRwZzNlcGExMmo3cXF6YSJ9.V2d9VILjJixw_LEjcT7L9g'
@@ -32,13 +31,12 @@ class Map extends React.Component {
     }
 
     convertdata(data){
-        data = {
+        /*data = {
             type: "FeatureCollection",
             crs: { type: "name", properties: { name: "urn:ogc:def:crs:OGC:1.3:CRS84" } },
             features: data.slice(1, 20)
-        };
+        };*/
         //data = JSON.stringify(data);
-        console.log(data);
         const features = data.features;
         const endTime = features[0].properties.time;
         const startTime = features[features.length - 1].properties.time;
@@ -54,6 +52,7 @@ class Map extends React.Component {
 
     componentDidMount() {
         //esto no deberia ir aqui porque descarga la info cada que vuelve a landing
+        /*
         FireStore.ManageData('get', 'collection', 'data', undefined, undefined, (succes, response)=>{
             console.log(response, succes);
             if(succes && response.empty === false){
@@ -62,13 +61,14 @@ class Map extends React.Component {
                     temp.geometry.type = "Point";
                     //temp.geometry.coordinates = [ -151.5129, 63.1016, 0.0 ];
                     temp.geometry.coordinates = [ temp.geometry.coordinates[1], temp.geometry.coordinates[0], 0.0 ];
-                    temp.properties.mag = Math.random() * 3;
+                    temp.properties.mag = Math.random() * 6;
                     return temp;
                 });
                 
                 this.convertdata(dat)
             }
-        });
+        });*/
+        this.convertdata(data)
     }
 
     _handleChangeDay = time => {
@@ -121,6 +121,7 @@ class Map extends React.Component {
             </ReactMapGL>
 
             <ControlPanel
+                banner={this.props.banner}
                 containerComponent={this.props.containerComponent}
                 startTime={startTime}
                 endTime={endTime}

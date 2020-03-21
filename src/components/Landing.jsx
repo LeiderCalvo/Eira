@@ -1,12 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../styles/Landing.css'
 import STORE from '../stores/Store';
 import Testimonies from './Testimonies';
 import Map from './Map';
 
 function Landing() {
-    return <div className="">
-            <Map/>
+    const [banner, setBanner] = useState(0);
+    return <div className="preLanding">
+            <div className="banner" style={{display: banner==0?'block' : 'none'}}>
+                <h1>Calidad del Aire</h1>
+                <p>Tiempo real</p>
+
+                <h5>Gracias a la <strong>labor de la ciudadanía,</strong> se logra medir <strong>de manera confiable</strong> la calidad del aire que <strong>respiramos a diario en la ciudad.</strong></h5>
+                <button onClick={()=>setBanner(1)}>>></button>
+
+                <p className='location'>Cali, Colombia</p>
+            </div>
+            <div className="banner two" style={{display: banner==1?'flex' : 'none'}}>
+                <p>Navega por <strong>tú ciudad</strong> y entérate como puedes contribuir a su cuidado</p>
+                <button onClick={()=>setBanner(2)}>>></button>
+            </div>
+            <Map banner={banner}/>
         <article className="Landing container">
         <div className="container description">
             <h6>Soñamos con una Cali donde <strong>todos los ciudadanos nos comprometemos</strong> a aportar para cuidar la <strong>calidad del aire que respiramos</strong></h6>

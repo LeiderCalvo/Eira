@@ -19,7 +19,7 @@ export default class ControlPanel extends PureComponent {
     };
 
     return (
-      <div className="row control-panel">
+      <div className="row control-panel" style={{display: this.props.banner==2? 'flex' : 'none'}}>
         <div className="row inpts">
           <div className="row inpt"><input type="checkbox" name="PM10"/><p>PM10</p></div>
           <div className="row inpt"><input type="checkbox" name="PM2.5"/><p>PM2.5</p></div>
