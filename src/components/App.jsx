@@ -65,7 +65,7 @@ class App extends React.Component {
 
   render(){
     return (
-        <Router basename="">
+        <Router basename="Eira">
           <Log/>
           <Nav/>
           <Switch>
