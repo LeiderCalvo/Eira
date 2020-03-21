@@ -35,7 +35,7 @@ class Map extends React.Component {
         data = {
             type: "FeatureCollection",
             crs: { type: "name", properties: { name: "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-            features: data
+            features: data.slice(1, 20)
         };
         //data = JSON.stringify(data);
         console.log(data);
@@ -60,6 +60,9 @@ class Map extends React.Component {
                 let dat = response.docs.map(doc => {
                     let temp = doc.data();
                     temp.geometry.type = "Point";
+                    //temp.geometry.coordinates = [ -151.5129, 63.1016, 0.0 ];
+                    temp.geometry.coordinates = [ temp.geometry.coordinates[1], temp.geometry.coordinates[0], 0.0 ];
+                    temp.properties.mag = Math.random() * 3;
                     return temp;
                 });
                 

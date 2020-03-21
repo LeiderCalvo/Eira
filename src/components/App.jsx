@@ -41,7 +41,7 @@ class App extends React.Component {
       "features": [
         {"properties": { "id": "ak16994521", "mag": 2.3, "time": 1507425650893 }, "geometry": { "type": "Point", "coordinates": [ -151.5129, 63.1016, 0.0 ] } }
       }
-      */
+      
      //FireStore.delet();
       setInterval( () => {
         const id = FireStore.createID('data');
@@ -60,7 +60,7 @@ class App extends React.Component {
           },
         undefined, ()=>{}) },
       200);
-      
+      */
   }
 
   render(){
