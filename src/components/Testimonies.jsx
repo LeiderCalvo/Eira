@@ -26,7 +26,7 @@ class Testimonies extends React.Component {
         return <section className="Testimonies container">
 
                 <div className="testimonie row">
-                    <img src="./images/chica.svg" alt="img"/>
+                    <span style={{backgroundImage: 'url('+testimony.image+')'}}></span>
                     <div className="items">
                         <h4>{testimony.name}</h4>
                         <div className='des'>{testimony.team}, {testimony.exp}</div>

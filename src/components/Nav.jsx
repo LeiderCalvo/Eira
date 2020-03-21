@@ -20,7 +20,7 @@ const Nav = observer( function Nav() {
                         <Link className='nav-link' to='donaciones'>Donaciones</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className='nav-link' to='comunidad'>Nuestra Comunidad</Link>
+                        <Link className='nav-link' to='foro'>Nuestra Comunidad</Link>
                     </li>
                     <li className="nav-item">
                         {STORE.user === null ?

@@ -8,7 +8,12 @@
     .testimonie {
         width: 70%;
 
-        img{ width: 47%; }
+        span{
+            padding: 14% 20%;
+            background-position: center;
+            background-size: cover;
+            border-radius: 20px;
+        }
         
         .items{
             margin-left: 20px;
