@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/Eira/static/css/main.98c5ffd4.chunk.css",
+    "main.js": "/Eira/static/js/main.736143be.chunk.js",
+    "main.js.map": "/Eira/static/js/main.736143be.chunk.js.map",
+    "runtime-main.js": "/Eira/static/js/runtime-main.98f021d8.js",
+    "runtime-main.js.map": "/Eira/static/js/runtime-main.98f021d8.js.map",
+    "static/js/2.75c8b918.chunk.js": "/Eira/static/js/2.75c8b918.chunk.js",
+    "static/js/2.75c8b918.chunk.js.map": "/Eira/static/js/2.75c8b918.chunk.js.map",
+    "index.html": "/Eira/index.html",
+    "precache-manifest.e050df6192d5421b43e8b94a0abfebd9.js": "/Eira/precache-manifest.e050df6192d5421b43e8b94a0abfebd9.js",
+    "service-worker.js": "/Eira/service-worker.js",
+    "static/css/main.98c5ffd4.chunk.css.map": "/Eira/static/css/main.98c5ffd4.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.98f021d8.js",
+    "static/js/2.75c8b918.chunk.js",
+    "static/css/main.98c5ffd4.chunk.css",
+    "static/js/main.736143be.chunk.js"
+  ]
+}
