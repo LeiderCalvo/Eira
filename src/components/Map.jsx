@@ -2,21 +2,21 @@ import React from 'react';
 import ReactMapGL, {Source, Layer}from 'react-map-gl';
 import {heatmapLayer} from '../utils/map-style';
 import data from '../utils/data';
-import FireBaseSerivces from '../utils/FireBaseSerivces';
 import ControlPanel from './ControlPanel';
 import '../styles/Map.css'
+import FireStore from '../utils/FireStore';
 
 class Map extends React.Component {
     
     constructor(props){
         super(props);
         const current = new Date().getTime();
-
+        console.log(data);
         this.state = {
             viewport: {
-                latitude: 37.7577,
-                longitude: -122.4376,
-                zoom: 3,
+                latitude: 3.614,
+                longitude: -76.573,
+                zoom: 8,
                 bearing: 0,
                 pitch: 0,
                 mapboxApiAccessToken: 'pk.eyJ1IjoibGVpZGVyY2Fsdm8iLCJhIjoiY2s4MGNlbHZ4MGRwZzNlcGExMmo3cXF6YSJ9.V2d9VILjJixw_LEjcT7L9g'
@@ -27,23 +27,18 @@ class Map extends React.Component {
             selectedTime: current,
             earthquakes: null
         }
-            /*
-            this.state = {
-                viewport: {
-                latitude: 40,
-                longitude: -100,
-                zoom: 3,
-                bearing: 0,
-                pitch: 0
-            },
-        
-        };*/
-        FireBaseSerivces.init();
         this._handleChangeDay = this._handleChangeDay.bind(this);
         this._handleChangeAllDay = this._handleChangeAllDay.bind(this);
     }
 
-    componentDidMount() {
+    convertdata(data){
+        data = {
+            type: "FeatureCollection",
+            crs: { type: "name", properties: { name: "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+            features: data
+        };
+        //data = JSON.stringify(data);
+        console.log(data);
         const features = data.features;
         const endTime = features[0].properties.time;
         const startTime = features[features.length - 1].properties.time;
@@ -54,6 +49,22 @@ class Map extends React.Component {
             endTime,
             startTime,
             selectedTime: endTime
+        }, ()=>console.log(this.state.data));
+    }
+
+    componentDidMount() {
+        //esto no deberia ir aqui porque descarga la info cada que vuelve a landing
+        FireStore.ManageData('get', 'collection', 'data', undefined, undefined, (succes, response)=>{
+            console.log(response, succes);
+            if(succes && response.empty === false){
+                let dat = response.docs.map(doc => {
+                    let temp = doc.data();
+                    temp.geometry.type = "Point";
+                    return temp;
+                });
+                
+                this.convertdata(dat)
+            }
         });
     }
 

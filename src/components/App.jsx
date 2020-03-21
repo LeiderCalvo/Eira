@@ -26,16 +26,41 @@ class App extends React.Component {
       data: null
     }
 
-    setInterval(()=>FireStore.ManageData('add', 'collection', 'data', 
+    
+
+    FireStore.listener('collection', 'data' ,(data)=>{
+      this.setState({data});
+    });
     {
       pm2: Math.random(),
       pm10: Math.random(),
       humedity: Math.random()
-    }, undefined, ()=>{}), 60000);
 
-    FireStore.listener('collection', 'data' ,(data)=>{
-      this.setState({data});
-    });    */
+      "type": "FeatureCollection",
+      "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+      "features": [
+        {"properties": { "id": "ak16994521", "mag": 2.3, "time": 1507425650893 }, "geometry": { "type": "Point", "coordinates": [ -151.5129, 63.1016, 0.0 ] } }
+      }
+      */
+     //FireStore.delet();
+      setInterval( () => {
+        const id = FireStore.createID('data');
+        FireStore.ManageData('set', 'doc', id.path,
+          {
+            "properties": {
+              "id": id.id,
+              "mag": Math.random() * 7,
+              "time": Date.now()
+            },
+            "geometry": {
+              "coordinates": [
+                Math.random() * (3.614 - 3.311) + 3.311,
+                Math.random() * ((-76.573) - (-76.366)) + (-76.366), 0.0 ]
+              }
+          },
+        undefined, ()=>{}) },
+      200);
+      
   }
 
   render(){

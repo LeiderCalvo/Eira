@@ -59,9 +59,18 @@ function createID(path){
   return DataBase.collection(path).doc();
 }
 
+function delet(){
+  DataBase.collection("data2").doc("data").delete().then(function() {
+    console.log("Document successfully deleted!");
+  }).catch(function(error) {
+    console.error("Error removing document: ", error);
+  });
+}
+
 export default {
   setRef,
   ManageData,
+  delet,
   createID,
   listener
 };
