@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a9518c13bcc3bff322ab98c16062e257",
+    "revision": "06b7d6617ce17dd137bf2a2ca85bc9a7",
     "url": "/Eira/index.html"
   },
   {
