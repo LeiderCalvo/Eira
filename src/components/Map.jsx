@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactMapGL, {Source, Layer}from 'react-map-gl';
 import {heatmapLayer} from '../utils/map-style';
-import data from '../utils/data';
+import data from '../utils/dataCali';
 import ControlPanel from './ControlPanel';
 import '../styles/Map.css'
 import FireStore from '../utils/FireStore';
@@ -36,6 +36,7 @@ class Map extends React.Component {
             crs: { type: "name", properties: { name: "urn:ogc:def:crs:OGC:1.3:CRS84" } },
             features: data.slice(1, 20)
         };*/
+        //console.log(data.slice(1, 20));
         //data = JSON.stringify(data);
         const features = data.features;
         const endTime = features[0].properties.time;
@@ -47,7 +48,9 @@ class Map extends React.Component {
             endTime,
             startTime,
             selectedTime: endTime
-        }, ()=>console.log(this.state.data));
+        }
+        //, ()=>console.log(this.state.data)
+        );
     }
 
     componentDidMount() {

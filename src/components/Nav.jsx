@@ -13,16 +13,16 @@ const Nav = observer( function Nav() {
 
             <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul className="navbar-nav">
-                    <li className="nav-item">
+                    {/*<li className="nav-item">
                         <Link className='nav-link' to='comolohacemos'>¿Cómo lo hacemos?</Link>
-                    </li>
+                    </li>*/}
                     <li className="nav-item">
                         <Link className='nav-link' to='donaciones'>Donaciones</Link>
                     </li>
                     <li className="nav-item">
                         <Link className='nav-link' to='foro'>Nuestra Comunidad</Link>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item inciarSesion">
                         {STORE.user === null ?
                             <p className='nav-link' onClick={()=>STORE.setter('isLogging', true)}>Iniciar Sesión</p>
                         :

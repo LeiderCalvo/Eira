@@ -56,3 +56,50 @@
         }
     }
 }
+
+.Welcome {
+    @include center();
+    flex-direction: column;
+    h1{
+        color: $thrid-color;
+        margin: 50px 0;
+        font-size: 35px;
+        font-weight: bold;
+    }
+
+    .row{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        margin-bottom: 50px;
+        img{
+            width: 45%;
+        }
+
+        .colum{
+            @include center();
+            flex-direction: column;
+
+            p{
+                width: 70%;
+                margin-bottom: 5px;
+            }
+
+            h5 {
+                margin: 20px 0;
+                color: $thrid-color;
+            }
+
+            select{
+                color: $thrid-color;
+                border: none;
+                *{color: $thrid-color;}
+                margin-bottom: 40px;
+            }
+
+            button {
+                font-weight: normal;
+            }
+        }
+    }
+}

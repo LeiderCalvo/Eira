@@ -14,7 +14,8 @@ const Log = observer( class Log extends React.Component {
             isReg : false,
             user: '',
             email: '',
-            password: ''
+            password: '',
+            currentRol: ''
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
@@ -58,7 +59,7 @@ const Log = observer( class Log extends React.Component {
     }
 
     render(){
-        const {isReg, user, email, password} = this.state;
+        const {isReg, user, email, password, currentRol} = this.state;
 
         return STORE.isLogging? <article className="Log container">
             <img src="./images/close.svg" alt="close" className="close" onClick={()=>STORE.setter('isLogging', false)}/>
@@ -78,6 +79,9 @@ const Log = observer( class Log extends React.Component {
                     value={email} onChange={(e)=>this.handleChange('email', e.target.value)}/>
                 <input type="password" placeholder='Contraseña'
                     value={password} onChange={(e)=>this.handleChange('password', e.target.value)}/>
+                {isReg && <div className="rols row">
+                    {STORE.UserRols.map((rol, i) => <button key={i} style={{opacity: rol.titulo === currentRol? 1 : .5}} onClick={()=>this.setState({currentRol: rol.titulo})}>{rol.titulo}</button>)}
+                </div> }
 
                 <button onClick={this.handleClick}>{isReg? 'Registrarse' : 'Iniciar sesión'}</button>
 

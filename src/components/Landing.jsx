@@ -6,13 +6,13 @@ import Map from './Map';
 
 function Landing() {
     const [banner, setBanner] = useState(0);
+    const [verMas, setVerMas] = useState(true);
     return <div className="preLanding">
             <div className="banner" style={{display: banner==0?'block' : 'none'}}>
-                <h1>Calidad del Aire</h1>
-                <p>Tiempo real</p>
+                <h1>Empoderamos ciudadanos por la calidad del aire</h1>
 
-                <h5>Gracias a la <strong>labor de la ciudadanía,</strong> se logra medir <strong>de manera confiable</strong> la calidad del aire que <strong>respiramos a diario en la ciudad.</strong></h5>
-                <button onClick={()=>setBanner(1)}>>></button>
+                <h5>Gracias a la <strong>labor de la ciudadanía</strong>, ahora es más fácil conocer la calidad del aire de nuestra ciudad en <strong>tiempo real</strong> y actuar de manera informada.</h5>
+                <button onClick={()=>setBanner(1)}>Accede ahora</button>
 
                 <p className='location'>Cali, Colombia</p>
             </div>
@@ -26,32 +26,9 @@ function Landing() {
             <h6>Soñamos con una Cali donde <strong>todos los ciudadanos nos comprometemos</strong> a aportar para cuidar la <strong>calidad del aire que respiramos</strong></h6>
         </div>
 
-        <h4>¿Cómo puedo contribuir?</h4>
-        <p>Contribuir a tener un mejor aire y así mismo una mejor calidad de vida es muy fácil.</p>
-
-        <div className="advices row row-cols-2">
-            {STORE.GeneralAdvices.map( (adv, i) => 
-                <div className="advice col" key={i+'adv'}>
-                    <h5>{adv.title}</h5>
-                    <ul>{ adv.advices.map( (subAdv, i) => <li key={i+'subAdv'}>{subAdv}</li> )} </ul>
-                </div>
-            )}
-        </div>
-
-        <h4>¿Que logramos cuando contribuimos?</h4>
-        <p>Contribuir a tener un mejor aire y así mismo una mejor calidad de vida es muy fácil.</p>
-        
-        <div className='row beneficios'>
-            <h6 className='col'>Ciudadanía más informada</h6>
-            <h6 className='col'>Impactar de forma positiva nuestro entorno</h6>
-            <h6 className='col'>Desarrollar políticas públicas efectivas</h6>
-        </div>
-
-        <Testimonies/>
-        
+        {/* CÓMO TRABAJAMOS, ETAPAS */}
         <h4>¿Cómo trabajamos?</h4>
         <p>Hacemos de la ciudad, un gran equipo unido por la calidad del aire.</p>
-
         <div className="stages row">
             <div className="col">
                 {STORE.ProyectStages.map( (stage, i) =>
@@ -69,12 +46,49 @@ function Landing() {
                 <img className='tres' src="./images/action.svg" alt=""/>
             </div>
         </div>
+            
+        {/* TIPOS DE ROLES DE LOS USUARIOS */}
+        <h4>¿Cómo puedo contribuir?</h4>
+        <p>Contribuir a tener un mejor aire y así mismo una mejor calidad de vida es muy fácil.</p>
+        <div className="rols row row-cols-4">
+            {STORE.UserRols.map( (rol, i) => 
+                <div className="rol col" key={i+'rol'}>
+                    <h3>{rol.titulo}</h3>
+                    <h5>{ rol.desc } </h5>
+                    <p>¡Este es tu perfil!</p>
+                    <button onClick={()=>STORE.setter('isLogging', true)}>Registrate</button>
+                </div>
+            )}
+        </div>
+        {verMas && <div className='btnVerMas' onClick={()=>setVerMas(false)}>Ver más</div>}
+        {/* RECOMENDACIONES GENERALES */}
+
+        { verMas === false && <div className="advices row row-cols-2">
+            {STORE.GeneralAdvices.map( (adv, i) => 
+                <div className="advice col" key={i+'adv'}>
+                    <h5>{adv.title}</h5>
+                    <ul>{ adv.advices.map( (subAdv, i) => <li key={i+'subAdv'}>{subAdv}</li> )} </ul>
+                </div>
+            )}
+        </div> }
+        { verMas === false && <div className='btnVerMas' onClick={()=>setVerMas(true)}>Ver menos</div>}
+
+        <h4>¿Qué lográmos cuando contribuimos?</h4>
+        <p>Contribuir a tener un mejor aire y así mismo una mejor calidad de vida es muy fácil.</p>
+        
+        <div className='row beneficios'>
+            <h6 className='col'>Ciudadanía más informada</h6>
+            <h6 className='col'>Impactar de forma positiva nuestro entorno</h6>
+            <h6 className='col'>Desarrollar políticas públicas efectivas</h6>
+        </div>
+
+        <Testimonies/>
 
         <section className='call-to-action container'>
             <h4>¿Quieres hacer más por ti, tu comunidad y la ciudad?</h4>
             <p>Únete y participa en una red de voluntarios que a través de pequeñas acciones, buscan impactar y empoderar a otros ciudadanos.</p>
 
-            <button className='btn-2'>Ùnete</button>
+            <button className='btn-2'>Inscríbete</button>
             <a>¿Quieres aportar de otra manera? <strong>Haz una donanción</strong></a>
         </section>
 
@@ -83,7 +97,6 @@ function Landing() {
             <img src="./images/cicloamigos.svg" alt="cicloamigos"/>
             <img src="./images/dagma.svg" alt="dagma"/>
         </section>
-
 
     </article></div>
 }

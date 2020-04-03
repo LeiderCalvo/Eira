@@ -72,6 +72,18 @@
                 font-weight: bold;
             }
         }
+
+        .rols {
+            width: 420px;
+            justify-content: space-between;
+            button{
+            background: $thrid-color !important;
+            color: white !important;
+            border: none !important;
+            min-width: 0;
+            width: 24%;
+            margin: 0;
+        }}
     }
 
 }

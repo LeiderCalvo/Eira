@@ -36,6 +36,18 @@ a{
   div ul li p {
     margin-bottom: 0;
   }
+
+  .inciarSesion{
+    *{
+      background-color: $primary-color;
+      color: $secondary-color; 
+      border-radius: 10px;
+      height: 30px;
+      @include center();
+      margin-top: 4px;
+      width: 130px;
+    }
+  }
 }
 
 button{
