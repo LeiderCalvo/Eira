@@ -55,13 +55,17 @@ nav{
     }
 }
 
-input{
+input:not([type="checkbox"]), select{
     border: none;
     box-shadow: none;
-    background: none;
-    @include font-size(22);
+    @include font-size(18);
     font-style: italic;
     font-weight: 300;
+    background-color: $soft-gray;
+    border-radius: 5px;
+    width: 100%;
+    padding: 15px 30px;
+    margin-bottom: 15px;
 }
 
 button{
@@ -188,6 +192,7 @@ button{
         @include font-size(25);
         background-color: white;
         width: 270px;
+        border-radius: 10px;
     }
 }
 
@@ -208,14 +213,16 @@ button{
     }
     .row{
         width: 630px;
-        padding: 10px 40px;
+        padding: 15px 40px;
         background: rgba(255, 255, 255, 0.74);
         border-radius: 20px;
-
 
         input{
             color: $soft-blue;
             width: 80%;
+            background: none;
+            margin: 0;
+            padding: 0;
 
             &::placeholder{
                 color: $soft-blue;
