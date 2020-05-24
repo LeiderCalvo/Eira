@@ -1,0 +1,21 @@
+@import '../utils/vars';
+
+.cards-wrapper{
+    margin: 60px 0;
+}
+
+.action_block#cero{
+    background-image: url('../images/empresas/ab_empresas_large.svg');
+    button{
+        background-color: white;
+        color: $blue;
+    }
+}
+
+.action_block#uno{
+    background-image: url('../images/empresas/ab_donate_short.svg');
+}
+
+.action_block#dos{
+    background-image: url('../images/voluntario/ab_data.svg');
+}
