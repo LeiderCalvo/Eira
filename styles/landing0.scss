@@ -1,47 +1,6 @@
 @import '../utils/vars';
 
-.banner{
-    background-color: $soft-gray;
-    padding: 20px 30px;
-
-    div{
-        margin-left: 30px;
-        width: 620px;
-
-        h1{
-            font-style: italic;
-            font-weight: bold;
-            margin-bottom: 30px;
-        }
-    }
-
-    img{ width: 580px; }
-}
-
-.benefits{
-    @include center();
-    flex-direction: column;
-    margin-top: 40px;
-    height: fit-content;
-
-    .row{
-        width: 70%;
-        margin: 60px 0;
-        text-align: left;
-        height: 285px;
-        
-        div{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: flex-start;
-            height: 100%;
-            width: 44%;
-            p{ width: 90%; }
-        }
-
-        img{
-            width: 480px;
-        }
-    }
+.logos{
+    padding: 0 15%;
+    margin: 60px 0;
 }
