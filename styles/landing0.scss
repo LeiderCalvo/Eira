@@ -1,6 +1,15 @@
 @import '../utils/vars';
 
-.logos{
-    padding: 0 15%;
-    margin: 60px 0;
+.action_block#cero{
+    background-image: url('../images/landing0/ab_map.svg');
+    h1{margin-bottom: 20px;}
+    button{margin-top: 20px;}
+}
+
+.action_block#uno{
+    background-image: url('../images/landing0/ab_volunteer.svg');
+}
+
+.action_block#dos{
+    background-image: url('../images/landing0/ab_donate.svg');
 }

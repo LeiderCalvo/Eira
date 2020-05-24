@@ -18,6 +18,8 @@ h2{ @include font-size(50);}
 
 h3{ @include font-size(45);}
 
+h4{ @include font-size(30);}
+
 p{color: $gray;}
 
 a{
@@ -34,6 +36,11 @@ nav{
         a{
             @include font-size(18);
             margin-right: 20px;
+        }
+
+        a.selected{
+            font-weight: bold;
+            color: $soft-blue;
         }
 
         #init_sesion{
@@ -108,8 +115,8 @@ button{
             justify-content: space-between;
             align-items: flex-start;
             height: 100%;
-            width: 44%;
-            p{ width: 90%; }
+            width: 45%;
+            p{ width: 80%; @include font-size(20);}
         }
 
         img{
@@ -146,6 +153,16 @@ button{
     img{width: 460px;}
 }
 
+.ab_group{
+    @include colums(2,2);
+    margin-top: -10px;
+    .action_block {
+        h2{
+            width: 95%;
+        }
+    }
+}
+
 .action_block{
     @include colum();
     text-align: center;
@@ -155,7 +172,7 @@ button{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    h1{
+    h1, h2{
         color: white;
         width: 70%;
         margin-bottom: 30px;
@@ -168,24 +185,11 @@ button{
     }
 }
 
-.action_block#map{
-    background-image: url('../images/ab_map_back.svg');
-    h1{margin-bottom: 20px;}
-    button{
-        background-color: $blue;
-        margin-top: 20px;
-    }
-}
+.action_block#cero button{ background-color: $blue; }
 
-.action_block#volunteer{
-    background-image: url('../images/ab_volunteer_back.svg');
-    button{ color: $blue; }
-}
+.action_block#uno button{ color: $blue; }
 
-.action_block#donate{
-    background-image: url('../images/ab_donate_back.svg');
-    button{ color: $hard-blue; }
-}
+.action_block#dos button{ color: $hard-blue; }
 
 .shearch_bar{
     p{
@@ -214,6 +218,11 @@ button{
 
         img{ width: 20px; }
     }
+}
+
+.logos{
+    padding: 0 15%;
+    margin: 60px 0;
 }
 
 footer{
