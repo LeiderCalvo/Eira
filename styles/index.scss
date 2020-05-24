@@ -20,6 +20,32 @@ h3{ @include font-size(45);}
 
 p{color: $gray;}
 
+a{
+    text-decoration: none;
+    color: $gray;
+    &:hover{
+        opacity: .5;
+    }
+}
+
+nav{
+    padding: 20px 30px;
+    div{
+        a{
+            @include font-size(18);
+            margin-right: 20px;
+        }
+
+        #init_sesion{
+            margin: 0;
+            background-color: $soft-blue;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 10px;
+        }
+    }
+}
+
 input{
     border: none;
     box-shadow: none;
