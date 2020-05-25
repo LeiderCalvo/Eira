@@ -22,6 +22,8 @@ h4{ @include font-size(35);}
 
 h5{ @include font-size(30);}
 
+h6{ @include font-size(25);}
+
 p{color: $gray;}
 
 textarea{
