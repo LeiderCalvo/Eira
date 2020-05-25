@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eira</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/comunidad.css">
+</head>
+<body>
+    <nav class="row">
+        <a href = 'index.html'><img src="images/eira_blue.svg" alt="logo"></a>
+        <div>
+            <a href="mapa.html">Mapa en tiempo real</a>
+            <a href="voluntario.html">Ser voluntario</a>
+            <a href="empresas.html">Para empresas</a>
+            <a href="donacion.html">Haz una donación</a>
+            <a href="datos.html">Datos históricos</a>
+            <a href="comunidad.html" class="selected">Nuestra comunidad</a>
+            <a href="perfil.html" id='init_sesion'>Iniciar sesión</a>
+        </div>
+    </nav>
+    <div class="other_actions row">
+        <section>
+            <h5>Cientificos, empresas, investigadores y profesores también comparten diversos contenidos y conocimientos a la comunidad EIRA.</h5>
+            <button>Acceder</button>
+        </section>
+        <section>
+            <h5>Si deseas  compartir información especializada sobre la calidad del aire y que la comunidad sepa que estás generando un impacto, regístrate como voluntario.</h5>
+            <button>Registrarse</button>
+        </section>
+    </div>
+
+    <div class="input_opinion row">
+        <h5>¿Deseas compartir tu opinión respecto a la calidad del aire en la ciudad o tu experiencia en el proyecto?</h5>
+        <section>
+            <textarea placeholder="Escribe aquello que deseas compartir con la comunidad."></textarea>
+            <button class="upload_file"><img src="images/img_icon.svg">Foto/Video</button>
+            <button>Publicar</button>
+        </section>
+    </div>
+
+    <hr/>
+
+    <div class="container row">
+        <section class="ranking">
+            <h5>Ranking de voluntarios</h5>
+            <p>Estos son los voluntarios EIRA que tuvieron mayor participación durante esta semana:</p>
+
+            <div class="row">
+                <p>Posición</p><p>Nombre</p><p># Mediciones</p>
+            </div>
+
+            <div class="volunteers">
+                <div class="volunteer row">
+                    <div class="row">
+                        <h5>1</h5>
+                        <img src="images/community/up_rank.svg">
+                        <img src="images/community/perf_min_danielarboleda.svg">
+                    </div>
+                    <p class="name">Daniel Arboleda</p>
+                    <p>20</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="posts">
+            <div class="posts-wrapper">
+                <div class="post">
+                    <div class="title row">
+                        <p>Leider Calvo</p>
+                        <p>Hace 3 horas</p>
+                    </div>
+                    <p>Con 10K, para el corredor habitual, 5K, para todos los que prefieren disfrutar de un precioso circuito por la casa de campo y carreras infantiles para niños desde los 3...</p>
+                    <div class="row">
+                        <div class="reactions row">
+                            <span>+6</span>
+                        </div>
+                        <p>6 interacciones</p>
+                    </div>
+                    <button>Ver más</button>
+                </div>
+
+                <div class="post">
+                    <div class="title row">
+                        <p>Leider Calvo</p>
+                        <p>Hace 3 horas</p>
+                    </div>
+                    <p>Con 10K, para el corredor habitual, 5K, para todos los que prefieren disfrutar de un precioso circuito por la casa de campo y carreras infantiles para niños desde los 3...</p>
+                    <div class="row">
+                        <div class="reactions row">
+                            <span>+6</span>
+                        </div>
+                        <p>6 interacciones</p>
+                    </div>
+                    <button>Ver más</button>
+                </div>
+
+                <div class="post">
+                    <div class="title row">
+                        <p>Leider Calvo</p>
+                        <p>Hace 3 horas</p>
+                    </div>
+                    <p>Con 10K, para el corredor habitual, 5K, para todos los que prefieren disfrutar de un precioso circuito por la casa de campo y carreras infantiles para niños desde los 3...</p>
+                    <div class="row">
+                        <div class="reactions row">
+                            <span>+6</span>
+                        </div>
+                        <p>6 interacciones</p>
+                    </div>
+                    <button>Ver más</button>
+                </div>
+            </div>
+            <div class="pags row">
+                <div class="row"><button>1</button></div>
+                <button>Siguiente</button>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
