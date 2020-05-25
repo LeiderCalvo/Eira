@@ -11,6 +11,13 @@
     color: $hard-blue;
 }
 
+iframe{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    display: none;
+}
+
 .colum{@include colum()}    .row{@include row()}
 
 h1{ @include font-size(60);}
@@ -47,12 +54,14 @@ nav{
     padding: 20px 30px;
     background-color: white;
     div{
-        a{
+        a, div{
             @include font-size(18);
             margin-right: 20px;
         }
 
-        a.selected{
+        div:hover{opacity: .7;}
+
+        a.selected, div.selected{
             font-weight: bold;
             color: $soft-blue;
         }
@@ -63,6 +72,7 @@ nav{
             color: white;
             padding: 8px 15px;
             border-radius: 10px;
+            display: inline;
         }
     }
 }
