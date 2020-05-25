@@ -1,0 +1,85 @@
+@import "../utils/vars";
+
+body{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-color:rgba(255, 255, 255, 0.9);
+    @include center();
+    flex-direction: column;
+
+    .close{
+        position: absolute;
+        right: 50px;
+        top: 30px;
+    }
+
+    .container{
+        @include center();
+        flex-direction: column;
+
+        h5{
+            font-weight: bold;
+            font-style: normal;
+        }
+    
+        input {
+            background: none;
+            width: 420px;
+            padding: 0 0 10px 0;
+            margin-bottom: 20px;
+            border: none;
+            border-bottom: solid 1px $soft-blue;
+        }
+
+        &>button {
+            margin-top: 30px;
+        }
+
+        .row {
+            width: 420px;
+            justify-content: space-between;
+            margin: 15px 0 30px;
+
+            p{ margin: 10px 10px 0 0; }
+
+            strong {
+                color: $hard-blue;
+                cursor: pointer;
+                text-decoration: underline;
+            }
+
+            button{
+                @include font-size(16);
+                padding: 2px 20px;
+                @include center();
+                background-color: $soft-blue;
+    
+                font-family: 'Poppins';
+                font-style: normal;
+                font-weight: lighter;
+                line-height: 30px;
+
+                min-width: fit-content;
+
+                img{
+                    margin-right: 10px;
+                }
+            }
+
+            button:nth-child(2){
+                background-color: #3C5B96;
+            }
+
+            button:nth-child(3){
+                background-color: white;
+                color: black;
+                border: solid 1px black;
+                font-weight: bold;
+            }
+        }
+
+        .c_action{width: fit-content;}
+    }
+
+}
