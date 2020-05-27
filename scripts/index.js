@@ -15,12 +15,16 @@ function updateLocal() {
     console.log('updateLocal');
     if(localStorage.getItem('isCurrentUser') === 'true'){
         let user = JSON.parse(localStorage.getItem('user'));
+        init_sesion.classList.remove('log');
+        init_sesion.classList.add('user');
         init_sesion.innerText = user.user;
     }
 }
 
 window.addEventListener('load', e => {
     updateLocal();
+
+    document.querySelector('.user').onclick = e => window.location.href = 'perfil.html';
 
     //display logging
     document.querySelectorAll('.log').forEach(e => {

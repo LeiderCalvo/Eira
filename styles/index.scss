@@ -67,12 +67,18 @@ nav{
             color: $soft-blue;
         }
 
-        #init_sesion{
+        .log{
             margin: 0;
             background-color: $soft-blue;
             color: white;
             padding: 8px 15px;
             border-radius: 10px;
+            display: inline;
+        }
+
+        .user{
+            color: $hard-blue;
+            font-weight: bolder;
             display: inline;
         }
     }
