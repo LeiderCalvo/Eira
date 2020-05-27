@@ -82,9 +82,9 @@ article{
     .row{
         align-items: flex-start;
         p{ @include font-size(18); }
-        section{ width: 46%; }
 
-        :first-child{
+        section{
+            width: 46%;
             &>p{width: 90%; margin-bottom: 60px;}
             .row{
                 justify-content: flex-start;
@@ -93,7 +93,8 @@ article{
             }
         }
 
-        :last-child{
+        form{
+            width: 46%;
             .row{
                 @include center();
                 margin-bottom: 30px;

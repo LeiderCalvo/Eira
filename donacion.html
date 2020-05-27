@@ -123,23 +123,36 @@
                 </div>
             </section>
 
-            <section>
-                <input type="text" placeholder="Nombre">
-                <input type="text" placeholder="Identificación">
-                <input type="text" placeholder="Correo electrónico">
-                <select id="select_donation_kind">
+            <form method='POST' action='https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/'>
+                <input name="merchantId" type="hidden"  value='508020'/>
+                <input name="apikey" type="hidden"  value='4Vj8eK4rloUd272L48hsrarnUA' /> 
+                <input name="accountId" type="hidden"  value='512322'/>
+                <input name="referenceCode" type="hidden"  value='d23d23d4dfj90d23' />
+                <input name="tax"           type="hidden"  value='0'  />
+                <input name="taxReturnBase" type="hidden"  value='0' />
+                <input name="signature"     type="hidden"  value='72L48h'/> 
+                <input name="test"          type="hidden"  value='true' />
+                <input name="responseUrl"    type="hidden"  value='http://eira.io/response' />
+                <input name="confirmationUrl"    type="hidden"  value='http://eira.io/confirmation' />
+                <input name="extra1"    type="hidden"  value='odiejd029jed2093d2' />
+
+
+                <input type="text" placeholder="Nombre" required>
+                <input type="text" placeholder="Identificación" required>
+                <input type="text" placeholder="Correo electrónico" required>
+                <select name="description" id="select_donation_kind" required>
                     <option value="" hidden>Tipo de donación</option>
                     <option value="Dinero">Dinero en efectivo</option>
                     <option value="Sensores">Sensores</option>
                     <option value="Equipos">Equipos</option>
                 </select>
-                <input type="number" placeholder="Monto a donar">
+                <input name="amount" type="number" placeholder="Monto a donar" required>
                 <div class="row">
-                    <input type="checkbox">
+                    <input type="checkbox" required>
                     <label>Acepto los términos y condiciones.</label>
                 </div>
-                <button>Donar</button>
-            </section>
+                <button type="submit" name='submit'>Donar</button>
+            </form>
         </div>
     </section>
 
