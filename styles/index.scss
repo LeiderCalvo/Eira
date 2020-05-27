@@ -184,6 +184,7 @@ button{
     margin: 0 30px;
     padding: 30px;
     border-radius: 20px;
+    position: relative;
 
     div{
         h2{
@@ -194,6 +195,28 @@ button{
     }
 
     img{width: 460px;}
+
+    .tickMarks{
+        position: absolute;
+        bottom: 30px;
+        @include row();
+        
+        div {
+            cursor: pointer;
+            border-radius: 3px;
+            content: "";
+            height: 6px;
+            width: 30px;
+            margin-right: 20px;
+            background-color: $gray;
+            opacity: .3;
+        }
+
+        .selected {
+            background-color: $hard-blue;
+            opacity: 1;
+        }
+    }
 }
 
 .companies{
