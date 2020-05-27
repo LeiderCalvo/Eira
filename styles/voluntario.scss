@@ -34,6 +34,46 @@
     width: 90%;
 }
 
+#more_benefits{
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    background-color:rgba(255, 255, 255, 0.9);
+    padding: 30px 60px;
+    backdrop-filter: blur(5px);
+    height: 100vh;
+    overflow-y: scroll;
+    display: none;
+
+    .cont{
+        border-radius: 20px;
+        background-color: white;
+        @include box-shadow();
+        padding: 60px;
+
+        .row{
+            section{
+                width: 45%;
+                h2{margin-bottom: 30px;}
+            }
+        }
+
+        .wrapper{
+            @include colums(2,2);
+            flex-wrap: wrap;
+            margin-top: 60px;
+            align-items: flex-start;
+
+            section{
+                h4{margin-bottom: 10px;}
+                margin-bottom: 30px;
+            }
+        }
+
+        button{ margin-top: 30px; }
+    }
+}
+
 .action_block#cero{
     background-image: url('../images/voluntario/ab_volunteer.svg');
     button{

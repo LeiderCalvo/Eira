@@ -90,11 +90,42 @@
             <div>
                 <h3>Recibe beneficios de ley en tu trabajo.</h3>
                 <p>Al hacer uso de la bicicleta como medio de transporte, no solo ayudas al medio ambiente, también te da la posibilidad de acceder a ciertos beneficios de ley.</p>
-                <button>Ver beneficios</button>
+                <button id="see_benf">Ver beneficios</button>
             </div>
             <img src="images/voluntario/bnf3.svg" alt="bnf3">
         </div>
     </div>
+
+    <article id="more_benefits">
+        <div class="cont">
+            <div class="row">
+                <section>
+                    <h2>Recibe beneficios de ley en tu trabajo.</h2>
+                    <p>En Colombia, la ley 1811 de 2016 ha sido creada por el gobierno con el fin de incentivar el uso de transporte alternativo y no contaminante. Esta ley tiene una serie de beneficios para usuarios de bicicleta, tales como:</p>
+                </section>
+                <img src="images/voluntario/bnf3.svg" alt="bnf3">
+            </div>
+            <div class="wrapper">
+                <section>
+                    <h4>Medio día laboral libre remunerado</h4>
+                    <p>Funcionarios públicos y empleados del sector privado (según lo acordado con cada empresa) recibirán medio día laboral libre remunerado por cada 30 veces que certifique haber llegado al trabajo en bicicleta.</p>
+                </section>
+                <section>
+                    <h4>8 días laborales libres en el año.</h4>
+                    <p>Cada empleado cuenta con un total de 8 dias laborales libres remunerados en el año como incentivo por el uso de la bicicleta.</p>
+                </section>
+                <section>
+                    <h4>Incentivos a estudiantes</h4>
+                    <p>Los estudiantes podrán incentivar a las instituciones de educación superior la realización de programas que incentiven el uso de la bicicleta y acordar los distintos beneficios. </p>
+                </section>
+                <section>
+                    <h4>Pasajes para transporte público</h4>
+                    <p>Usuarios de bicicleta que hayan logrado 30 validaciones que certifique haber llegado al trabajo o estudio en bicicleta y estén integrados al sistema de transporte masivo, recibirán un pasaje abonado a su tarjeta.</p>
+                </section>
+            </div>
+            <button id="ret_from_benf">Volver</button>
+        </div>
+    </article>
 
     <p class="messaje"><strong>Nunca fue tan fácil</strong> acceder a información sobre la calidad del aire. <strong>Cada<br/> ciudadano es vital</strong> para lograr empoderar a nuestra comunidad.</p>
     
@@ -141,4 +172,16 @@
     <img src="images/eira_blanc.svg" alt="Eira">
 </footer>
 <script src="scripts/index.js"></script>
+<script>
+    const body = document.querySelector('body');
+    see_benf.onclick = e => {
+        more_benefits.style.display  =  'block';
+        body.style.overflow = 'hidden';
+    }
+
+    ret_from_benf.onclick = e => {
+        more_benefits.style.display  =  'none';
+        body.style.overflow = 'auto';
+    }
+</script>
 </html>
