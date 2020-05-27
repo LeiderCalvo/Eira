@@ -20,10 +20,10 @@
 
         <p>ó</p>
 
-        <input type="email" placeholder='Correo electrónico'/>
-        <input type="password" placeholder='Contraseña'/>
+        <input id="is_email" type="email" placeholder='Correo electrónico'/>
+        <input id="is_pass" type="password" placeholder='Contraseña'/>
 
-        <button>Iniciar sesión</button>
+        <button id="btn_init_sesion">Iniciar sesión</button>
 
         <div class="c_action row">
             <p>¿No eres voluntario aún?</p>
@@ -74,6 +74,13 @@
             <p><strong>Inicia sesión</strong></p>
         </div>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
+    <script src="utils/firebaseCredentials.js"></script>
+    <script src="utils/FireStore.js"></script>
+    <script src="utils/FireAuth.js"></script>
     <script src="scripts/log.js"></script>
 </body>
 </html>

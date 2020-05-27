@@ -45,7 +45,10 @@ body{
             width: 65%;
             height: 100px;
             position: relative;
-            textarea{ height: 100%;}
+            z-index: -1;
+            textarea{
+                height: 100%;
+            }
             button:not(.upload_file){
                 position: absolute;
                 bottom: -20px;

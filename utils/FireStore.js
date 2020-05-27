@@ -1,9 +1,4 @@
-let DataBase = null, Firebase = null;
-
-function setRef(database, firebase) {
-  DataBase = database;
-  Firebase = firebase;
-}
+const DataBase = firebase.firestore();
 
 function ManageData(type, where, path, document, condition, response) {
   /*capital : DataBase.FieldValue.delete() erase an specific field of an object throught update
@@ -18,11 +13,11 @@ function ManageData(type, where, path, document, condition, response) {
   });
 
   set, update, delete, get
-  */
- //console.log(where)
   if(type=== 'update' && path.includes('certificates')){
     document = {...document, fechas: Firebase.firestore.FieldValue.arrayUnion(Date.now())}
   }
+  */
+ //console.log(where)
   let promise = condition ?
       DataBase[where](path).where(...condition).get()
     : 
@@ -66,11 +61,3 @@ function delet(){
     console.error("Error removing document: ", error);
   });
 }
-
-export default {
-  setRef,
-  ManageData,
-  delet,
-  createID,
-  listener
-};
