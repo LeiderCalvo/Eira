@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/voluntario.css">
 </head>
 <body>
+    <iframe id='if_log' src="log.html" frameborder="0"></iframe>
     <nav class="row">
         <a href = 'index.html'><img src="images/eira_blue.svg" alt="logo"></a>
         <div>
@@ -17,13 +18,13 @@
             <a href="donacion.html">Haz una donación</a>
             <a href="datos.html">Datos históricos</a>
             <a href="comunidad.html">Nuestra comunidad</a>
-            <a href="perfil.html" id='init_sesion'>Iniciar sesión</a>
+            <div id='init_sesion' class="log">Iniciar sesión</div>
         </div>
     </nav>
     <div class="banner row">
         <div>
             <h1>Esta es tu oportunidad de contribuir. Únete como voluntario y forma parte de la comunidad que mide la calidad del aire por nuestra ciudad.</h1>
-            <button>Quiero unirme</button>
+            <button class='log' data-logtype="1">Quiero unirme</button>
         </div>
         <img src="images/voluntario/banner.svg" alt="banner">
     </div>
@@ -66,14 +67,14 @@
             <div>
                 <h3>Accede a nuestras herramientas.</h3>
                 <p>Como voluntario y miembro de nuestra comunidad, te proveemos un equipo de monitoreo que te permitirá medir la calidad del aire de la ciudad durante tus recorridos.</p>
-                <button>Quiero unirme</button>
+                <button class='log' data-logtype="1">Quiero unirme</button>
             </div>
         </div>
         <div class="row">
             <div>
                 <h3>Haz que reconozcan<br/>tu labor.</h3>
                 <p>Tanto la ciudadanía como el resto de voluntarios  pueden acceder a la información que tú haz recolectado en tus recorridos en bicicleta. Todo esto de forma fácil e inmediata.</p>
-                <button>Quiero unirme</button>
+                <button class='log' data-logtype="1">Quiero unirme</button>
             </div>
             <img src="images/voluntario/bnf1.svg" alt="bnf1">
         </div>
@@ -82,7 +83,7 @@
             <div>
                 <h3>Impacta sobre la vida de otros.</h3>
                 <p>Cada individuo actúa y toma decisiones a partir de sus necesidades y la información que tú haz recolectado como voluntario del proyecto, ayudando así a mejorar su calidad de vida.</p>
-                <button>Quiero unirme</button>
+                <button class='log' data-logtype="1">Quiero unirme</button>
             </div>
         </div>
         <div class="row">
@@ -108,18 +109,18 @@
 
     <section id='cero' class="action_block">
         <h1>Cuida de tí, de los tuyos y tu comunidad, reportando datos.</h1>
-        <button>Quiero unirme</button>
+        <button class='log' data-logtype="1">Quiero unirme</button>
     </section>
 
     <div class="ab_group">
         <section id="uno" class="action_block">
             <h2>Tu empresa será reconocida y beneficiada por contribuir al medio ambiente.</h2>
-            <button>Unirme como empresa</button>
+            <a href="empresas.html"><button>Unirme como empresa</button></a>
         </section>
     
         <section id="dos" class="action_block">
             <h2>Mira todo lo que hemos logrado juntos hasta ahora.</h2>
-            <button>Ver datos</button>
+            <a href="datos.html"><button>Ver datos</button></a>
         </section>
     </div>
 
@@ -139,4 +140,5 @@
     </div>
     <img src="images/eira_blanc.svg" alt="Eira">
 </footer>
+<script src="scripts/index.js"></script>
 </html>

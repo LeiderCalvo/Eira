@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/comunidad.css">
 </head>
 <body class="foro_exp">
+    <iframe id='if_log' src="log.html" frameborder="0"></iframe>
     <nav class="row">
         <a href = 'index.html'><img src="images/eira_blue.svg" alt="logo"></a>
         <div>
@@ -17,7 +18,7 @@
             <a href="donacion.html">Haz una donación</a>
             <a href="datos.html">Datos históricos</a>
             <a href="comunidad.html" class="selected">Nuestra comunidad</a>
-            <a href="perfil.html" id='init_sesion'>Iniciar sesión</a>
+            <div id='init_sesion'>Iniciar sesión</div>
         </div>
     </nav>
     <div class="other_actions row">
@@ -67,5 +68,6 @@
             </div>
         </section>
     </div>
+    <script src="scripts/index.js"></script>
 </body>
 </html>

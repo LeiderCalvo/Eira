@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/donate.css">
 </head>
 <body>
+    <iframe id='if_log' src="log.html" frameborder="0"></iframe>
     <nav class="row">
         <a href = 'index.html'><img src="images/eira_blue.svg" alt="logo"></a>
         <div>
@@ -17,14 +18,14 @@
             <a href="donacion.html" class="selected">Haz una donación</a>
             <a href="datos.html">Datos históricos</a>
             <a href="comunidad.html">Nuestra comunidad</a>
-            <a href="perfil.html" id='init_sesion'>Iniciar sesión</a>
+            <div id='init_sesion' class="log">Iniciar sesión</div>
         </div>
     </nav>
     <div class="banner2">
         <h1>Diariamente fallecen 14 personas en la ciudad a causa de la mala calidad del aire. Tú nos puedes ayudar a salvar más vidas.</h1>
     </div>
     <div class="cta">
-        <button>Donar</button>
+        <a href="#form"><button>Donar</button></a>
     </div>
 
     <article>
@@ -73,19 +74,19 @@
             <img src="images/donate/card0.svg" alt="card0">
             <h4>Apoyo monetario voluntario</h4>
             <p>Muchas veces queremos aportar pero no sabemos cómo o no tenemos el tiempo, sin embargo, tu apoyo monetario permitirá que otros puedan continuar la labor de voluntario.</p>
-            <button>Donar dinero</button>
+            <a href="#form" class="to_form"><button>Donar dinero</button></a>
         </section>
         <section class="card">
             <img src="images/donate/card1.svg" alt="card1">
             <h4>Necesitamos sensores de calidad del aire</h4>
             <p>Estamos dispuestos a hacer la labor de medir la calidad del aire de la cuidad, pero para ello necesitamos sensores, que permitan mejorar la calidad de los datos recolectados.</p>
-            <button>Donar sensor</button>
+            <a href="#form" class="to_form"><button>Donar sensor</button></a>
         </section>
         <section class="card">
             <img src="images/donate/card2.svg" alt="card2">
             <h4>Queremos apoyar la labor voluntaria</h4>
             <p>Muchos voluntarios comprometidos carecen de implementos de seguridad como cascos, rodilleras y chalecos. Por ello, puedes apoyarlos donando algunos de estos elementos.</p>
-            <button>Donar equipo</button>
+            <a href="#form" class="to_form"><button>Donar equipo</button></a>
         </section>
     </div>
     
@@ -98,7 +99,7 @@
         <img src="images/voluntario/testy0.svg" alt="testy0">
     </section>
 
-    <section class="form">
+    <section class="form" id="form">
         <h3>Formulario de donación</h3>
         <p>Esta página no almacena los datos de tus cuentas bancarias ni tarjetas. Los pagos son procesados por la plataforma de pagos internacional PayU Latam y sus servidores seguros. privacy policy.</p>
         <div class="row">
@@ -126,11 +127,11 @@
                 <input type="text" placeholder="Nombre">
                 <input type="text" placeholder="Identificación">
                 <input type="text" placeholder="Correo electrónico">
-                <select>
+                <select id="select_donation_kind">
                     <option value="" hidden>Tipo de donación</option>
                     <option value="Dinero">Dinero en efectivo</option>
-                    <option value="Dinero">Equipos</option>
-                    <option value="Dinero">Sensores</option>
+                    <option value="Sensores">Sensores</option>
+                    <option value="Equipos">Equipos</option>
                 </select>
                 <input type="number" placeholder="Monto a donar">
                 <div class="row">
@@ -157,4 +158,10 @@
     </div>
     <img src="images/eira_blanc.svg" alt="Eira">
 </footer>
+<script src="scripts/index.js"></script>
+<script>
+    document.querySelectorAll('.to_form').forEach((e,i) => 
+        e.onclick = x => select_donation_kind.options[i+1].selected = 'selected'
+    )
+</script>
 </html>

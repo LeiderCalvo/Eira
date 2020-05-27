@@ -8,8 +8,11 @@ window.addEventListener('storage', function(e) {
 });
 
 window.addEventListener('load', e => {
-    document.querySelector('#init_sesion').addEventListener('click', e => {
-        localStorage.setItem('log_display', 'block');
-        if_log.style.display = 'block';
+    document.querySelectorAll('.log').forEach(e => {
+        e.addEventListener('click', i => {
+            localStorage.setItem('logtype', e.dataset.logtype? e.dataset.logtype : 0);
+            localStorage.setItem('log_display', 'block');
+            if_log.style.display = 'block';
+        });
     });
 })

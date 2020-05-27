@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/empresas.css">
 </head>
 <body>
+    <iframe id='if_log' src="log.html" frameborder="0"></iframe>
     <nav class="row">
         <a href = 'index.html'><img src="images/eira_blue.svg" alt="logo"></a>
         <div>
@@ -17,13 +18,13 @@
             <a href="donacion.html">Haz una donación</a>
             <a href="datos.html">Datos históricos</a>
             <a href="comunidad.html">Nuestra comunidad</a>
-            <a href="perfil.html" id='init_sesion'>Iniciar sesión</a>
+            <div id='init_sesion' class="log">Iniciar sesión</div>
         </div>
     </nav>
     <div class="banner row">
         <div>
             <h1>Con Eira, tu empresa destacará alcanzando el impacto ambiental y social que buscas.</h1>
-            <button>Quiero unirme</button>
+            <button class='log' data-logtype="2">Quiero unirme</button>
         </div>
         <img src="images/empresas/banner.svg" alt="banner">
     </div>
@@ -86,18 +87,18 @@
 
     <section id='cero' class="action_block">
         <h1>Sé una de las compañías líderes de impacto ambiental positivo en la ciudad.</h1>
-        <button>Quiero unirme</button>
+        <button class='log' data-logtype="2">Quiero unirme</button>
     </section>
 
     <div class="ab_group">
         <section id="uno" class="action_block">
             <h2>Otra manera de contribuir es realizando una donación.</h2>
-            <button>Unirme como empresa</button>
+            <a href="donacion.html"><button>Hacer una donación</button></a>
         </section>
     
         <section id="dos" class="action_block">
             <h2>Mira todo lo que hemos logrado juntos hasta ahora.</h2>
-            <button>Ver datos</button>
+            <a href="datos.html"><button>Ver datos</button></a>
         </section>
     </div>
 
@@ -117,4 +118,5 @@
     </div>
     <img src="images/eira_blanc.svg" alt="Eira">
 </footer>
+<script src="scripts/index.js"></script>
 </html>
