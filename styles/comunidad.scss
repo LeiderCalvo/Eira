@@ -141,6 +141,7 @@ body{
                         height: 6em;
                         margin-bottom: 20px;
                         font-style: normal;
+                        overflow: hidden;
                     }
 
                     &>.row{
@@ -150,11 +151,14 @@ body{
                                 @include center();
                                 width: 25px;
                                 height: 25px;
+                                margin-left: -12px;
                                 border-radius: 50%;
                                 background-color: #FD9797;
                                 color: white;
                                 @include font-size(13);
                             }
+
+                            :first-child{margin: 0;}
                         }
                         p{color: $hard-blue; font-weight: 200;}
                     }
