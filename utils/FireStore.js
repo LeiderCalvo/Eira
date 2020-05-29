@@ -17,7 +17,6 @@ function ManageData(type, where, path, document, condition, response) {
     document = {...document, fechas: Firebase.firestore.FieldValue.arrayUnion(Date.now())}
   }
   */
- //console.log(where)
   let promise = condition ?
       DataBase[where](path).where(...condition).get()
     : 

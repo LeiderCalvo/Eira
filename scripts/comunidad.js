@@ -1,31 +1,21 @@
-const posts = [{
-    id: 'oh34hr3u94j93h4938h4',
-    author: 'Leider Calvo',
-    time: '3',
-    likes: 20,
-    subject: 'Con 10K, para el corredor habitual, 5K, para todos los que prefieren disfrutar de un precioso circuito por la casa de campo y carreras infantiles para niños desde los 3. Cada día se hace más evidente la necesidad de tomar acciones en beneficio de nuestro ecosistema, los gobiernos alrededor del mundo buscan soluciones para mitigar la contaminación y producción de residuos, asuntos en los que el transporte público y particular tienen especial relevancia al ser una de las actividades humanas con mayor producción de residuos y gases contaminantes.',
-    comments: [{
-        author: 'Seguidor',
-        time: '2',
-        likes: 0,
-        subject: 'Totalmente de acuerdo con lo que menciona Daniel. Es necesario mano dura con el transporte público.',
-        comments: [{
-            author: 'Daniel Arboleda',
-            time: '2',
-            likes: 0,
-            subject: 'Gracias Luis, la idea es movilizar a la ciudadanía a que expresen su opinión.',
-            comments: [],
-        }]
-    }]
-}];
-
+let posts = [];
 const inter_colors = ['FD9797', 'FEE99D', '53FF64', 'FEBD3E', '8A8787', '1F0C56'];
 
 window.addEventListener('load', w => {
     const body = document.querySelector('body');
-
     const post_wrapper = document.querySelector('.posts-wrapper');
-    posts.forEach(e => addNewPost(e));
+
+    ManageData('get', 'collection', 'posts', undefined, undefined, (success, response) => {
+        console.log(success, response);
+        if(success){
+            for (let i = 0; i < response.docs.length; i++) {
+                //console.log(e.id, " => ", e.data());
+                posts.push(response.docs[i].data())   
+            }
+            posts.forEach(e => addNewPost(e));
+        }
+        //console.log(response.docs[0].data())
+    })
 
     function addNewPost(post) {
         let postCont = document.createElement('div');
@@ -119,3 +109,29 @@ window.addEventListener('load', w => {
         return interactions.reduce((a,b) => a + b);
     }
 })
+
+/*
+const posts = [{
+    id: 'oh34hr3u94j93h4938h4',
+    author: 'Leider Calvo',
+    time: '3',
+    likes: 20,
+    subject: 'Con 10K, para el corredor habitual, 5K, para todos los que prefieren disfrutar de un precioso circuito por la casa de campo y carreras infantiles para niños desde los 3. Cada día se hace más evidente la necesidad de tomar acciones en beneficio de nuestro ecosistema, los gobiernos alrededor del mundo buscan soluciones para mitigar la contaminación y producción de residuos, asuntos en los que el transporte público y particular tienen especial relevancia al ser una de las actividades humanas con mayor producción de residuos y gases contaminantes.',
+    comments: [{
+        author: 'Seguidor',
+        time: '2',
+        likes: 0,
+        subject: 'Totalmente de acuerdo con lo que menciona Daniel. Es necesario mano dura con el transporte público.',
+        comments: [{
+            author: 'Daniel Arboleda',
+            time: '2',
+            likes: 0,
+            subject: 'Gracias Luis, la idea es movilizar a la ciudadanía a que expresen su opinión.',
+            comments: [],
+        }]
+    }]
+}];
+
+let idd = createID('posts');
+ManageData('set', 'doc', 'posts/'+idd.id, posts[0], undefined, (success, response) => console.log(success, response));
+*/
