@@ -6,10 +6,10 @@ window.addEventListener('load', w => {
     const post_wrapper = document.querySelector('.posts-wrapper');
 
     ManageData('get', 'collection', 'posts', undefined, undefined, (success, response) => {
-        console.log(success, response);
+        //console.log(success, response);
         if(success){
             for (let i = 0; i < response.docs.length; i++) {
-                //console.log(e.id, " => ", e.data());
+                //console.log(response.docs[i].id, " => ", response.docs[i].data());
                 posts.push(response.docs[i].data())   
             }
             posts.forEach(e => addNewPost(e));
@@ -20,7 +20,7 @@ window.addEventListener('load', w => {
     function addNewPost(post) {
         let postCont = document.createElement('div');
         let amountInter = post.likes + post.comments.length;
-    
+        
         postCont.classList.add('post');
         postCont.innerHTML = `
             <div class="title row">
@@ -45,14 +45,15 @@ window.addEventListener('load', w => {
 
     function ver_mas_btn_action (id){
         let post = posts[ posts.findIndex(e => e.id === id) ];
+        let idd = Math.random().toString(36).substr(2, 9);
 
         see_int_cont.innerHTML = `
-        ${createComment(post,0)}
-        <input type="text" placeholder="Escribe tu comentario...">
-        <button>Comentar</button>
+            ${createComment(post,0)}
+            <input id='${'inpt'+idd}' type="text" placeholder="Escribe tu comentario...">
+            <button id='${'btn'+idd}'>Comentar</button>
 
-        <h6>Comentarios</h6>
-        <div class="commets">${createComments(post.comments, 0)}</div>`;
+            <h6>Comentarios</h6>
+            <div class="commets">${createComments(post.comments, 0)}</div>`;
 
         let x_closer = document.createElement('img');
         x_closer.src = "../images/close.svg";
@@ -64,8 +65,30 @@ window.addEventListener('load', w => {
 
         see_int_cont.appendChild(x_closer);
 
+        let inpt = document.querySelector(`#${'inpt'+idd}`);
+        document.querySelector(`#${'btn'+idd}`).onclick = e => createNewComment(inpt, id);
+
         see_interactions.style.display  =  'block';
         body.style.overflow = 'hidden';
+    }
+
+    function createNewComment (inpt, id){
+        let index = posts.findIndex(e => e.id === id);
+
+        let name = localStorage.getItem('user')? JSON.parse(localStorage.getItem('user')).user : 'Seguidor';
+        let comm = {
+            author: name,
+            time: '0',
+            likes: 0,
+            subject: inpt.value,
+            comments: []
+        }
+        posts[index].comments.push(comm);
+        
+        ManageData('set', 'doc', 'posts/'+id, posts[index], undefined, (success, response) => {
+            console.log(success, response);
+            ver_mas_btn_action(id)
+        });
     }
 
     function createComment(com, type){
@@ -97,7 +120,10 @@ window.addEventListener('load', w => {
             let r = createComment(e, type);
             return e.comments.length > 0? (r + createComments(e.comments, type+1)) : r;
         });
-        return coms.reduce((a,b) => a + b);
+
+        let str = '';
+        coms.forEach(e => str += e );
+        return str;
     }
 
     function createInteractions(amount) {
@@ -105,8 +131,26 @@ window.addEventListener('load', w => {
         let interactions = arr.map( (e, i) => {
             return `<span style="background-color: #${inter_colors[i]};">${i === (arr.length - 1) ? ('+ ' + amount) : ''}</span>`
         });
-    
-        return interactions.reduce((a,b) => a + b);
+
+        let str = '';
+        interactions.forEach(e => str += e );
+        return str;
+    }
+
+
+    newPostCreatorBtn.onclick = e => {
+        let npc = document.querySelector('#newPostCreator');
+        let name = localStorage.getItem('user')? JSON.parse(localStorage.getItem('user')).user : 'Seguidor';
+        let post = {
+            author: name,
+            time: '0',
+            likes: 0,
+            subject: npc.value,
+            comments: []
+        }
+
+        let idd = createID('posts');
+        ManageData('set', 'doc', 'posts/'+idd.id, post, undefined, (success, response) => console.log(success, response));
     }
 })
 

@@ -18,13 +18,12 @@ function updateLocal() {
         init_sesion.classList.remove('log');
         init_sesion.classList.add('user');
         init_sesion.innerText = user.user;
+        init_sesion.onclick = e => window.location.href = 'perfil.html';
     }
 }
 
 window.addEventListener('load', e => {
     updateLocal();
-
-    document.querySelector('.user').onclick = e => window.location.href = 'perfil.html';
 
     //display logging
     document.querySelectorAll('.log').forEach(e => {

@@ -38,6 +38,10 @@
 }
 
 body{
+    #if_log{
+        z-index: 1;
+    }
+
     background-color: $soft-gray;
     &>*:not(nav){padding: 0 30px;}
     .other_actions{
@@ -82,7 +86,7 @@ body{
             width: 65%;
             height: 100px;
             position: relative;
-            z-index: -1;
+
             textarea{
                 height: 100%;
             }
