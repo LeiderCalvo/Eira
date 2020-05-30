@@ -133,6 +133,7 @@ body{
                 margin-top: 10px;
                 .volunteer{
                     width: 100%;
+                    margin: 15px 0;
                     &>*{ @include center(); width: 33%;}
                     .row{
                         justify-content: space-between;

@@ -1,9 +1,58 @@
 let posts = [];
 const inter_colors = ['FD9797', 'FEE99D', '53FF64', 'FEBD3E', '8A8787', '1F0C56'];
 
+const ranking = [{
+    rank: 'up',
+    name: 'Daniel Arboleda',
+    meditions: 20
+},
+{
+    rank: 'down',
+    name: 'Alvaro vasquez',
+    meditions: 17
+},
+{
+    rank: 'up',
+    name: 'Lucia Ramirez',
+    meditions: 15
+},
+{
+    rank: 'cent',
+    name: 'Andrea Torres',
+    meditions: 15
+},
+{
+    rank: 'cent',
+    name: 'Pablo Garzon',
+    meditions: 10
+},
+{
+    rank: 'down',
+    name: 'Lina Bustamante',
+    meditions: 9
+}]
+
 window.addEventListener('load', w => {
     const body = document.querySelector('body');
     const post_wrapper = document.querySelector('.posts-wrapper');
+    const volunteers = document.querySelector('.volunteers');
+
+    ranking.forEach( ( e, i ) => createRanking(e,i+1) );
+
+    function createRanking(user, i) {
+        let div = document.createElement('div');
+        div.classList.add('volunteer');
+        div.classList.add('row');
+        div.innerHTML = `
+            <div class="row">
+                <h5>${i}</h5>
+                <img src="images/community/${user.rank}_rank.svg">
+                <img src="images/community/perf_min_${user.name.replace(' ', '').toLowerCase()}.svg">
+            </div>
+            <p class="name">${user.name}</p>
+            <p>${user.meditions}</p>`;
+        volunteers.appendChild(div);
+    }
 
     ManageData('get', 'collection', 'posts', undefined, undefined, (success, response) => {
         //console.log(success, response);
