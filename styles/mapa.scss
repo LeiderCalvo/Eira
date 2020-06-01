@@ -1,0 +1,43 @@
+@import '../utils/vars';
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+.mapboxgl-popup-content{
+    padding: 0;
+    width: 200px;
+    border-radius: 10px;
+    @include box-shadow();
+
+    .s_rec{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        .row_color{
+            width: 80%;
+            height: 12px;
+            border-radius: 0 0 12px 0;
+            margin-bottom: 10px;
+        }
+
+        .title{
+            margin: 0 20px;
+            align-self: flex-end;
+        }
+
+        p{
+            margin: 5px 20px 10px;
+            color: $gray;
+        }
+    }
+}
