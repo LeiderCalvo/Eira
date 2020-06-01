@@ -26,8 +26,8 @@ const re_small = [
 mapboxgl.accessToken = 'pk.eyJ1IjoibGVpZGVyY2Fsdm8iLCJhIjoiY2s4MGNlbHZ4MGRwZzNlcGExMmo3cXF6YSJ9.V2d9VILjJixw_LEjcT7L9g';
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [-76.53, 3.44, 0],
+    style: 'mapbox://styles/mapbox/light-v10',
+    center: [-76.50, 3.44, 0],
     zoom: 12,
 });
 
@@ -43,6 +43,80 @@ map.addControl(
         trackUserLocation: true
     })
 );
+//buscador
+var coordinatesGeocoder = function (query) {
+    // match anything which looks like a decimal degrees coordinate pair
+    var matches = query.match(
+        /^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Lng: )?(-?\d+\.?\d*)[ ]*$/i
+    );
+    if (!matches) {
+        return null;
+    }
+
+    function coordinateFeature(lng, lat) {
+        return {
+            center: [lng, lat],
+            geometry: {
+                type: 'Point',
+                coordinates: [lng, lat]
+            },
+            place_name: 'Lat: ' + lat + ' Lng: ' + lng,
+            place_type: ['coordinate'],
+            properties: {},
+            type: 'Feature'
+        };
+    }
+
+    var coord1 = Number(matches[1]);
+    var coord2 = Number(matches[2]);
+    var geocodes = [];
+
+    if (coord1 < -90 || coord1 > 90) {
+        // must be lng, lat
+        geocodes.push(coordinateFeature(coord1, coord2));
+    }
+
+    if (coord2 < -90 || coord2 > 90) {
+        // must be lat, lng
+        geocodes.push(coordinateFeature(coord2, coord1));
+    }
+
+    if (geocodes.length === 0) {
+        // else could be either lng, lat or lat, lng
+        geocodes.push(coordinateFeature(coord1, coord2));
+        geocodes.push(coordinateFeature(coord2, coord1));
+    }
+
+    return geocodes;
+};
+map.addControl(
+    new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        language: 'es',
+        countries: 'co',
+        //cities:'cali',
+        //bbox: [-76.47, 3.30,-76.56, 3.55],
+        localGeocoder: coordinatesGeocoder,
+        zoom: 14,
+        placeholder: 'Escribe una dirección. Ej: Autopista Sur',
+        mapboxgl: mapboxgl
+    })
+    , 'top-left');
+
+var leyenda = document.createElement('div');
+leyenda.classList.add('leyenda');
+leyenda.classList.add('mapboxgl-ctrl');
+leyenda.innerHTML = `${createLeyends()}`;
+
+function createLeyends() {
+    let str = '';
+    scale.forEach(e => {
+        str += `<div class='row'><p>${e.name}</p><div style='background-color: ${e.col};'></div></div>`;
+    })
+    return str;
+}
+
+document.querySelector('.mapboxgl-ctrl-bottom-right').appendChild(leyenda);
 
 map.on('load', function () {
     map.addSource('earthquakes', {
@@ -52,55 +126,54 @@ map.on('load', function () {
 
     //map.addLayer(hM(7, 'rgba(255,81,77,'), 'waterway-label');
 
-    map.addLayer(
-        {
-            'id': 'airQuality-circles',
-            'type': 'circle',
-            'source': 'earthquakes',
-            'minzoom': 9,
-            'paint': {
-                // Size circle radius by earthquake magnitude and zoom level
-                'circle-radius': [
-                    'interpolate',
-                    ['linear'],
-                    ['zoom'],
-                    7,
-                    ['interpolate', ['linear'], ['get', 'mag'], 1, 1, 6, 4],
-                    16,
-                    ['interpolate', ['linear'], ['get', 'mag'], 1, 5, 6, 10]
-                ],
-                // Color circle by earthquake magnitude
-                'circle-color': [
-                    'interpolate',
-                    ['linear'],
-                    ['get', 'mag'],
-                    2,
-                    'rgb(255,81,77)',
-                    3,
-                    'rgb(255,81,77)',
-                    4,
-                    'rgb(255,170,88)',
-                    5,
-                    'rgb(209,201,91)',
-                    6,
-                    'rgb(148,204,138)',
-                    7,
-                    'rgb(2,182,93)'
-                ],
-                'circle-stroke-color': 'white',
-                'circle-stroke-width': 0.5,
-                // Transition from heatmap to circle layer by zoom level
-                'circle-opacity': [
-                    'interpolate',
-                    ['linear'],
-                    ['zoom'],
-                    8,
-                    0,
-                    10,
-                    1
-                ]
-            }
-        },
+    map.addLayer({
+        'id': 'airQuality-circles',
+        'type': 'circle',
+        'source': 'earthquakes',
+        'minzoom': 9,
+        'paint': {
+            // Size circle radius by earthquake magnitude and zoom level
+            'circle-radius': [
+                'interpolate',
+                ['linear'],
+                ['zoom'],
+                7,
+                ['interpolate', ['linear'], ['get', 'mag'], 1, 1, 6, 4],
+                16,
+                ['interpolate', ['linear'], ['get', 'mag'], 1, 5, 6, 10]
+            ],
+            // Color circle by earthquake magnitude
+            'circle-color': [
+                'interpolate',
+                ['linear'],
+                ['get', 'mag'],
+                2,
+                'rgb(255,81,77)',
+                3,
+                'rgb(255,81,77)',
+                4,
+                'rgb(255,170,88)',
+                5,
+                'rgb(209,201,91)',
+                6,
+                'rgb(148,204,138)',
+                7,
+                'rgb(2,182,93)'
+            ],
+            'circle-stroke-color': 'white',
+            'circle-stroke-width': 0.5,
+            // Transition from heatmap to circle layer by zoom level
+            'circle-opacity': [
+                'interpolate',
+                ['linear'],
+                ['zoom'],
+                8,
+                0,
+                10,
+                1
+            ]
+        }
+    },
         'waterway-label'
     );
 
@@ -134,7 +207,6 @@ map.on('load', function () {
         map.getCanvas().style.cursor = '';
     });
 });
-
 
 
 function hM(val, col) {

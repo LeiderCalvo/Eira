@@ -11,11 +11,16 @@ body {
     bottom: 0;
     width: 100%;
 }
+
 .mapboxgl-popup-content{
     padding: 0;
     width: 200px;
     border-radius: 10px;
     @include box-shadow();
+    *{
+        font-family: 'Muli', sans-serif;
+        @include font-size(22);
+    }
 
     .s_rec{
         display: flex;
@@ -39,5 +44,50 @@ body {
             margin: 5px 20px 10px;
             color: $gray;
         }
+    }
+}
+
+.leyenda{
+    //background-color: rgba($color: #fff, $alpha: 0.7);
+    padding: 10px 0 10px 10px;
+    margin-bottom: 20px;
+    .row{
+        @include row();
+        justify-content: flex-end;
+        div{
+            width: 40px;
+            height: 10px;
+            margin-left: 10px;
+            @include box-shadow();
+        }
+        p{
+            font-family: 'Muli', sans-serif;
+            @include font-size(22);
+            margin: 5px 0;
+            font-weight: bold;
+            color: $gray;
+        }
+    }
+}
+
+.mapboxgl-ctrl-group{
+    box-shadow: none !important;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25) !important;
+    border: none;
+    border-radius: 20px;
+    *{
+        border: none !important;
+        &:hover{
+            opacity: .5;
+        }
+    }
+}
+.mapboxgl-ctrl-geocoder{
+    border-radius: 10px !important;
+}
+.mapboxgl-ctrl-attrib{display: none;}
+.mapboxgl-control-container{
+    &>*{
+        padding: 20px;
     }
 }
