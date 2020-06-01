@@ -28,7 +28,7 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/light-v10',
     center: [-76.50, 3.44, 0],
-    zoom: 12,
+    zoom: 11,
 });
 
 //map controls
@@ -110,27 +110,34 @@ leyenda.innerHTML = `${createLeyends()}`;
 
 function createLeyends() {
     let str = '';
-    scale.forEach(e => {
-        str += `<div class='row'><p>${e.name}</p><div style='background-color: ${e.col};'></div></div>`;
+    scale.forEach( (e,i) => {
+        str += i>0 ? `<div class='row'><p>${e.name}</p><div style='background-color: ${e.col};'></div></div>` : '';
     })
     return str;
 }
 
 document.querySelector('.mapboxgl-ctrl-bottom-right').appendChild(leyenda);
-
+/*
+{ name: 'Muy Dañino', col: 'rgb(255,81,77)' },
+    { name: 'Muy Dañino', col: 'rgb(255,81,77)' },
+    { name: 'Dañino', col: 'rgb(255,170,88)' },
+    { name: 'Malo', col: 'rgb(209,201,91)' },
+    { name: 'Moderado', col: 'rgb(148,204,138)' },
+    { name: 'bueno', col: 'rgb(2,182,93)' }
+*/
 map.on('load', function () {
     map.addSource('earthquakes', {
         'type': 'geojson',
         'data': 'utils/dataCali.json'
     });
 
-    //map.addLayer(hM(7, 'rgba(255,81,77,'), 'waterway-label');
+    scale.forEach((e,index) => index>0 && map.addLayer(hv(e.col, index+1), 'waterway-label'));
 
     map.addLayer({
         'id': 'airQuality-circles',
         'type': 'circle',
         'source': 'earthquakes',
-        'minzoom': 9,
+        'minzoom': 13,
         'paint': {
             // Size circle radius by earthquake magnitude and zoom level
             'circle-radius': [
@@ -180,7 +187,6 @@ map.on('load', function () {
     map.on('click', 'airQuality-circles', function (e) {
         var coordinates = e.features[0].geometry.coordinates.slice();
         let index = Math.round(parseFloat(e.features[0].properties.mag)) - 2;
-        console.log(index)
         var description = `<div class='s_rec'>
         <div class='row_color' style='background-color: ${scale[index].col};'></div>
         <h5 class='title' style='color: ${scale[index].col};'>${scale[index].name}</h5>
@@ -206,81 +212,90 @@ map.on('load', function () {
     map.on('mouseleave', 'airQuality-circles', function () {
         map.getCanvas().style.cursor = '';
     });
-});
 
-
-function hM(val, col) {
-    return {
-        'id': 'earthquakes-heat',
-        'type': 'heatmap',
-        'source': 'earthquakes',
-        'maxzoom': 20,
-        'filter': [
-            "all",
-            ["==", ["get", "mag"], val]
-        ],
-        'paint': {
-            // Increase the heatmap weight based on frequency and property magnitude
-            'heatmap-weight': [
-                'interpolate',
-                ['linear'],
-                ['get', 'mag'],
-                0,
-                0,
-                6,
-                1
+    function hv(col, val) {
+        return {
+            'id': 'earthquakes-heat'+val,
+            'type': 'heatmap',
+            'source': 'earthquakes',
+            'maxzoom': 20,
+            'filter': [
+                "all",
+                [
+                    ">=",
+                    ["get", "mag"],
+                    val
+                ],
+                [
+                    "<",
+                    ["get", "mag"],
+                    val+1
+                ]
             ],
-            // Increase the heatmap color weight weight by zoom level
-            // heatmap-intensity is a multiplier on top of heatmap-weight
-            'heatmap-intensity': [
-                'interpolate',
-                ['linear'],
-                ['zoom'],
-                0,
-                1,
-                9,
-                3
-            ],
-            // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
-            // Begin color ramp at 0-stop with a 0-transparancy color
-            // to create a blur-like effect.
-            'heatmap-color': [
-                'interpolate',
-                ['linear'],
-                ['heatmap-density'],
-                0,
-                'rgba(33,102,172,0)',
-                0.2,
-                'rgb(103,169,207)',
-                0.4,
-                'rgb(209,229,240)',
-                0.6,
-                'rgb(253,219,199)',
-                0.8,
-                'rgb(239,138,98)',
-                1,
-                'rgb(178,24,43)'
-            ],
-            // Adjust the heatmap radius by zoom level
-            'heatmap-radius': [
-                'interpolate',
-                ['linear'],
-                ['zoom'],
-                0,
-                2,
-                500,
-                500
-            ],
-            // Transition from heatmap to circle layer by zoom level
-            'heatmap-opacity': [
-                'interpolate',
-                ['linear'],
-                ['zoom'],
-                2,
-                1,
-                90,
-                0
-            ]
+            'paint': {
+                // Increase the heatmap weight based on frequency and property magnitude
+                'heatmap-weight': [
+                    'interpolate',
+                    ['linear'],
+                    ['get', 'mag'],
+                    0,
+                    0,
+                    0.2,
+                    0.5
+                ],
+                // Increase the heatmap color weight weight by zoom level
+                // heatmap-intensity is a multiplier on top of heatmap-weight
+                'heatmap-intensity': [
+                    'interpolate',
+                    ['linear'],
+                    ['zoom'],
+                    0,
+                    1,
+                    9,
+                    5
+                ],
+                // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
+                // Begin color ramp at 0-stop with a 0-transparancy color
+                // to create a blur-like effect.
+                'heatmap-color': [
+                    'interpolate',
+                    ['linear'],
+                    ['heatmap-density'],
+                    0,
+                    'rgba(33,102,172,0)',
+                    0.2,
+                    'rgba(103,169,207,0)',
+                    0.4,
+                    'rgba(209,229,240,0)',
+                    0.6,
+                    'rgba(253,219,199,0)',
+                    0.8,
+                    col,
+                    1,
+                    col
+                ],
+                // Adjust the heatmap radius by zoom level
+                'heatmap-radius': [
+                    'interpolate',
+                    ['linear'],
+                    ['zoom'],
+                    0,
+                    2,
+                    9,
+                    20
+                ],
+                // Transition from heatmap to circle layer by zoom level
+                'heatmap-opacity': [
+                    'interpolate',
+                    ['linear'],
+                    ['zoom'],
+                    2,
+                    1,
+                    30,
+                    0
+                ]
+            }
         }
     }
-}
+
+});
