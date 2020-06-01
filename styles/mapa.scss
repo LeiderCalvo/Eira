@@ -1,15 +1,23 @@
 @import '../utils/vars';
 
-body {
-    margin: 0;
-    padding: 0;
+body{
+    @include scrollBar();
+    overflow-y: auto;
+}
+
+button{
+    min-width: unset !important;
+}
+
+input{
+    background: none !important;
+    margin-bottom: 0 !important;
+    padding: 6px 35px !important;
 }
 
 #map {
-    position: absolute;
-    top: 0;
-    bottom: 0;
     width: 100%;
+    height: 100vh;
 }
 
 .mapboxgl-popup-content{

@@ -1,0 +1,21 @@
+.cards-wrapper {
+  margin: 60px 0;
+}
+
+.action_block#cero {
+  background-image: url("../images/empresas/ab_empresas_large.svg");
+}
+
+.action_block#cero button {
+  background-color: white;
+  color: #0A57B5;
+}
+
+.action_block#uno {
+  background-image: url("../images/empresas/ab_donate_short.svg");
+}
+
+.action_block#dos {
+  background-image: url("../images/voluntario/ab_data.svg");
+}
+/*# sourceMappingURL=empresas.css.map */

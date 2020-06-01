@@ -1,5 +1,5 @@
 #css
-*.css
+#*.css
 *.css.map
 
 /utils/firebaseCredentials.js

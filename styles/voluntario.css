@@ -1,0 +1,157 @@
+.steps {
+  padding: 0 30px;
+  margin: 30px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.steps section {
+  width: 22%;
+}
+
+.steps section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.steps section p:first-child {
+  margin-bottom: 20px;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.steps section div {
+  background-color: #F3F6F6;
+  border-radius: 20px;
+  padding: 30px 15px;
+}
+
+.steps section div h5 {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.steps section div p {
+  line-height: 132%;
+}
+
+.benefits .row div p {
+  width: 90%;
+}
+
+#more_benefits {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px 60px;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  height: 100vh;
+  overflow-y: scroll;
+  display: none;
+}
+
+#more_benefits .cont {
+  border-radius: 20px;
+  background-color: white;
+  -webkit-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  padding: 60px;
+}
+
+#more_benefits .cont:hover {
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+#more_benefits .cont .row section {
+  width: 45%;
+}
+
+#more_benefits .cont .row section h2 {
+  margin-bottom: 30px;
+}
+
+#more_benefits .cont .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 60px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+#more_benefits .cont .wrapper section {
+  width: 48%;
+}
+
+#more_benefits .cont .wrapper section {
+  margin-bottom: 30px;
+}
+
+#more_benefits .cont .wrapper section h4 {
+  margin-bottom: 10px;
+}
+
+#more_benefits .cont button {
+  margin-top: 30px;
+}
+
+.action_block#cero {
+  background-image: url("../images/voluntario/ab_volunteer.svg");
+}
+
+.action_block#cero button {
+  background-color: white;
+  color: #0A57B5;
+}
+
+.action_block#uno {
+  background-image: url("../images/voluntario/ab_company.svg");
+}
+
+.action_block#dos {
+  background-image: url("../images/voluntario/ab_data.svg");
+}
+/*# sourceMappingURL=voluntario.css.map */

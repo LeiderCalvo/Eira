@@ -27,7 +27,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibGVpZGVyY2Fsdm8iLCJhIjoiY2s4MGNlbHZ4MGRwZzNlc
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/light-v10',
-    center: [-76.50, 3.44, 0],
+    center: [-76.50, 3.42, 0],
     zoom: 11,
 });
 
@@ -117,14 +117,6 @@ function createLeyends() {
 }
 
 document.querySelector('.mapboxgl-ctrl-bottom-right').appendChild(leyenda);
-/*
-{ name: 'Muy Dañino', col: 'rgb(255,81,77)' },
-    { name: 'Muy Dañino', col: 'rgb(255,81,77)' },
-    { name: 'Dañino', col: 'rgb(255,170,88)' },
-    { name: 'Malo', col: 'rgb(209,201,91)' },
-    { name: 'Moderado', col: 'rgb(148,204,138)' },
-    { name: 'bueno', col: 'rgb(2,182,93)' }
-*/
 map.on('load', function () {
     map.addSource('earthquakes', {
         'type': 'geojson',
