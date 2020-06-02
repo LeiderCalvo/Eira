@@ -4,7 +4,7 @@ $soft-blue: #66B7F5;
 $gray: #575759;
 $soft-gray: #F3F6F6;
  
-$base-font-size: 28.6;
+$base-font-size: 28.7;
 
 @mixin font-size ($param){
     //((Xpt*Kpx) / Bpx) * 1em --> ((points to pixels) divided by base) * type

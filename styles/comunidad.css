@@ -33,7 +33,7 @@
 
 .post * {
   font-style: italic;
-  font-size: 0.93238em;
+  font-size: 0.92913em;
   text-align: left;
 }
 
@@ -196,7 +196,7 @@ body .container .ranking * {
 }
 
 body .container .ranking p {
-  font-size: 0.93238em;
+  font-size: 0.92913em;
 }
 
 body .container .ranking > p, body .container .ranking > h5 {
@@ -288,7 +288,7 @@ body .container .posts .posts-wrapper .post > .row .reactions span {
   margin-left: -12px;
   border-radius: 50%;
   color: white;
-  font-size: 0.60605em;
+  font-size: 0.60393em;
 }
 
 body .container .posts .posts-wrapper .post > .row .reactions :first-child {
@@ -389,7 +389,7 @@ body .container .posts .pags > button {
 }
 
 .foro_exp .container .posts .posts-wrapper .post h6 {
-  font-size: 1.16547em;
+  font-size: 1.16141em;
   margin-bottom: 20px;
 }
 

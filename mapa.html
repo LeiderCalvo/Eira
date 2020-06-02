@@ -34,10 +34,28 @@
 
     <div id='map'></div>
 
+    <div class="gen_rec">
+        <div class="row_color"></div>
+        <div class="row">
+            <p id="date_today">fecha de hoy</p>
+            <img src="./images/close.svg" alt="close" class="close" id='x_close_gen_Rec'/>
+        </div>
+
+        <h5 class='title'>Recomendaciones</h5>
+
+        <ul class="desc">
+            <li>Evitar la exposición en las zonas del oriente de la ciudad, si vive en esta zona, evite abrir ventaas y puertas.</li>
+            <li>En estos momentos parte del sur de la ciudad tiene un índice de calidad del aire bueno. Se puede transitar por la zona sin ninguna restricción</li>
+            <li>Hacer uso de tapabocas si debe transitar por las zonas afectadas</li>
+            <li>Los horarios pico son los momentos de mayor riesgo. Tomar rutas alternas a las zonas de alta contaminación</li>
+        </ul>
+    </div>
+
     <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
     <script src="utils/firebaseCredentials.js"></script>
+    <script src="scripts/index.js"></script>
     <script src="utils/FireStore.js"></script>
     <script src="scripts/mapa.js"></script>
 </body>

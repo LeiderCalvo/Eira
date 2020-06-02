@@ -23,6 +23,10 @@ body::-webkit-scrollbar-thumb:hover {
   background: #3da9fc;
 }
 
+iframe {
+  z-index: 4;
+}
+
 button {
   min-width: unset !important;
 }
@@ -55,7 +59,7 @@ input {
 
 .mapboxgl-popup-content * {
   font-family: 'Muli', sans-serif;
-  font-size: 1.02562em;
+  font-size: 1.02204em;
 }
 
 .mapboxgl-popup-content .s_rec {
@@ -93,8 +97,7 @@ input {
 }
 
 .leyenda {
-  padding: 10px 0 10px 10px;
-  margin-bottom: 20px;
+  padding: 10px 0 10px;
 }
 
 .leyenda .row {
@@ -133,10 +136,55 @@ input {
 
 .leyenda .row p {
   font-family: 'Muli', sans-serif;
-  font-size: 1.02562em;
+  font-size: 1.02204em;
   margin: 5px 0;
   font-weight: bold;
   color: #575759;
+}
+
+.gen_rec {
+  position: absolute;
+  -webkit-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  bottom: -5vh;
+  left: 30px;
+  background-color: white;
+  width: 280px;
+  border-radius: 15px;
+  padding-bottom: 10px;
+}
+
+.gen_rec:hover {
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.gen_rec > *:not(.row_color) {
+  font-size: 0.92913em;
+  padding: 0 20px;
+}
+
+.gen_rec .row_color {
+  width: 80%;
+  height: 12px;
+  border-radius: 0 0 12px 0;
+  margin-bottom: 10px;
+  background-color: #094067;
+}
+
+.gen_rec .row img {
+  width: 25px;
+  margin-bottom: 10px;
+}
+
+.gen_rec .desc {
+  list-style-position: inside;
+}
+
+.gen_rec .desc li {
+  margin: 10px 0;
 }
 
 .mapboxgl-ctrl-group {
@@ -161,10 +209,28 @@ input {
 }
 
 .mapboxgl-ctrl-attrib {
-  display: none;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
 }
 
 .mapboxgl-control-container > * {
   padding: 20px;
+}
+
+.mapboxgl-ctrl-bottom-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 /*# sourceMappingURL=mapa.css.map */

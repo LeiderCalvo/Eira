@@ -6,7 +6,7 @@
   padding: 0;
   margin: 0;
   font-family: 'Muli', sans-serif;
-  font-size: 1.02562em;
+  font-size: 1.02204em;
   color: #094067;
 }
 
@@ -50,27 +50,27 @@ iframe {
 }
 
 h1 {
-  font-size: 2.79713em;
+  font-size: 2.78739em;
 }
 
 h2 {
-  font-size: 2.33094em;
+  font-size: 2.32282em;
 }
 
 h3 {
-  font-size: 2.09785em;
+  font-size: 2.09054em;
 }
 
 h4 {
-  font-size: 1.63166em;
+  font-size: 1.62598em;
 }
 
 h5 {
-  font-size: 1.39857em;
+  font-size: 1.39369em;
 }
 
 h6 {
-  font-size: 1.16547em;
+  font-size: 1.16141em;
 }
 
 p {
@@ -79,7 +79,7 @@ p {
 
 textarea {
   border: none;
-  font-size: 0.93238em;
+  font-size: 0.92913em;
   width: 100%;
   padding: 20px;
   border-radius: 10px;
@@ -104,7 +104,7 @@ nav {
 }
 
 nav div a, nav div div {
-  font-size: 0.83914em;
+  font-size: 0.83622em;
   margin-right: 20px;
 }
 
@@ -136,7 +136,7 @@ input:not([type="checkbox"]), select {
   border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
-  font-size: 0.83914em;
+  font-size: 0.83622em;
   font-style: italic;
   font-weight: 300;
   background-color: #F3F6F6;
@@ -150,7 +150,7 @@ button {
   background-color: #0A57B5;
   color: white;
   border-radius: 4px;
-  font-size: 0.93238em;
+  font-size: 0.92913em;
   min-width: 150px;
   padding: 14px 20px;
   border: none;
@@ -257,7 +257,7 @@ button:hover {
 
 .benefits .row div p {
   width: 80%;
-  font-size: 0.93238em;
+  font-size: 0.92913em;
 }
 
 .benefits .row img {
@@ -270,7 +270,7 @@ button:hover {
 
 .messaje {
   text-align: center;
-  font-size: 1.39857em;
+  font-size: 1.39369em;
   color: #094067;
   font-style: italic;
   font-weight: 300;
@@ -399,7 +399,7 @@ button:hover {
 }
 
 .action_block button {
-  font-size: 1.16547em;
+  font-size: 1.16141em;
   background-color: white;
   width: 270px;
   border-radius: 10px;
@@ -420,7 +420,7 @@ button:hover {
 .shearch_bar p {
   text-align: left;
   color: white;
-  font-size: 1.16547em;
+  font-size: 1.16141em;
   font-style: italic;
   font-weight: 300;
   margin-bottom: 10px;

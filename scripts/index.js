@@ -35,7 +35,7 @@ window.addEventListener('load', e => {
     });
 
     //testimony sliders
-    const testimonies = [{
+    let testimonies = [{
         quote: 'Ahora la ciudadanía está más informada y puede cuidar de sí mismo para prevenir problemas de tipo respiratorio',
         name: 'Humberto Puertas',
         rol: 'Medico General'
@@ -61,6 +61,9 @@ window.addEventListener('load', e => {
         rol: 'Voluntario Eira'
     }];
 
+    testimonies = testimonies.reduce((a,v)=>a.splice(Math.floor(Math.random() * a.length), 0, v) && a, []);
+    testimonies = testimonies.slice(0,3);
+
     const testomny = document.querySelector('.testimony');
     var tickMarks = document.querySelector('.tickMarks'), count = 0;
     let time = testomny ? setInterval(interval, 5000) : undefined;
@@ -77,7 +80,6 @@ window.addEventListener('load', e => {
 
     function createTickMarks() {
         tickMarks.innerHTML = '';
-
         testimonies.forEach((e, index) => {
             let mark = document.createElement('div');
             mark.onclick = e => mark_onclick(index);
@@ -98,3 +100,17 @@ window.addEventListener('load', e => {
         setTestimony(testimonies[count])
     }
 })
+
+/*
+*Faltó cambiar las fotos del banner del primer landing y el de voluntarios, que  no salga siempre la misma foto.
+
+*En el mapa es posible que solo salgan direcciones de Cali? (Como para acomodar luego)
+
+*Complementar la info de lo que sale en que cada zona. Que diga como esta la calidad del aire en esa zona y la recomendación. Como está en el figma. Yo te ayudo buscando más metáforas para utilizar
+
+*El texto del paso 2 hay que cambiar especificando los lugares donde se puede acercar y que en el perfil no hay ningún identificador entonces hay que acomodar eso.
+
+*Lo de beneficios de ley hay que añadirle lo que está en el figma para que el usuario vea la info sin necesidad de dar click al botón.
+
+*Lo de donar sensor, escribir el texto del figma que hace énfasis en que esa opción es para las empresas.
+*/

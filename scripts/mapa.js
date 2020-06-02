@@ -110,8 +110,8 @@ leyenda.innerHTML = `${createLeyends()}`;
 
 function createLeyends() {
     let str = '';
-    scale.forEach( (e,i) => {
-        str += i>0 ? `<div class='row'><p>${e.name}</p><div style='background-color: ${e.col};'></div></div>` : '';
+    scale.forEach((e, i) => {
+        str += i > 0 ? `<div class='row'><p>${e.name}</p><div style='background-color: ${e.col};'></div></div>` : '';
     })
     return str;
 }
@@ -123,7 +123,7 @@ map.on('load', function () {
         'data': 'utils/dataCali.json'
     });
 
-    scale.forEach((e,index) => index>0 && map.addLayer(hv(e.col, index+1), 'waterway-label'));
+    scale.forEach((e, index) => index > 0 && map.addLayer(hv(e.col, index + 1), 'waterway-label'));
 
     map.addLayer({
         'id': 'airQuality-circles',
@@ -207,7 +207,7 @@ map.on('load', function () {
 
     function hv(col, val) {
         return {
-            'id': 'earthquakes-heat'+val,
+            'id': 'earthquakes-heat' + val,
             'type': 'heatmap',
             'source': 'earthquakes',
             'maxzoom': 20,
@@ -221,7 +221,7 @@ map.on('load', function () {
                 [
                     "<",
                     ["get", "mag"],
-                    val+1
+                    val + 1
                 ]
             ],
             'paint': {
@@ -289,5 +289,49 @@ map.on('load', function () {
             }
         }
     }
-
 });
+
+window.addEventListener('load', w => {
+    var a = new Date();
+    var dat = a.getDay() + ' /' + a.getMonth() + ' /' + a.getFullYear();
+    date_today.innerText = dat;
+
+    function getImg(toClose) {
+        let img = document.createElement('img');
+        img.classList.add('close');
+        img.src = toClose ? "./images/close.svg" : "./images/community/up_rank.svg";
+        img.onclick = toClose ? closeGenRec : openGenRec;
+        return img;
+    }
+
+    function closeGenRec() {
+        gen_rec.innerHTML = `<div class="row_color"></div>
+        <div class="row" id='row_xclose'>
+            <p id="date_today">${dat}</p>
+        </div>`;
+        let row = document.querySelector('#row_xclose');
+        row.appendChild(getImg())
+    }
+
+    function openGenRec() {
+        gen_rec.innerHTML = `<div class="row_color"></div>
+        <div class="row" id='row_xclose'>
+            <p id="date_today">${dat}</p>
+        </div>
+
+        <h5 class='title'>Recomendaciones</h5>
+
+        <ul class="desc">
+            <li>Evitar la exposición en las zonas del oriente de la ciudad, si vive en esta zona, evite abrir ventaas y puertas.</li>
+            <li>En estos momentos parte del sur de la ciudad tiene un índice de calidad del aire bueno. Se puede transitar por la zona sin ninguna restricción</li>
+            <li>Hacer uso de tapabocas si debe transitar por las zonas afectadas</li>
+            <li>Los horarios pico son los momentos de mayor riesgo. Tomar rutas alternas a las zonas de alta contaminación</li>
+        </ul>`;
+        let row = document.querySelector('#row_xclose');
+        row.appendChild(getImg(true))
+    }
+
+    var gen_rec = document.querySelector('.gen_rec');
+    x_close_gen_Rec.onclick = closeGenRec;
+
+})
