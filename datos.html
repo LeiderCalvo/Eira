@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eira</title>
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+
+<body>
+    <iframe id='if_log' src="log.html" frameborder="0"></iframe>
+    <nav class="row">
+        <a href='index.html'><img src="images/eira_blue.svg" alt="logo"></a>
+        <div>
+            <a href="mapa.html">Mapa en tiempo real</a>
+            <a href="voluntario.html">Ser voluntario</a>
+            <a href="empresas.html">Para empresas</a>
+            <a href="donacion.html">Haz una donación</a>
+            <a href="datos.html" class="selected">Datos históricos</a>
+            <a href="comunidad.html">Nuestra comunidad</a>
+            <div id='init_sesion' class="log">Iniciar sesión</div>
+        </div>
+    </nav>
+    <div id="description">
+        <h5>Datos generales</h5>
+        <p>Te presentamos un resumen de los datos recolectados durante el desarrollo del proyecto EIRA, de modo que
+            puedas ver de primera mano el impacto que el proyecto está generando en la ciudad.</p>
+    </div>
+
+    <div class="row sub_nav">
+        <button class="selected">Datos generales</button>
+        <button>Mapa interactivo</button>
+        <button>Reporte histórico</button>
+    </div>
+
+    <div id="dashboard">
+        <div class="row">
+            <div id="vis"></div>
+            <div>
+
+            </div>
+        </div>
+    </div>
+    <script src="scripts/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.12.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.13.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.8.0"></script>
+    <script type="text/javascript">
+        var yourVlSpec = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "title": "Número y tipo de medicones de calidad del aire",
+            "data": {
+                "url": "utils/dataCali.son"
+            },
+            "vconcat": [
+                {
+                    "encoding": {
+                        "color": {
+                            "condition": {
+                                "title": "Tipo de contaminante",
+                                "field": "contaminante",
+                                "scale": {
+                                    "domain": ["pm25", "pm10", "co2", "ICA"],
+                                    "range": ["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4"]
+                                },
+                                "selection": "brush",
+                                "type": "nominal"
+                            },
+                            "value": "lightgray"
+                        },
+                        "size": {
+                            "title": "magnitud",
+                            "field": "mag",
+                            "scale": { "domain": [-1, 50] },
+                            "type": "quantitative"
+                        },
+                        "x": {
+                            "axis": { "title": "fecha", "format": "%b" },
+                            "field": "time",
+                            "timeUnit": "monthdate",
+                            "type": "temporal"
+                        },
+                        "y": {
+                            "axis": { "title": "Medición estandariazda" },
+                            "field": "mag",
+                            "scale": { "domain": [-1, 1] },
+                            "type": "quantitative"
+                        }
+                    },
+                    "width": 600,
+                    "height": 300,
+                    "mark": "point",
+                    "selection": { "brush": { "encodings": ["x"], "type": "interval" } },
+                    "transform": [{ "filter": { "selection": "click" } }]
+                },
+                {
+                    "encoding": {
+                        "color": {
+                            "condition": {
+                                "field": "contaminante",
+                                "scale": {
+                                    "domain": ["pm25", "pm10", "co2", "ICA"],
+                                    "range": ["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4"]
+                                },
+                                "selection": "click",
+                                "type": "nominal"
+                            },
+                            "value": "lightgray"
+                        },
+                        "x": { "aggregate": "count", "type": "quantitative" },
+                        "y": { "title": "tipo de contaminante", "field": "contaminante", "type": "nominal" }
+                    },
+                    "width": 600,
+                    "mark": "bar",
+                    "selection": { "click": { "encodings": ["color"], "type": "multi" } },
+                    "transform": [{ "filter": { "selection": "brush" } }]
+                }
+            ]
+        };
+        vegaEmbed('#vis', yourVlSpec);
+    </script>
+
+</body>
+
+</html>

@@ -110,7 +110,4 @@ window.addEventListener('load', e => {
 
 *El texto del paso 2 hay que cambiar especificando los lugares donde se puede acercar y que en el perfil no hay ningún identificador entonces hay que acomodar eso.
 
-*Lo de beneficios de ley hay que añadirle lo que está en el figma para que el usuario vea la info sin necesidad de dar click al botón.
-
-*Lo de donar sensor, escribir el texto del figma que hace énfasis en que esa opción es para las empresas.
 */
