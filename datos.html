@@ -49,20 +49,30 @@
     <script type="text/javascript">
         var yourVlSpec = {
             "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-            "title": "Número y tipo de medicones de calidad del aire",
-            "data": {
-                "url": "utils/dataCali.son"
+            "autosize": {
+                "resize": true
             },
+            "title": "Número y tipo de medicones de calidad del aire (mayo 24 a junio 06 - 2020)",
+            "data": {
+                "url": "utils/dataCali.json",
+                //"url": "utils/result.csv",
+                "format": {
+                    "property": "features"
+                }
+            },
+            "transform": [
+                {"calculate": "(datum.properties.mag-2)/(7-2)", "as": "properties.mag2"}
+            ],
             "vconcat": [
                 {
                     "encoding": {
                         "color": {
                             "condition": {
                                 "title": "Tipo de contaminante",
-                                "field": "contaminante",
+                                "field": "properties.contaminante",
                                 "scale": {
                                     "domain": ["pm25", "pm10", "co2", "ICA"],
-                                    "range": ["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4"]
+                                    "range": ["#e7ba52", "#aec7e8", "#1f77b4", "#9467bd"]
                                 },
                                 "selection": "brush",
                                 "type": "nominal"
@@ -71,37 +81,41 @@
                         },
                         "size": {
                             "title": "magnitud",
-                            "field": "mag",
-                            "scale": { "domain": [-1, 50] },
+                            "field": "properties.mag2",
+                            //"scale": { "domain": [2, 7] },
                             "type": "quantitative"
                         },
                         "x": {
-                            "axis": { "title": "fecha", "format": "%b" },
-                            "field": "time",
-                            "timeUnit": "monthdate",
-                            "type": "temporal"
+                            "axis": { "title": "fecha", "format": "%d"},
+                            "field": "properties.time",
+                            "timeUnit": "monthdatehours",
+                            //"scale": {"domain": [1590267191397, 1591476791397}                           
+                            "type": "temporal",
+                            //"type": "quantitative"
                         },
                         "y": {
-                            "axis": { "title": "Medición estandariazda" },
-                            "field": "mag",
-                            "scale": { "domain": [-1, 1] },
-                            "type": "quantitative"
+                            "axis": { "title": "Medición estandariazda"},
+                            "field": "properties.mag2",
+                            "scale": { "domain": [0, 1] },
+                            "type": "quantitative",
+                            //"stack":  "normalize"
                         }
                     },
                     "width": 600,
                     "height": 300,
                     "mark": "point",
-                    "selection": { "brush": { "encodings": ["x"], "type": "interval" } },
+                    "selection": { "brush": { "encodings": ["y"], "type": "interval" } },
+                    //"selection": { "brush": {"type": "interval" } },
                     "transform": [{ "filter": { "selection": "click" } }]
                 },
                 {
                     "encoding": {
                         "color": {
                             "condition": {
-                                "field": "contaminante",
+                                "field": "properties.contaminante",
                                 "scale": {
                                     "domain": ["pm25", "pm10", "co2", "ICA"],
-                                    "range": ["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4"]
+                                    "range": ["#e7ba52", "#aec7e8", "#1f77b4", "#9467bd"]
                                 },
                                 "selection": "click",
                                 "type": "nominal"
@@ -109,7 +123,7 @@
                             "value": "lightgray"
                         },
                         "x": { "aggregate": "count", "type": "quantitative" },
-                        "y": { "title": "tipo de contaminante", "field": "contaminante", "type": "nominal" }
+                        "y": { "title": "tipo de contaminante", "field": "properties.contaminante", "type": "nominal" }
                     },
                     "width": 600,
                     "mark": "bar",
