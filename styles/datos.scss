@@ -12,6 +12,18 @@ body{
     margin: 20px 30px;
     padding: 20px;
     border-radius: 10px;
+    .row{
+        p{margin-top: 10px; width: 80%;}
+        a {
+            width: 25%;
+            button{
+                width: 100%;
+                color: $hard-blue;
+                background-color: white;
+
+            }
+        }
+    }
 }
 
 .sub_nav{
