@@ -1,0 +1,118 @@
+body {
+  background-color: #F3F6F6;
+}
+
+#description {
+  background-image: url("../images/datos/descrp0.svg");
+  background-position: center;
+  background-size: cover;
+  margin: 20px 30px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#description * {
+  color: white;
+}
+
+.sub_nav {
+  margin: 0 15% 30px;
+}
+
+.sub_nav button {
+  color: #094067;
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.sub_nav .selected {
+  color: white;
+  background-color: #094067;
+}
+
+#dashboard {
+  height: 85vh;
+  margin: 0 30px 30px;
+}
+
+#dashboard .row {
+  height: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+#dashboard .row .med, #dashboard .row section > div {
+  padding: 20px;
+  -webkit-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  background-color: white;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+#dashboard .row .med:hover, #dashboard .row section > div:hover {
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+#dashboard .row .med {
+  width: 67%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+#dashboard .row .med #mediciones {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  width: 75%;
+  height: 100%;
+  padding: 0;
+}
+
+#dashboard .row section {
+  width: 30%;
+}
+
+#dashboard .row section #vinculados {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#dashboard .row section #kms {
+  width: 100%;
+  margin-bottom: 20px;
+}
+/*# sourceMappingURL=datos.css.map */

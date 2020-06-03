@@ -1,0 +1,74 @@
+@import '../utils/vars';
+
+body{
+    background-color: $soft-gray;
+}
+
+#description{
+    background-image: url('../images/datos/descrp0.svg');
+    background-position: center;
+    background-size: cover;
+    *{color: white;}
+    margin: 20px 30px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.sub_nav{
+    margin: 0 15% 30px;
+    button{
+        color: $hard-blue;
+        background-color: white;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .selected{
+        color: white;
+        background-color: $hard-blue;
+    }
+}
+
+#dashboard{
+    height: 85vh;
+    margin: 0 30px 30px;
+
+    .row{
+        height: 100%;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .med, section>div{
+            padding: 20px;
+            @include box-shadow();
+            background-color: white;
+            border-radius: 20px;
+            @include center();
+        }
+
+        .med {
+            width: 67%;
+            height: 100%;
+            @include center();
+            #mediciones{
+                @include center();
+                width: 75%;
+                height: 100%;
+                padding: 0;
+            }
+        }
+
+        section{
+            width: 30%;
+            #vinculados{
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            #kms{
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}

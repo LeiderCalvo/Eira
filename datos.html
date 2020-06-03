@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eira</title>
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/datos.css">
 </head>
 
 <body>
@@ -36,10 +37,13 @@
 
     <div id="dashboard">
         <div class="row">
-            <div id="vis"></div>
-            <div>
-
+            <div class="med">
+                <div id="mediciones"></div>
             </div>
+            <section>
+                <div id="vinculados"></div>
+                <div id="kms"></div>
+            </section>
         </div>
     </div>
     <script src="scripts/index.js"></script>
@@ -47,28 +51,30 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.13.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.8.0"></script>
     <script type="text/javascript">
-        var yourVlSpec = {
+        var mediciones = {
             "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-            "autosize": {
-                "resize": true
-            },
+            /*"autosize": {
+                "type": "fit",
+                //"resize": true,
+                "contains": "padding"
+            },*/
             "title": "Número y tipo de medicones de calidad del aire (mayo 24 a junio 06 - 2020)",
             "data": {
                 "url": "utils/dataCali.json",
-                //"url": "utils/result.csv",
                 "format": {
                     "property": "features"
                 }
             },
             "transform": [
-                {"calculate": "(datum.properties.mag-2)/(7-2)", "as": "properties.mag2"}
+                { "calculate": "(datum.properties.mag-2)/(7-2)", "as": "properties.mag2" }
             ],
             "vconcat": [
                 {
+                    "width": "container",
                     "encoding": {
                         "color": {
                             "condition": {
-                                "title": "Tipo de contaminante",
+                                "title": "Contaminante",
                                 "field": "properties.contaminante",
                                 "scale": {
                                     "domain": ["pm25", "pm10", "co2", "ICA"],
@@ -80,35 +86,29 @@
                             "value": "lightgray"
                         },
                         "size": {
-                            "title": "magnitud",
+                            "title": "Magnitud",
                             "field": "properties.mag2",
-                            //"scale": { "domain": [2, 7] },
                             "type": "quantitative"
                         },
                         "x": {
-                            "axis": { "title": "fecha", "format": "%d"},
+                            "axis": { "title": "fecha", "format": "%d" },
                             "field": "properties.time",
                             "timeUnit": "monthdatehours",
-                            //"scale": {"domain": [1590267191397, 1591476791397}                           
                             "type": "temporal",
-                            //"type": "quantitative"
                         },
                         "y": {
-                            "axis": { "title": "Medición estandariazda"},
+                            "axis": { "title": "Medición estandariazda" },
                             "field": "properties.mag2",
                             "scale": { "domain": [0, 1] },
-                            "type": "quantitative",
-                            //"stack":  "normalize"
+                            "type": "quantitative"
                         }
                     },
-                    "width": 600,
-                    "height": 300,
                     "mark": "point",
                     "selection": { "brush": { "encodings": ["y"], "type": "interval" } },
-                    //"selection": { "brush": {"type": "interval" } },
                     "transform": [{ "filter": { "selection": "click" } }]
                 },
                 {
+                    "width": "container",
                     "encoding": {
                         "color": {
                             "condition": {
@@ -125,14 +125,76 @@
                         "x": { "aggregate": "count", "type": "quantitative" },
                         "y": { "title": "tipo de contaminante", "field": "properties.contaminante", "type": "nominal" }
                     },
-                    "width": 600,
                     "mark": "bar",
                     "selection": { "click": { "encodings": ["color"], "type": "multi" } },
                     "transform": [{ "filter": { "selection": "brush" } }]
                 }
             ]
         };
-        vegaEmbed('#vis', yourVlSpec);
+        vegaEmbed('#mediciones', mediciones);
+
+        var vinculados = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "title": "Cantidad de vinculados",
+            "data": {
+                "values": [
+                    { "Activity": "Empresas", "amoung": 2 },
+                    { "Activity": "Voluntarios", "amoung": 8 }
+                ]
+            },
+            "height": { "step": 40 },
+            "mark": "bar",
+            "encoding": {
+                "x": { "field": "amoung", "type": "quantitative", "title": null },
+                "y": { "field": "Activity", "type": "nominal", "sort": "-x", "title": null }
+            }
+        }
+        vegaEmbed('#vinculados', vinculados);
+
+        let arr = [...new Array(500)].map(e => { return {"dist": Math.ceil(Math.random() * (30 - 5) + 5 )}});
+        var kilometros = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "title": "Cantidad total de kilometros recorridos",
+            "data": {
+                "values": arr
+            },
+            "transform": [{
+                "bin": true,
+                "field": "dist",
+                "as": "bin_IMDB_Rating"
+            }, {
+                "aggregate": [{ "op": "count", "as": "count" }],
+                "groupby": ["bin_IMDB_Rating", "bin_IMDB_Rating_end"]
+            }, {
+                "filter": "datum.bin_IMDB_Rating !== null"
+            }, {
+                "sort": [{ "field": "bin_IMDB_Rating" }],
+                "window": [{ "op": "sum", "field": "count", "as": "cumulative_count" }],
+                "frame": [null, 0]
+            }],
+            "encoding": {
+                "x": {
+                    "field": "bin_IMDB_Rating", "type": "quantitative",
+                    "scale": { "zero": false },
+                    "title": "kilometros por viaje"
+                },
+                "x2": { "field": "bin_IMDB_Rating_end" }
+            },
+            "layer": [{
+                "mark": "bar",
+                "encoding": {
+                    "y": { "field": "cumulative_count", "type": "quantitative", "title": "kilometros acumulados"}
+                }
+            }, {
+                "mark": { "type": "bar", "color": "yellow", "opacity": 0.5 },
+                "encoding": {
+                    "y": { "field": "count", "type": "quantitative" }
+                }
+            }]
+        }
+
+        vegaEmbed('#kms', kilometros);
+
     </script>
 
 </body>
