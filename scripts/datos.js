@@ -119,5 +119,32 @@ window.onload = e => {
             }
         });
     });
+
+    filterCont.addEventListener('change', e => {
+        let conta = e.target.value;
+
+        map.setLayerZoomRange('airQuality-circles', 8, 30);
+
+        idLayers.forEach(idLayer => map.setFilter(idLayer, 
+            
+                [
+                    "match",
+                    ["get", "contaminante"],
+                    conta,
+                    true,
+                    false
+                ]
+        ) );
+
+        idLayers.forEach(function (a, index) {
+            if(index > 0){
+                map.setLayoutProperty(
+                    a,
+                    'visibility',
+                    'none'
+                );
+            }
+        });
+    })
 }
 

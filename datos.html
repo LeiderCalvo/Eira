@@ -110,6 +110,13 @@
         <p>Aquellas zonas que se encuentran en gris, no han sido monitoreadas hasta el día de hoy.</p>
         <input type="range" id="filterEl" min='2' max='6'>
         <input type="range" id="filterDay" min='1590267191397' max='1591476791397' step="86400000">
+        <select id="filterCont">
+            <option value="" hidden>Selccione</option>
+            <option value="ICA">ICA</option>
+            <option value="pm25">Pm2.5</option>
+            <option value="pm10">Pm10</option>
+            <option value="co2">Co2</option>
+        </select>
         <div id='map'></div>
 
         <!-- --><div class="gen_rec">
