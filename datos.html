@@ -39,7 +39,8 @@
         <div class="row">
             <div class="med">
                 <h5>Número y tipo de medicones de calidad del aire (mayo 24 a junio 06 - 2020)</h5>
-                <p>Interactua con la gráfica para obtener resultados más acordes a tu búsqueda. Selecciona contaminantes o niveles de interes</p>
+                <p>Interactua con la gráfica para obtener resultados más acordes a tu búsqueda. Selecciona contaminantes
+                    o niveles de interes</p>
                 <div id="mediciones"></div>
             </div>
             <section>
@@ -74,6 +75,9 @@
                     </div>
                 </div>
             </section>
+        </div>
+        <div class="descri">
+            <div id="describers"></div>
         </div>
     </div>
     <script src="scripts/index.js"></script>
@@ -123,7 +127,7 @@
                         "x": {
                             "axis": { "title": "fecha", "format": "%d" },
                             "field": "properties.time",
-                            "timeUnit": "monthdatehours",
+                            //"timeUnit": "monthdatehours",
                             "type": "temporal",
                         },
                         "y": {
@@ -134,7 +138,7 @@
                         }
                     },
                     "mark": "point",
-                    "selection": { "brush": { "encodings": ["y"], "type": "interval" } },
+                    "selection": { "brush": { "encodings": ["x"], "type": "interval" } },
                     "transform": [{ "filter": { "selection": "click" } }]
                 },
                 {
@@ -181,7 +185,7 @@
         }
         vegaEmbed('#vinculados', vinculados);
 
-        let arr = [...new Array(500)].map(e => { return {"dist": Math.ceil(Math.random() * (30 - 5) + 5 )}});
+        let arr = [...new Array(500)].map(e => { return { "dist": Math.ceil(Math.random() * (30 - 5) + 5) } });
         var kilometros = {
             "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
             "data": {
@@ -212,7 +216,7 @@
             "layer": [{
                 "mark": "bar",
                 "encoding": {
-                    "y": { "field": "cumulative_count", "type": "quantitative", "title": "kilometros acumulados"}
+                    "y": { "field": "cumulative_count", "type": "quantitative", "title": "kilometros acumulados" }
                 }
             }, {
                 "mark": { "type": "bar", "color": "yellow", "opacity": 0.5 },
@@ -221,9 +225,94 @@
                 }
             }]
         }
-
         vegaEmbed('#kms', kilometros);
 
+        var describers = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "data": {
+                "url": "utils/dataCali.json",
+                "format": {
+                    "property": "features"
+                }
+            },
+            "transform": [
+                { "calculate": "(datum.properties.mag-2)/(7-2)", "as": "properties.mag2" }
+            ],
+            "width": 1100,
+            "height": 300,
+            "layer": [
+                {
+                    "encoding": {
+                        "x": { "field": "properties.time", "type": "temporal", //"timeUnit": "hoursminutes",
+                        "title": "Horas del día"
+                        },
+                        "y": { "field": "properties.mag2", "type": "quantitative" },
+                        "color": { "field": "properties.contaminante", "type": "nominal" }
+                    },
+                    "layer": [
+                        { "mark": "line" },
+                        {
+                            "selection": {
+                                "label": {
+                                    "type": "single",
+                                    "nearest": true,
+                                    "on": "mouseover",
+                                    "encodings": ["x"],
+                                    "empty": "none"
+                                }
+                            },
+                            "mark": "point",
+                            "encoding": {
+                                "opacity": {
+                                    "condition": { "selection": "label", "value": 1 },
+                                    "value": 0
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "transform": [{ "filter": { "selection": "label" } }],
+                    "layer": [
+                        {
+                            "mark": { "type": "rule", "color": "gray" },
+                            "encoding": {
+                                "x": { "type": "temporal", "timeUnit": "hoursminutes", 
+                                "field": "properties.time", "aggregate": "min" }
+                            }
+                        },
+                        {
+                            "encoding": {
+                                "text": { "type": "quantitative", "field": "properties.mag2" },
+                                "x": { "type": "temporal", //"timeUnit": "hoursminutes",
+                                "field": "properties.time" },
+                                "y": { "type": "quantitative", "field": "properties.mag2" }
+                            },
+                            "layer": [
+                                {
+                                    "mark": {
+                                        "type": "text",
+                                        "stroke": "white",
+                                        "strokeWidth": 2,
+                                        "align": "left",
+                                        "dx": 5,
+                                        "dy": -5
+                                    }
+                                },
+                                {
+                                    "mark": { "type": "text", "align": "left", "dx": 5, "dy": -5 },
+                                    "encoding": {
+                                        "color": { "type": "nominal", "field": "properties.contaminante" }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+
+        vegaEmbed('#describers', describers);
     </script>
 
 </body>
