@@ -46,24 +46,15 @@ body {
   background-color: #094067;
 }
 
-#dashboard {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  margin: 0 30px 30px;
+.dash {
+  display: none;
 }
 
-#dashboard .row {
-  height: 100%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+.visible {
+  display: block;
 }
 
-#dashboard .row .med, #dashboard .row section > div {
+.cont {
   padding: 10px 20px;
   -webkit-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
@@ -83,25 +74,32 @@ body {
   text-align: center;
 }
 
-#dashboard .row .med:hover, #dashboard .row section > div:hover {
+.cont:hover {
   -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+#dashboard {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 0 30px 30px;
+}
+
+#dashboard .row {
+  height: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 #dashboard .row .med {
   width: 67%;
   height: 100%;
   padding: 100px 20px 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -156,16 +154,6 @@ body {
 
 #dashboard .row section .vin {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -189,16 +177,6 @@ body {
 
 #dashboard .row section .kmss {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -261,31 +239,10 @@ body {
   margin-top: 30px;
   width: 100%;
   padding: 30px 20px;
-  -webkit-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  background-color: white;
-  border-radius: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-#dashboard .descri:hover {
-  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 #dashboard .descri h5 {
@@ -340,5 +297,25 @@ body {
   width: 15px;
   height: 15px;
   content: '';
+}
+
+.dash:not(#dashboard) {
+  margin: 0 30px 30px;
+}
+
+.dash:not(#dashboard) #map {
+  width: 100%;
+}
+
+#mapa {
+  position: relative;
+}
+
+#mapa .gen_rec {
+  bottom: 20px;
+}
+
+#mapa .gen_rec #date_today {
+  opacity: 0;
 }
 /*# sourceMappingURL=datos.css.map */

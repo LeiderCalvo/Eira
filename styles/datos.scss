@@ -41,6 +41,22 @@ body{
     }
 }
 
+.dash{
+    display: none;
+}
+
+.visible{
+    display: block;
+}
+
+.cont{
+    padding: 10px 20px;
+    @include box-shadow();
+    background-color: white;
+    border-radius: 20px;
+    @include center();
+}
+
 #dashboard{
     height: fit-content;
     margin: 0 30px 30px;
@@ -50,19 +66,10 @@ body{
         justify-content: space-between;
         align-items: flex-start;
 
-        .med, section>div{
-            padding: 10px 20px;
-            @include box-shadow();
-            background-color: white;
-            border-radius: 20px;
-            @include center();
-        }
-
         .med {
             width: 67%;
             height: 100%;
             padding: 100px 20px 40px;
-            @include center();
             flex-direction: column;
             position: relative;
             h5{
@@ -94,7 +101,6 @@ body{
 
             .vin {
                 width: 100%;
-                @include center();
                 flex-direction: column;
                 position: relative;
                 padding-top: 40px;
@@ -113,7 +119,6 @@ body{
 
             .kmss {
                 width: 100%;
-                @include center();
                 flex-direction: column;
                 position: relative;
                 padding-top: 40px;
@@ -150,10 +155,6 @@ body{
         margin-top: 30px;
         width: 100%;
         padding: 30px 20px;
-        @include box-shadow();
-        background-color: white;
-        border-radius: 20px;
-        @include center();
         flex-direction: column;
 
         h5{
@@ -185,5 +186,20 @@ body{
             height: 15px;
             content: '';
         }
+    }
+}
+
+.dash:not(#dashboard){
+    margin: 0 30px 30px;
+    #map{
+        width: 100%;
+    }
+}
+
+#mapa{
+    position: relative;
+    .gen_rec{
+        bottom: 20px;
+        #date_today{opacity: 0;}
     }
 }

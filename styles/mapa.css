@@ -1,25 +1,25 @@
-body {
+.body_map {
   overflow-y: hidden;
   overflow-y: auto;
 }
 
-body:hover {
+.body_map:hover {
   overflow-y: auto;
 }
 
-body::-webkit-scrollbar {
+.body_map::-webkit-scrollbar {
   width: 7px;
 }
 
-body::-webkit-scrollbar-track {
+.body_map::-webkit-scrollbar-track {
   background: #fff;
 }
 
-body::-webkit-scrollbar-thumb {
+.body_map::-webkit-scrollbar-thumb {
   background: #3da9fcaf;
 }
 
-body::-webkit-scrollbar-thumb:hover {
+.body_map::-webkit-scrollbar-thumb:hover {
   background: #3da9fc;
 }
 

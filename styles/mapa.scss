@@ -1,6 +1,6 @@
 @import '../utils/vars';
 
-body{
+.body_map{
     @include scrollBar();
     overflow-y: auto;
 }

@@ -5,11 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eira</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/mapa.css">
     <link rel="stylesheet" href="styles/datos.css">
 </head>
 
 <body>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css" />
+    <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+
+
     <iframe id='if_log' src="log.html" frameborder="0"></iframe>
     <nav class="row">
         <a href='index.html'><img src="images/eira_blue.svg" alt="logo"></a>
@@ -27,36 +37,37 @@
         <div class="row">
             <div>
                 <h5>Datos generales</h5>
-                <p>Te presentamos un resumen de los datos recolectados durante el desarrollo del proyecto EIRA, de modo que puedas ver de primera mano el impacto que el proyecto está generando en la ciudad.</p>
+                <p>Te presentamos un resumen de los datos recolectados durante el desarrollo del proyecto EIRA, de modo
+                    que puedas ver de primera mano el impacto que el proyecto está generando en la ciudad.</p>
             </div>
             <a href='utils/dataCali.json' download><button>Descargar Datos</button></a>
         </div>
     </div>
 
     <div class="row sub_nav">
-        <button class="selected">Datos generales</button>
-        <button>Mapa interactivo</button>
-        <button>Reporte histórico</button>
+        <button class="btn_sub_nav selected">Datos generales</button>
+        <button class="btn_sub_nav">Mapa interactivo</button>
+        <button class="btn_sub_nav">Reporte histórico</button>
     </div>
 
-    <div id="dashboard">
+    <div class="dash visible" id="dashboard">
         <div class="row">
-            <div class="med">
+            <div class="med cont">
                 <h5>Número y tipo de medicones de calidad del aire (mayo 24 a junio 06 - 2020)</h5>
                 <p>Interactua con la gráfica para obtener resultados más acordes a tu búsqueda. Selecciona contaminantes
                     o niveles de interes</p>
                 <div id="mediciones"></div>
             </div>
             <section>
-                <div class="vin">
+                <div class="vin cont">
                     <h6>Cantidad de Vinculados</h6>
                     <div id="vinculados"></div>
                 </div>
-                <div class="kmss">
+                <div class="kmss cont">
                     <h6>Total kms recorridos</h6>
                     <div id="kms"></div>
                 </div>
-                <div id="redes_cont">
+                <div id="redes_cont" class="cont">
                     <h6>Interacciones en redes sociales</h6>
                     <div class="redes">
                         <div class="red">
@@ -80,7 +91,7 @@
                 </div>
             </section>
         </div>
-        <div class="descri">
+        <div class="descri cont">
             <h5>Medicones de calidad del aire por hora (mayo 24 a junio 06 - 2020)</h5>
             <div id="describers"></div>
             <section id="leyen">
@@ -95,12 +106,38 @@
             </section>
         </div>
     </div>
+    <div class="dash visible" id="mapa">
+        <p>Aquellas zonas que se encuentran en gris, no han sido monitoreadas hasta el día de hoy.</p>
+        <input type="range" id="filterEl" min='2' max='6'>
+        <input type="range" id="filterDay" min='1590267191397' max='1591476791397' step="86400000">
+        <div id='map'></div>
+
+        <!-- --><div class="gen_rec">
+            <div class="row_color"></div>
+            <div class="row">
+                <p id="date_today">fecha de hoy</p>
+                <img src="./images/close.svg" alt="close" class="close" id='x_close_esp_Rec' />
+            </div>
+            <span id="x_close_gen_Rec"></span>
+
+            <h5 class='title'>¿Que vemos en el mapa?</h5>
+
+            <ul class="desc">
+                <li>En el norte, noroeste y noreste de Cali se han evidenciado los niveles más altos de contaminantes respecto a otros sectores de la ciudad.</li>
+                <li>Aún hay zonas de la ciudad sin mediciones y tú nos puedes ayudar a ofrecer más información.</li>
+                <li> Las horas pico son los momentos de mayor riesgo. Estas se dan en horarios entre las 6:00 a.m. y las 8:00 a.m. y entre las 5:30 p.m. y las 8:00 p.m.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="dash">Reporte</div>
+
     <script src="scripts/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5.12.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.13.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.8.0"></script>
     <script src="scripts/datos_plots.js"></script>
     <script src="scripts/datos.js"></script>
+    <script src="scripts/mapa.js"></script>
 </body>
 
 </html>

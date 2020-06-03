@@ -52,7 +52,7 @@ var mediciones = {
                 }
             },
             "mark": "point",
-            "selection": { "brush": { "encodings": ["x"], "type": "interval" } },
+            "selection": { "brush": { "type": "interval" } },
             "transform": [{ "filter": { "selection": "click" } }]
         },
         {
