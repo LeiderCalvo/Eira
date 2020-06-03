@@ -197,7 +197,48 @@
             </ul>
         </div>
     </div>
-    <div class="dash">Reporte</div>
+    <div class="dash visible" id="reporte">
+        <div class="cont">
+            <h5>¿Qué significa la información que estás viendo?</h5>
+            <div class="colums">
+                <section>
+                    <p>Índice de Calidad del Aire</p>
+                    <p class="desc">Va en una escala de 0 a 300. Entre mayor sea el índice, mayor es el nivel de contaminación.</p>
+                    <p class="desc dos">Actualmente te encuentras en una escala moderada. Debes tener precaución.</p>
+                </section>
+
+                <section>
+                    <p>PM 2.5</p>
+                    <p class="desc">Partículas generadas por vehículos a base de diesel de 2,5 micras de tamaño.</p>
+                    <p class="desc dos">El nivel actual de este contaminante es regular. Evita permanecer mucho tiempo expuesto en las calles.</p>
+                </section>
+
+                <section>
+                    <p>PM 10</p>
+                    <p class="desc">Contaminante de 10 micras de tamaño generado por actividades industriales.</p>
+                    <p class="desc dos">El nivel actual de este contaminante es regular. Evita permanecer mucho tiempo en zonas industriales.</p>
+                </section>
+
+                <section>
+                    <p>CO2</p>
+                    <p class="desc">Dióxido de carbono. En grandes cantidades puede ser perjudicial.</p>
+                    <p class="desc dos">El nivel actual puede llegar a ser riesgoso si te expones por más de 8 horas.</p>
+                </section>
+            </div>
+            <p>Los datos a continuación representan un promedio del último mes.</p>
+            <div id="boxplotica"></div>
+            <section id="leyen">
+                <div style="background-color: rgb(114,183,178);"></div>
+                <p>Pm2.5</p>
+                <div style="background-color: rgb(228,87,86);"></div>
+                <p>Pm10</p>
+                <div style="background-color: rgb(245,133,24);"></div>
+                <p>Co2</p>
+                <div style="background-color: rgb(76,120,168);"></div>
+                <p>ICA</p>
+            </section>
+        </div>
+    </div>
 
     <script src="scripts/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5.12.1"></script>

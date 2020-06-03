@@ -266,7 +266,7 @@ body {
   padding: 0;
 }
 
-#dashboard #leyen {
+#leyen {
   justify-self: flex-start;
   -ms-flex-item-align: start;
       align-self: flex-start;
@@ -287,13 +287,13 @@ body {
           align-items: center;
 }
 
-#dashboard #leyen p {
+#leyen p {
   font-size: 0.92913em;
   margin: 0 20px 0 10px;
   color: #094067;
 }
 
-#dashboard #leyen div {
+#leyen div {
   width: 15px;
   height: 15px;
   content: '';
@@ -413,6 +413,95 @@ body {
 
 #mapa .gen_rec #date_today {
   opacity: 0;
+}
+
+#reporte .cont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 30px 20px;
+}
+
+#reporte .cont > p {
+  margin: 20px 0;
+}
+
+#reporte .cont .colums {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#reporte .cont .colums section {
+  width: 23%;
+}
+
+#reporte .cont .colums section {
+  -webkit-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  padding: 20px;
+  border-radius: 20px;
+  height: 100%;
+}
+
+#reporte .cont .colums section:hover {
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+#reporte .cont .colums section :first-child {
+  font-weight: bolder;
+  color: #094067;
+  margin-bottom: 10px;
+}
+
+#reporte .cont .colums section .desc {
+  font-size: 0.92913em;
+  margin-bottom: 15px;
+}
+
+#reporte .cont .colums section .dos {
+  font-weight: bolder;
+}
+
+#reporte .cont #boxplotica {
+  width: 70%;
+  height: 300px;
+}
+
+#reporte .cont #leyen {
+  margin-top: 20px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 input[type=range] {

@@ -170,22 +170,23 @@ body{
         }
     }
 
-    #leyen{
-        justify-self: flex-start;
-        align-self: flex-start;
-        margin-left: 40px;
-        margin-bottom: 10px;
-        @include row();
-        p{
-            @include font-size(20);
-            margin: 0 20px 0 10px;
-            color: $hard-blue;
-        }
-        div{
-            width: 15px;
-            height: 15px;
-            content: '';
-        }
+}
+
+#leyen{
+    justify-self: flex-start;
+    align-self: flex-start;
+    margin-left: 40px;
+    margin-bottom: 10px;
+    @include row();
+    p{
+        @include font-size(20);
+        margin: 0 20px 0 10px;
+        color: $hard-blue;
+    }
+    div{
+        width: 15px;
+        height: 15px;
+        content: '';
     }
 }
 
@@ -276,6 +277,51 @@ body{
         #date_today{opacity: 0;}
     }
 }
+
+#reporte{
+    .cont{
+        @include colum();
+        padding: 30px 20px;
+        &>p{margin: 20px 0;}
+
+        .colums{
+            @include colums(4,2);
+            align-items: flex-start;
+            margin-top: 30px;
+            margin-bottom: 30px;
+
+            section{
+                @include box-shadow();
+                padding: 20px;
+                border-radius: 20px;
+                height: 100%;
+                :first-child{
+                    font-weight: bolder;
+                    color: $hard-blue;
+                    margin-bottom: 10px;
+                }
+                .desc{
+                    @include font-size(20);
+                    margin-bottom: 15px;
+                }
+                .dos{
+                    font-weight: bolder;
+                }
+            }
+        }
+
+        #boxplotica{
+            width: 70%;
+            height: 300px;
+        }
+
+        #leyen{
+            margin-top: 20px;
+            align-self: center;
+        }
+    }
+}
+
 
 
 input[type=range] {

@@ -86,8 +86,8 @@ var vinculados = {
     "width": "container",
     "data": {
         "values": [
-            { "Activity": "Empresas", "amoung": 2 },
-            { "Activity": "Voluntarios", "amoung": 8 }
+            { "Activity": "Empresas", "amoung": 45 },
+            { "Activity": "Voluntarios", "amoung": 120 }
         ]
     },
     "height": { "step": 40 },
@@ -275,3 +275,46 @@ var describers = {
 }
 
 vegaEmbed('#describers', describers);
+
+
+let boxplotica = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "width": "container",
+    "height": "container",
+    "data": {
+        "url": "utils/dataCali.json",
+        "format": {
+            "property": "features"
+        }
+    },
+    "transform": [
+        { "calculate": "(datum.properties.mag-2)/(7-2)", "as": "properties.mag2" }
+    ],
+    "mark": {
+        "type": "boxplot",
+        "extent": "min-max"
+    },
+    "encoding": {
+        "y": {
+            "field": "properties.contaminante",
+            "type": "nominal",
+            "title": null,
+            "legend": null
+        },
+        "x": {
+            "field": "properties.mag2",
+            "type": "quantitative",
+            "title": "Magnitud Normalizada",
+            "legend": null
+        },
+        "size": {"value": 20},
+        "color": {
+            "type": "nominal",
+            "field": "properties.contaminante",
+            "range": ["#e7ba52", "#aec7e8", "#1f77b4", "#9467bd"],
+            "legend": null
+        }
+    }
+}
+
+vegaEmbed('#boxplotica', boxplotica);
