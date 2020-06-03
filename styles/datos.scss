@@ -266,7 +266,7 @@ body{
         width: 100%;
     }
 
-    p{
+    &>p{
         margin: 20px 0;
         text-align: center;
         @include font-size(20);
@@ -274,7 +274,11 @@ body{
 
     .gen_rec{
         bottom: 20px;
-        #date_today{opacity: 0;}
+        .row img{
+            margin: 0;
+        }
+        span{padding: 0;}
+        #date_today{opacity: 0; margin: 0;}
     }
 }
 
