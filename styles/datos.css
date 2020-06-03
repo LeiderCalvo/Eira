@@ -32,7 +32,9 @@ body {
 }
 
 #dashboard {
-  height: 85vh;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   margin: 0 30px 30px;
 }
 
@@ -47,7 +49,7 @@ body {
 }
 
 #dashboard .row .med, #dashboard .row section > div {
-  padding: 20px;
+  padding: 10px 20px;
   -webkit-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
   -webkit-transition: 0.3s;
@@ -74,6 +76,7 @@ body {
 #dashboard .row .med {
   width: 67%;
   height: 100%;
+  padding: 100px 20px 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -84,6 +87,22 @@ body {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+#dashboard .row .med h5 {
+  position: absolute;
+  top: 30px;
+  width: 70%;
+}
+
+#dashboard .row .med p {
+  font-size: 0.92913em;
+  margin: 12px 0;
 }
 
 #dashboard .row .med #mediciones {
@@ -104,15 +123,122 @@ body {
 
 #dashboard .row section {
   width: 30%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
 }
 
-#dashboard .row section #vinculados {
+#dashboard .row section .vin {
   width: 100%;
-  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  padding-top: 40px;
+  margin-bottom: 5px;
 }
 
-#dashboard .row section #kms {
+#dashboard .row section .vin h6 {
+  position: absolute;
+  top: 10px;
+  width: 90%;
+  font-size: 1.02204em;
+}
+
+#dashboard .row section .vin #vinculados {
   width: 100%;
-  margin-bottom: 20px;
+  padding: 0;
+}
+
+#dashboard .row section .kmss {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  padding-top: 40px;
+  margin-bottom: 5px;
+}
+
+#dashboard .row section .kmss h6 {
+  position: absolute;
+  top: 10px;
+  width: 90%;
+  font-size: 1.02204em;
+}
+
+#dashboard .row section .kmss #kms {
+  width: 100%;
+  padding: 0;
+}
+
+#dashboard .row section #redes_cont {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#dashboard .row section #redes_cont h6 {
+  font-size: 1.02204em;
+}
+
+#dashboard .row section #redes_cont .redes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+#dashboard .row section #redes_cont .redes .red {
+  width: 23%;
+}
+
+#dashboard .row section #redes_cont .redes .red img {
+  width: 40px;
 }
 /*# sourceMappingURL=datos.css.map */

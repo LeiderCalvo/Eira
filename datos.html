@@ -38,11 +38,41 @@
     <div id="dashboard">
         <div class="row">
             <div class="med">
+                <h5>Número y tipo de medicones de calidad del aire (mayo 24 a junio 06 - 2020)</h5>
+                <p>Interactua con la gráfica para obtener resultados más acordes a tu búsqueda. Selecciona contaminantes o niveles de interes</p>
                 <div id="mediciones"></div>
             </div>
             <section>
-                <div id="vinculados"></div>
-                <div id="kms"></div>
+                <div class="vin">
+                    <h6>Cantidad de Vinculados</h6>
+                    <div id="vinculados"></div>
+                </div>
+                <div class="kmss">
+                    <h6>Total kms recorridos</h6>
+                    <div id="kms"></div>
+                </div>
+                <div id="redes_cont">
+                    <h6>Interacciones en redes sociales</h6>
+                    <div class="redes">
+                        <div class="red">
+                            <img src="images/datos/twiteer.svg" alt="">
+                            <p>205</p>
+                        </div>
+                        <div class="red">
+                            <img src="images/datos/facebook.svg" alt="">
+                            <p>197</p>
+                        </div>
+                        <div class="red">
+                            <img src="images/datos/ig.svg" alt="">
+                            <p>223</p>
+                        </div>
+                        <div class="red">
+                            <img src="images/datos/youtube.svg" alt="">
+                            <p>56</p>
+                        </div>
+
+                    </div>
+                </div>
             </section>
         </div>
     </div>
@@ -58,7 +88,7 @@
                 //"resize": true,
                 "contains": "padding"
             },*/
-            "title": "Número y tipo de medicones de calidad del aire (mayo 24 a junio 06 - 2020)",
+            //"title": "Número y tipo de medicones de calidad del aire (mayo 24 a junio 06 - 2020)",
             "data": {
                 "url": "utils/dataCali.json",
                 "format": {
@@ -135,7 +165,7 @@
 
         var vinculados = {
             "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-            "title": "Cantidad de vinculados",
+            "width": "container",
             "data": {
                 "values": [
                     { "Activity": "Empresas", "amoung": 2 },
@@ -154,7 +184,6 @@
         let arr = [...new Array(500)].map(e => { return {"dist": Math.ceil(Math.random() * (30 - 5) + 5 )}});
         var kilometros = {
             "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-            "title": "Cantidad total de kilometros recorridos",
             "data": {
                 "values": arr
             },
