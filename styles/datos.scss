@@ -133,4 +133,45 @@ body{
             }
         }
     }
+
+    .descri{
+        margin-top: 30px;
+        width: 100%;
+        padding: 30px 20px;
+        @include box-shadow();
+        background-color: white;
+        border-radius: 20px;
+        @include center();
+        flex-direction: column;
+
+        h5{
+            width: 70%;
+            margin-bottom: 10px;
+        }
+        
+        #describers{
+            @include center();
+            width: 100%;
+            height: 100%;
+            padding: 0;
+        }
+    }
+
+    #leyen{
+        justify-self: flex-start;
+        align-self: flex-start;
+        margin-left: 40px;
+        margin-bottom: 10px;
+        @include row();
+        p{
+            @include font-size(20);
+            margin: 0 20px 0 10px;
+            color: $hard-blue;
+        }
+        div{
+            width: 15px;
+            height: 15px;
+            content: '';
+        }
+    }
 }

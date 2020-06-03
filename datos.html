@@ -77,7 +77,18 @@
             </section>
         </div>
         <div class="descri">
+            <h5>Medicones de calidad del aire por hora (mayo 24 a junio 06 - 2020)</h5>
             <div id="describers"></div>
+            <section id="leyen">
+                <div style="background-color: #e7ba52;"></div>
+                <p>Pm2.5</p>
+                <div style="background-color: #aec7e8;"></div>
+                <p>Pm10</p>
+                <div style="background-color: #1f77b4;"></div>
+                <p>Co2</p>
+                <div style="background-color: #9467bd;"></div>
+                <p>ICA</p>
+            </section>
         </div>
     </div>
     <script src="scripts/index.js"></script>
@@ -115,7 +126,8 @@
                                     "range": ["#e7ba52", "#aec7e8", "#1f77b4", "#9467bd"]
                                 },
                                 "selection": "brush",
-                                "type": "nominal"
+                                "type": "nominal",
+                                //"legend": null
                             },
                             "value": "lightgray"
                         },
@@ -238,77 +250,125 @@
             "transform": [
                 { "calculate": "(datum.properties.mag-2)/(7-2)", "as": "properties.mag2" }
             ],
-            "width": 1100,
-            "height": 300,
-            "layer": [
-                {
-                    "encoding": {
-                        "x": { "field": "properties.time", "type": "temporal", //"timeUnit": "hoursminutes",
-                        "title": "Horas del día"
-                        },
-                        "y": { "field": "properties.mag2", "type": "quantitative" },
-                        "color": { "field": "properties.contaminante", "type": "nominal" }
+            "encoding": {
+                "color": {
+                    "condition": {
+                        "selection": "hover",
+                        "field": "properties.contaminante",
+                        "type": "nominal",
+                        "legend": null
                     },
-                    "layer": [
-                        { "mark": "line" },
-                        {
-                            "selection": {
-                                "label": {
-                                    "type": "single",
-                                    "nearest": true,
-                                    "on": "mouseover",
-                                    "encodings": ["x"],
-                                    "empty": "none"
-                                }
-                            },
-                            "mark": "point",
-                            "encoding": {
-                                "opacity": {
-                                    "condition": { "selection": "label", "value": 1 },
-                                    "value": 0
-                                }
-                            }
-                        }
-                    ]
+                    "value": "grey"
                 },
-                {
-                    "transform": [{ "filter": { "selection": "label" } }],
-                    "layer": [
-                        {
-                            "mark": { "type": "rule", "color": "gray" },
-                            "encoding": {
-                                "x": { "type": "temporal", "timeUnit": "hoursminutes", 
-                                "field": "properties.time", "aggregate": "min" }
+                "opacity": {
+                    "condition": {
+                        "selection": "hover",
+                        "value": 1
+                    },
+                    "value": 0.2
+                }
+            },
+            "width": 'container',
+            "layer": [{
+                "description": "transparent layer to make it easier to trigger selection",
+                "selection": {
+                    "hover": {
+                        "type": "single",
+                        "on": "mouseover",
+                        "empty": "all",
+                        "fields": ["properties.contaminante"],
+                        "init": { "properties.contaminante": "pm25" }
+                    }
+                },
+                "mark": { "type": "line", "strokeWidth": 8, "stroke": "transparent" }
+            },
+            {
+                "mark": "line"
+            },
+            {
+                "encoding": {
+                    "x": {
+                        "field": "properties.time", "type": "temporal", //"timeUnit": "hoursminutes",
+                        "title": "Horas del día"
+                    },
+                    "y": { "field": "properties.mag2", "type": "quantitative", "title": "Medición estandarizada" },
+                    "color": {
+                        "field": "properties.contaminante", "type": "nominal", "scale": {
+                            "domain": ["pm25", "pm10", "co2", "ICA"],
+                            "range": ["#e7ba52", "#aec7e8", "#1f77b4", "#9467bd"]
+                        }
+                    }
+                },
+                "layer": [
+                    { "mark": "line" },
+                    {
+                        "selection": {
+                            "label": {
+                                "type": "single",
+                                "nearest": true,
+                                "on": "mouseover",
+                                "encodings": ["x"],
+                                "empty": "none"
                             }
                         },
-                        {
-                            "encoding": {
-                                "text": { "type": "quantitative", "field": "properties.mag2" },
-                                "x": { "type": "temporal", //"timeUnit": "hoursminutes",
-                                "field": "properties.time" },
-                                "y": { "type": "quantitative", "field": "properties.mag2" }
+                        "mark": "point",
+                        "encoding": {
+                            "opacity": {
+                                "condition": { "selection": "label", "value": 1 },
+                                "value": 0
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "transform": [{ "filter": { "selection": "label" } }],
+                "selection": { "click": { "encodings": ["color"], "type": "multi" } },
+                "layer": [
+                    {
+                        "mark": { "type": "rule", "color": "gray" },
+                        "encoding": {
+                            "x": {
+                                "type": "temporal", "timeUnit": "hoursminutes",
+                                "field": "properties.time", "aggregate": "min"
+                            }
+                        }
+                    },
+                    {
+                        "encoding": {
+                            "text": { "type": "quantitative", "field": "properties.mag2" },
+                            "x": {
+                                "type": "temporal", //"timeUnit": "hoursminutes",
+                                "field": "properties.time"
                             },
-                            "layer": [
-                                {
-                                    "mark": {
-                                        "type": "text",
-                                        "stroke": "white",
-                                        "strokeWidth": 2,
-                                        "align": "left",
-                                        "dx": 5,
-                                        "dy": -5
-                                    }
-                                },
-                                {
-                                    "mark": { "type": "text", "align": "left", "dx": 5, "dy": -5 },
-                                    "encoding": {
-                                        "color": { "type": "nominal", "field": "properties.contaminante" }
+                            "y": { "type": "quantitative", "field": "properties.mag2" }
+                        },
+                        "layer": [
+                            {
+                                "mark": {
+                                    "type": "text",
+                                    "stroke": "white",
+                                    "strokeWidth": 2,
+                                    "align": "left",
+                                    "dx": 5,
+                                    "dy": -5
+                                }
+                            },
+                            {
+                                "mark": { "type": "text", "align": "left", "dx": 5, "dy": -5 },
+                                "encoding": {
+                                    "color": {
+                                        "type": "nominal",
+                                        "field":
+                                            "properties.contaminante",
+                                        "range": ["#e7ba52", "#aec7e8", "#1f77b4", "#9467bd"]
                                     }
                                 }
-                            ]
-                        }
-                    ]
-                }
+                            }
+                        ]
+                    }
+                ]
+            }
             ]
         }
 
