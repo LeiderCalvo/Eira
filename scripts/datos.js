@@ -15,7 +15,7 @@ function showDash(i) {
 }
 
 window.onload = e => {
-    showDash(0);
+    showDash(1);
     var gen_rec = document.querySelector('.gen_rec');
     x_close_esp_Rec.onclick = closeGenRec;
 

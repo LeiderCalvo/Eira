@@ -108,15 +108,76 @@
     </div>
     <div class="dash visible" id="mapa">
         <p>Aquellas zonas que se encuentran en gris, no han sido monitoreadas hasta el día de hoy.</p>
-        <input type="range" id="filterEl" min='2' max='6'>
-        <input type="range" id="filterDay" min='1590267191397' max='1591476791397' step="86400000">
-        <select id="filterCont">
-            <option value="" hidden>Selccione</option>
-            <option value="ICA">ICA</option>
-            <option value="pm25">Pm2.5</option>
-            <option value="pm10">Pm10</option>
-            <option value="co2">Co2</option>
-        </select>
+        <div class="row">
+            <select id="filterCont">
+                <option value="" hidden>Contamiente de interés</option>
+                <option value="ICA">ICA</option>
+                <option value="pm25">Pm2.5</option>
+                <option value="pm10">Pm10</option>
+                <option value="co2">Co2</option>
+            </select>
+            <div class="slider">
+                <div class='tits'>
+                    <div style='background-color: rgb(255,81,77)'></div>
+                    <div style='background-color: rgb(255,170,88)'></div>
+                    <div style='background-color: rgb(209,201,91)'></div>
+                    <div style='background-color: rgb(148,204,138)'></div>
+                    <div style='background-color: rgb(2,182,93)'></div>
+                </div>
+                <div class="marks">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <input class ='slider' type="range" id="filterEl" value="2" min='2' max='6'>
+            </div>
+
+            <div class="slider dos">
+                <div class='tits'>
+                    <div>24</div>
+                    <div>25</div>
+                    <div>26</div>
+                    <div>27</div>
+                    <div>28</div>
+                    <div>29</div>
+                    <div>30</div>
+                    <div>31</div>
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                </div>
+                <div class="marks">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <input type="range" id="filterDay" value="1590267191397" min='1590267191397' max='1591476791397' step="86400000">
+            </div>
+        </div>
+        <div class="row tils">
+            <p></p>
+            <p>Magnitud de daño</p>
+            <p>Fecha</p>
+        </div>
+        
         <div id='map'></div>
 
         <!-- --><div class="gen_rec">

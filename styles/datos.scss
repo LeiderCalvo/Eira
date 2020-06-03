@@ -191,15 +191,122 @@ body{
 
 .dash:not(#dashboard){
     margin: 0 30px 30px;
-    #map{
-        width: 100%;
-    }
 }
 
 #mapa{
     position: relative;
+
+    &>.row{
+        &>*{
+            width: 30%;
+        }
+
+        .slider{
+            position: relative;
+            .tits{
+                @include row();
+                position: absolute;
+                top: -13px;
+                width: 100%;
+
+                div{
+                    height: 15px;
+                    width: 15px;
+                    content: '';
+                }
+            }
+
+            .marks{
+                @include row();
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 15px;
+                padding: 0 5px;
+
+                div{
+                    height: 15px;
+                    width: 5px;
+                    content: '';
+                    border-radius: 1px;
+                    background-color: #E5E5E5;
+                }
+            }
+
+            input{
+                width: 100%;
+                padding: 0 !important;
+            }
+        }
+
+        .dos{
+            .tits{
+                div{@include font-size(18);}
+            }
+            .marks{padding: 0 4px;}
+        }
+
+        select{
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    .tils{
+        margin-bottom: 20px;
+        p{
+            margin: 0;
+            color: $hard-blue;
+            font-weight: bolder;
+        }
+    }
+
+    #map{
+        width: 100%;
+    }
+
+    p{
+        margin: 20px 0;
+        text-align: center;
+        @include font-size(20);
+    }
+
     .gen_rec{
         bottom: 20px;
         #date_today{opacity: 0;}
+    }
+}
+
+
+input[type=range] {
+    position: relative;
+    -webkit-appearance: none;
+    width: 55%;
+
+    &:hover {
+        &:after{ opacity: .5; }
+    }
+    
+    &:focus {
+        outline: none;
+    }
+
+    &::-webkit-slider-runnable-track {
+        height: 5px;
+        cursor: pointer;
+        transition: 0.2s;
+        background: #E5E5E5;
+        border-radius: 5px;
+    }
+
+    &::-webkit-slider-thumb {
+        height: 15px;
+        width: 15px;
+        border-radius: 25px;
+        background: $hard-blue;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -5px;
+        transition: all 2s ease-in;
     }
 }
