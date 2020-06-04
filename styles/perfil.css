@@ -126,12 +126,13 @@
 }
 
 .screen .dash .description {
-  background-image: url("../images/perfil/rec_desc.svg");
+  background-image: url("../images/perfil/desc.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right;
   border-radius: 20px;
   padding: 20px;
+  position: relative;
 }
 
 .screen .dash .description * {
@@ -144,9 +145,25 @@
   width: 80%;
 }
 
+.screen .dash .description img {
+  position: absolute;
+  bottom: 0;
+  right: 30px;
+  width: 100px;
+}
+
 .screen .dash > p {
   color: #094067;
   font-weight: bolder;
   margin-top: 10px;
+}
+
+.screen #datos .description img {
+  width: 160px;
+}
+
+.screen #recorridos .description img {
+  width: 180px;
+  bottom: -20px;
 }
 /*# sourceMappingURL=perfil.css.map */

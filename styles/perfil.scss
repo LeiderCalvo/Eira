@@ -81,17 +81,26 @@
         display: none;
 
         .description{
-            background-image: url('../images/perfil/rec_desc.svg');
+            background-image: url('../images/perfil/desc.svg');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: right;
             border-radius: 20px;
             padding: 20px;
+            position: relative;
+
             *{color: white;}
             p{
                 @include font-size(20);
                 margin-top: 10px;
                 width: 80%;
+            }
+
+            img{
+                position: absolute;
+                bottom: 0;
+                right: 30px;
+                width: 100px;
             }
         }
 
@@ -100,5 +109,13 @@
             font-weight: bolder;
             margin-top: 10px;
         }
+    }
+
+    #datos{
+        .description img{ width: 160px;}   
+    }
+
+    #recorridos{
+        .description img{ width: 180px; bottom: -20px;}   
     }
 }
