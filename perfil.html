@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eira</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/perfil.css">
+</head>
+<body>
+    <iframe id='if_log' src="log.html" frameborder="0"></iframe>
+    <nav class="row">
+        <a href='index.html'><img src="images/eira_blue.svg" alt="logo"></a>
+        <div>
+            <a href="mapa.html">Mapa en tiempo real</a>
+            <a href="voluntario.html">Ser voluntario</a>
+            <a href="empresas.html">Para empresas</a>
+            <a href="donacion.html">Haz una donación</a>
+            <a href="datos.html">Datos históricos</a>
+            <a href="comunidad.html">Nuestra comunidad</a>
+            <div id='init_sesion' class="log selected">Iniciar sesión</div>
+        </div>
+    </nav>
+
+    <div class="screen row">
+        <aside>
+            <div class="perfil">
+                <img src="images/perfil/user_profile.svg" alt="user">
+                <h6 class='user_name'>dsjksdkj</h6>
+                <p>voluntario</p>
+                <p id="user_id"></p>
+            </div>
+
+            <div class="sub_nav">
+                <div class="sn_item selected">
+                    <img src="images/perfil/bike_icon.svg" alt="recorridos">
+                    <p>Mis recorridos</p>
+                </div>
+
+                <div class="sn_item">
+                    <img src="images/perfil/data_icon.svg" alt="datos">
+                    <p>Mis datos</p>
+                </div>
+
+                <div class="sn_item">
+                    <img src="images/perfil/challenges_icon.svg" alt="retos">
+                    <p>Mis retos</p>
+                </div>
+            </div>
+
+            <div class="msj">
+                <h5 class='user_name'>Alvro</h5>
+                <p>Estamos orgullosos de tu labor como voluntario.</p>
+                <h5>¡Gracias!</h5>
+            </div>
+        </aside>
+
+        <section class="dash visible" id="recorridos">
+            <div class="description">
+                <h6>Mis recorridos</h6>
+                <p>En esta sección encontrarás la información correspondiente a los recorridos que has realizado como voluntario y el estado de la calidad del aire en dichas zonas.</p>
+            </div>
+            <p>Últimos recorridos</p>
+            <div class="recorridos"></div>
+            <div id="map"></div>
+        </section>
+
+        <section class="dash visible" id="datos">
+            <div class="description">
+                <h6>Mis datos</h6>
+                <p>En esta sección encontrarás la información correspondiente a los recorridos que has realizado como voluntario y el estado de la calidad del aire en dichas zonas.</p>
+            </div>
+            <p>Últimos recorridos</p>
+            <div class="recorridos"></div>
+            <div id="map"></div>
+        </section>
+
+        <section class="dash visible" id="retos">
+            <div class="description">
+                <h6>Mis retos</h6>
+                <p>En esta sección encontrarás la información correspondiente a los recorridos que has realizado como voluntario y el estado de la calidad del aire en dichas zonas.</p>
+            </div>
+            <p>Últimos recorridos</p>
+            <div class="recorridos"></div>
+            <div id="map"></div>
+        </section>
+    </div>
+    
+    <script src="scripts/index.js"></script>
+    <script src="scripts/perfil.js"></script>
+</body>
+</html>

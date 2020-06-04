@@ -1,0 +1,152 @@
+.screen {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.screen aside {
+  overflow: hidden;
+  -webkit-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  width: 25%;
+  padding: 20px 0;
+}
+
+.screen aside:hover {
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.screen aside .perfil {
+  margin-bottom: 30px;
+}
+
+.screen aside .perfil img {
+  width: 140px;
+}
+
+.screen aside .perfil p {
+  font-size: 0.92913em;
+}
+
+.screen aside .sub_nav {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.screen aside .sub_nav div {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: 10px 60px;
+  margin-bottom: 5px;
+}
+
+.screen aside .sub_nav div p {
+  margin-left: 20px;
+  color: #094067;
+}
+
+.screen aside .sub_nav .selected {
+  background-color: #66B7F5;
+}
+
+.screen aside .sub_nav .selected img {
+  -webkit-filter: invert(1) sepia(1) saturate(0) hue-rotate(175deg);
+          filter: invert(1) sepia(1) saturate(0) hue-rotate(175deg);
+}
+
+.screen aside .sub_nav .selected p {
+  color: white;
+}
+
+.screen aside .msj {
+  margin: 0 60px;
+  background-image: url("../images/perfil/msj.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 20px;
+}
+
+.screen aside .msj * {
+  color: white;
+}
+
+.screen aside .msj h5 {
+  margin: 20px 0;
+}
+
+.screen aside .msj p {
+  font-size: 0.92913em;
+  padding: 0 15px;
+}
+
+.screen .dash.visible {
+  display: block;
+}
+
+.screen .dash {
+  width: 75%;
+  height: 100%;
+  padding: 20px 60px;
+  background-color: #F3F6F6;
+  display: none;
+}
+
+.screen .dash .description {
+  background-image: url("../images/perfil/rec_desc.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.screen .dash .description * {
+  color: white;
+}
+
+.screen .dash .description p {
+  font-size: 0.92913em;
+  margin-top: 10px;
+  width: 80%;
+}
+
+.screen .dash > p {
+  color: #094067;
+  font-weight: bolder;
+  margin-top: 10px;
+}
+/*# sourceMappingURL=perfil.css.map */

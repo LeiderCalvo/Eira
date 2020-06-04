@@ -1,0 +1,104 @@
+@import '../utils/vars';
+
+.screen{
+    height: 100vh;
+    overflow: hidden;
+    //width: 100%;
+    aside{
+        overflow: hidden;
+        @include box-shadow();
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+        @include center();
+        flex-direction: column;
+        height: 100%;
+        width: 25%;
+        padding: 20px 0;
+        
+        .perfil{
+            margin-bottom: 30px;
+            img{
+               width: 140px;
+            }
+            p{
+                @include font-size(20);
+            }
+        }
+
+        .sub_nav{
+            width: 100%;
+            margin-bottom: 30px;
+            div{
+                cursor: pointer;
+                @include row();
+                justify-content: flex-start;
+                padding: 10px 60px;
+                margin-bottom: 5px;
+                p{
+                    margin-left: 20px;
+                    color: $hard-blue;
+                }
+            }
+
+            .selected{
+                background-color: $soft-blue;
+                img{
+                    filter: invert(1) sepia(1) saturate(0) hue-rotate(175deg);
+                }
+                p{color: white;}
+            }
+        }
+
+        .msj{
+            margin: 0 60px;
+            background-image: url('../images/perfil/msj.svg');
+            //background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 20px;
+
+            *{color: white;}
+
+            h5{
+                margin: 20px 0;
+            }
+
+            p{
+                @include font-size(20);
+                padding: 0 15px;
+            }
+        }
+    }
+
+    .dash.visible{
+        display: block;
+    }
+
+    .dash{
+        width: 75%;
+        height: 100%;
+        padding: 20px 60px;
+        background-color: $soft-gray;
+        display: none;
+
+        .description{
+            background-image: url('../images/perfil/rec_desc.svg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: right;
+            border-radius: 20px;
+            padding: 20px;
+            *{color: white;}
+            p{
+                @include font-size(20);
+                margin-top: 10px;
+                width: 80%;
+            }
+        }
+
+        &>p{
+            color: $hard-blue;
+            font-weight: bolder;
+            margin-top: 10px;
+        }
+    }
+}
