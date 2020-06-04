@@ -112,6 +112,7 @@ aside{
 }
 
 #recorridos{
+    position: relative;
     .description img{ width: 180px; bottom: -20px;}
     .recorridos {
         @include row();
@@ -164,6 +165,45 @@ aside{
                 &:hover{
                     opacity: .5;
                 }
+            }
+        }
+    }
+
+    .recomendations{
+        position: absolute;
+        @include box-shadow();
+        bottom:30px;
+        left: 70px;
+        background-color: white;
+        width: 280px;
+        border-radius: 15px;
+        padding-bottom: 10px;
+
+        *:not(.mark){
+            @include font-size(20);
+            padding: 0 20px;
+            color: $gray;
+        }
+
+        .mark{
+            width: 80%;
+            height: 12px;
+            border-radius: 0 0 12px 0;
+            margin-bottom: 10px;
+            background-color: $hard-blue;
+        }
+
+        h6{
+            color: $hard-blue !important;
+            margin-bottom: 10px;
+        }
+
+        ul{
+            margin-top: 10px;
+            list-style-position: inside;
+            padding: 0;
+            li{
+                margin: 10px 0;
             }
         }
     }
