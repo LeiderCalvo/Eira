@@ -185,4 +185,18 @@ window.addEventListener('load', w => {
             }
         });
     });
+
+
+    ////////////////
+    actual_reto.onclick = e => {
+        actual_reto.innerText = 'Reto aceptado¡'
+        actual_reto.classList.add('aceptado');
+    }
+
+    shareResult = document.querySelector('#share'),
+    redes = document.querySelector('#shareInfo');
+
+    shareResult.onclick = ()=> {
+        redes.style.display = redes.style.display === 'flex'? 'none' : 'flex';
+    };
 })

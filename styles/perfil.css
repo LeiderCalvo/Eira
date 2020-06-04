@@ -319,6 +319,15 @@ aside .msj p {
           box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
+#retos .tt {
+  margin: 20px 0;
+}
+
+#retos .tt p {
+  font-weight: bold;
+  color: #094067;
+}
+
 #retos .last_retos {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -339,7 +348,7 @@ aside .msj p {
           align-items: flex-start;
 }
 
-#retos .last_retos .row {
+#retos .last_retos > .row {
   width: 32%;
   padding: 10px 20px;
   -webkit-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
@@ -362,45 +371,32 @@ aside .msj p {
   min-height: 180px;
 }
 
-#retos .last_retos .row:hover {
+#retos .last_retos > .row:hover {
   -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-#retos .last_retos .row > :first-child {
+#retos .last_retos > .row > :first-child {
   width: 80px;
   margin-right: 15px;
 }
 
-#retos .last_retos .row div {
+#retos .last_retos > .row div {
   text-align: left;
 }
 
-#retos .last_retos .row div p {
+#retos .last_retos > .row div p {
   text-align: left;
   font-size: 0.7433em;
   margin-bottom: 5px;
 }
 
-#retos .last_retos .row div .title {
+#retos .last_retos > .row div .title {
   color: #094067;
   font-weight: bolder;
 }
 
-#retos .last_retos .row div a {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
-#retos .last_retos .row div a button {
-  font-size: 0.7433em;
-  min-width: unset;
-  padding: 5px 10px;
-  margin: 0;
-}
-
-#retos .last_retos .row .check {
+#retos .last_retos > .row .check {
   position: absolute;
   width: 35px;
   top: -10px;
@@ -441,6 +437,11 @@ aside .msj p {
 #retos .second .actual button {
   background-color: white;
   color: #094067;
+}
+
+#retos .second .actual .aceptado {
+  background-color: #66B7F5;
+  color: white;
 }
 
 #retos .second .hist {
@@ -496,5 +497,21 @@ aside .msj p {
 
 #retos .second .hist .row div :last-child {
   font-size: 0.83622em;
+}
+
+.facebook {
+  color: #3B5998;
+}
+
+.linkedin {
+  color: #007BB6;
+}
+
+.google {
+  color: #DD4B39;
+}
+
+.tweeter {
+  color: #00ACED;
 }
 /*# sourceMappingURL=perfil.css.map */

@@ -105,7 +105,27 @@
             <img src="images/perfil/retos.svg" alt="retos">
         </div>
 
-        <p>Últimos retos</p>
+        <div class="row tt">
+            <p>Últimos retos</p>
+            <button class="shareButton" id="share" style="position: relative;">
+                Compartir
+                <img src="images/share.svg" alt="" style="margin: 0 0 0 10px;">
+                <div class="redes row" id='shareInfo'>
+                    <div class="row">
+                        <p>Compartir</p>
+                        <img src="images/close.svg" alt="" id='closeShare' style="z-index: 5;">                           
+                    </div>
+                    <div class="wrap">
+                        <a class="facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=leidercalvo.github.io/Eira/">facebook</a>
+                        <a class="google" target="_blank" href="https://plus.google.com/share?url=leidercalvo.github.io/Eira/">Google+</a>
+                        <a class="linkedin" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=leidercalvo.github.io/Eira/&title=Comparte&summary=resumen&source=goconsulting.com">Linkedin</a>
+                        <a class="tweeter" target="_blank" href="https://twitter.com/intent/tweet?text=Sigue%20a%20leidercalvo.github.io/Eira/">Twitter</a>
+                    </div>
+                    <span>https://leidercalvo.github.io/Eira/</span>
+                </div>
+            </button>
+        </div>
+
         <div class="last_retos">
             <div class="row">
                 <img src="images/perfil/r5.svg" alt="reto">
@@ -113,7 +133,6 @@
                     <p class="title">500 puntos</p>
                     <p>hace 1 semana</p>
                     <p>Realizar al menos una medición en cada uno de los puntos cardinales de la ciudad.</p>
-                    <a href="mapa.html"><button>Compartir</button></a>
                 </div>
                 <img src="images/perfil/check.svg" alt="" class="check">
             </div>
@@ -124,7 +143,6 @@
                     <p class="title">370 puntos</p>
                     <p>hace 2 semanas</p>
                     <p>Vincular tres compañeros de trabajo o amigos al proyecto.</p>
-                    <a href="mapa.html"><button>Compartir</button></a>
                 </div>
                 <img src="images/perfil/check.svg" alt="" class="check">
             </div>
@@ -135,7 +153,6 @@
                     <p class="title">200 puntos</p>
                     <p>hace 2 semanas</p>
                     <p>Realizar 2 publicaciones en el foro durante la semana.</p>
-                    <a href="mapa.html"><button>Compartir</button></a>
                 </div>
                 <img src="images/perfil/check.svg" alt="" class="check">
             </div>
@@ -146,7 +163,7 @@
                 <h6>Reto Actual</h6>
                 <img src="images/perfil/r4.svg" alt="reto">
                 <p>Debes realizar un mínimo de 20 mediciones en el mes y de esta forma podrás ganar un bono de $15.000 para consumo en productos de La Casa de las Bicicletas.</p>
-                <button>Aceptar</button>
+                <button id="actual_reto">Aceptar</button>
             </div>
             <div class="cont hist">
                 <h6>Historial de mis  retos</h6>

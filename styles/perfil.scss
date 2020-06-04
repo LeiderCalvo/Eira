@@ -218,12 +218,20 @@ aside{
         @include center();
     }
 
+    .tt{
+        margin: 20px 0;
+        p{
+            font-weight: bold;
+            color: $hard-blue;
+        }
+    }
+
     .last_retos{
         @include row();
         margin: 20px 0;
         align-items: flex-start;
 
-        .row{
+        &>.row{
             width: 32%;
             padding: 10px 20px;
             @include box-shadow();
@@ -251,17 +259,9 @@ aside{
                     color: $hard-blue;
                     font-weight: bolder;
                 }
-
-                a {
-                    width: fit-content;
-                    button {
-                        @include font-size(16);
-                        min-width: unset;
-                        padding: 5px 10px;
-                        margin: 0;
-                    }
-                }
             }
+
+            
 
             .check{
                 position: absolute;
@@ -296,6 +296,11 @@ aside{
                 background-color: white;
                 color: $hard-blue;
             }
+
+            .aceptado{
+                background-color: $soft-blue;
+                color: white;
+            }
         }
 
         .hist{
@@ -328,4 +333,29 @@ aside{
             }
         }
     }    
+}
+
+
+
+
+
+
+
+
+
+
+.facebook {
+    color: #3B5998;
+}
+
+.linkedin {
+    color: #007BB6;
+}
+
+.google {
+    color: #DD4B39;
+}
+
+.tweeter {
+    color: #00ACED;
 }
