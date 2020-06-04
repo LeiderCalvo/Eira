@@ -208,3 +208,124 @@ aside{
         }
     }
 }
+
+#retos{
+    .cont{
+        padding: 10px 20px;
+        @include box-shadow();
+        background-color: white;
+        border-radius: 20px;
+        @include center();
+    }
+
+    .last_retos{
+        @include row();
+        margin: 20px 0;
+        align-items: flex-start;
+
+        .row{
+            width: 32%;
+            padding: 10px 20px;
+            @include box-shadow();
+            background-color: white;
+            border-radius: 20px;
+            @include center();
+            position: relative;
+            min-height: 180px;
+
+            &>:first-child{
+                width: 80px;
+                margin-right: 15px;
+            }
+
+            div{
+                text-align: left;
+
+                p{
+                    text-align: left;
+                    @include font-size(16);
+                    margin-bottom: 5px;
+                }
+
+                .title{
+                    color: $hard-blue;
+                    font-weight: bolder;
+                }
+
+                a {
+                    width: fit-content;
+                    button {
+                        @include font-size(16);
+                        min-width: unset;
+                        padding: 5px 10px;
+                        margin: 0;
+                    }
+                }
+            }
+
+            .check{
+                position: absolute;
+                width: 35px;
+                top: -10px;
+                right: -10px;
+            }
+        }
+    }
+
+    .second{
+        width: 100%;
+
+        p{
+            @include font-size(20);
+            color: $hard-blue;
+        }
+
+        .actual{
+            width: 32%;
+            flex-direction: column;
+            background-color: $soft-blue;
+            *{color: white;}
+            img{
+                width: 110px;
+                margin: 20px 0;
+            }
+            p{
+                margin: 5px 0 20px;
+            }
+            button{
+                background-color: white;
+                color: $hard-blue;
+            }
+        }
+
+        .hist{
+            width: 66%;
+            flex-direction: column;
+            h6{
+                align-self: flex-start;
+                margin-bottom: 15px;
+            }
+            .row{
+                margin-bottom: 15px;
+                img{
+                    width: 70px;
+                }
+                &>p{
+                    text-align: left;
+                    padding-left: 20px;
+                    width: 50%;
+                }
+                div{
+                    @include colum();
+                    align-items: flex-end;
+                    :first-child{
+                        font-weight: bold;
+                    }
+                    :last-child{
+                        @include font-size(18)
+                    }
+                }
+            }
+        }
+    }    
+}

@@ -98,7 +98,7 @@ if (localStorage.getItem('isCurrentUser') !== 'true') {
 window.addEventListener('load', w => {
     var sn_items = document.querySelectorAll('.sn_item');
     var dashs = document.querySelectorAll('.dash');
-    showDash(0);
+    showDash(2);
     
     sn_items.forEach((sub, i) => {
         sub.onclick = e => showDash(i);
