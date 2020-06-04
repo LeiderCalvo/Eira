@@ -1,16 +1,5 @@
-.screen {
-  height: 100vh;
+aside {
   overflow: hidden;
-}
-
-.screen aside {
-  overflow: hidden;
-  -webkit-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -25,34 +14,31 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100%;
   width: 25%;
-  padding: 20px 0;
+  padding: 95px 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
-.screen aside:hover {
-  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+aside .perfil {
+  margin-bottom: 20px;
 }
 
-.screen aside .perfil {
-  margin-bottom: 30px;
+aside .perfil img {
+  width: 120px;
 }
 
-.screen aside .perfil img {
-  width: 140px;
-}
-
-.screen aside .perfil p {
+aside .perfil p {
   font-size: 0.92913em;
 }
 
-.screen aside .sub_nav {
+aside .sub_nav {
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
-.screen aside .sub_nav div {
+aside .sub_nav div {
   cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -74,25 +60,25 @@
   margin-bottom: 5px;
 }
 
-.screen aside .sub_nav div p {
+aside .sub_nav div p {
   margin-left: 20px;
   color: #094067;
 }
 
-.screen aside .sub_nav .selected {
+aside .sub_nav .selected {
   background-color: #66B7F5;
 }
 
-.screen aside .sub_nav .selected img {
+aside .sub_nav .selected img {
   -webkit-filter: invert(1) sepia(1) saturate(0) hue-rotate(175deg);
           filter: invert(1) sepia(1) saturate(0) hue-rotate(175deg);
 }
 
-.screen aside .sub_nav .selected p {
+aside .sub_nav .selected p {
   color: white;
 }
 
-.screen aside .msj {
+aside .msj {
   margin: 0 60px;
   background-image: url("../images/perfil/msj.svg");
   background-repeat: no-repeat;
@@ -100,32 +86,32 @@
   border-radius: 20px;
 }
 
-.screen aside .msj * {
+aside .msj * {
   color: white;
 }
 
-.screen aside .msj h5 {
+aside .msj h5 {
   margin: 20px 0;
 }
 
-.screen aside .msj p {
+aside .msj p {
   font-size: 0.92913em;
   padding: 0 15px;
 }
 
-.screen .dash.visible {
+.dash.visible {
   display: block;
 }
 
-.screen .dash {
+.dash {
   width: 75%;
-  height: 100%;
   padding: 20px 60px;
   background-color: #F3F6F6;
   display: none;
+  margin-left: 25%;
 }
 
-.screen .dash .description {
+.dash .description {
   background-image: url("../images/perfil/desc.svg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -135,35 +121,124 @@
   position: relative;
 }
 
-.screen .dash .description * {
+.dash .description * {
   color: white;
 }
 
-.screen .dash .description p {
+.dash .description p {
   font-size: 0.92913em;
   margin-top: 10px;
   width: 80%;
 }
 
-.screen .dash .description img {
+.dash .description img {
   position: absolute;
   bottom: 0;
   right: 30px;
   width: 100px;
 }
 
-.screen .dash > p {
+.dash > p {
   color: #094067;
   font-weight: bolder;
   margin-top: 10px;
 }
 
-.screen #datos .description img {
+#datos .description img {
   width: 160px;
 }
 
-.screen #recorridos .description img {
+#recorridos .description img {
   width: 180px;
   bottom: -20px;
+}
+
+#recorridos .recorridos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 15px;
+}
+
+#recorridos .recorridos .recorrido {
+  width: 32%;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#recorridos .recorridos .recorrido:hover {
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+#recorridos .recorridos .recorrido .mark {
+  content: '';
+  height: 10px;
+  width: 80%;
+  border-radius: 0 0 20px 0;
+  margin-bottom: 10px;
+}
+
+#recorridos .recorridos .recorrido p {
+  font-size: 0.83622em;
+  padding: 0 10px;
+}
+
+#recorridos .recorridos .recorrido .dir {
+  color: #094067;
+}
+
+#recorridos .recorridos .recorrido .ica {
+  margin-bottom: 10px;
+}
+
+#recorridos .recorridos .recorrido:hover {
+  background-color: white;
+}
+
+#recorridos .recorridos .recorrido.selected {
+  background-color: white;
+}
+
+#recorridos #map {
+  margin-top: 20px;
+  border-radius: 20px;
+  width: 100%;
+  height: 70vh;
+}
+
+#recorridos #map .mapboxgl-ctrl-group {
+  width: 40px;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  -webkit-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25) !important;
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25) !important;
+  border: none;
+  border-radius: 20px;
+}
+
+#recorridos #map .mapboxgl-ctrl-group * {
+  width: 40px;
+}
+
+#recorridos #map .mapboxgl-ctrl-group * {
+  border: none !important;
+}
+
+#recorridos #map .mapboxgl-ctrl-group *:hover {
+  opacity: .5;
 }
 /*# sourceMappingURL=perfil.css.map */
