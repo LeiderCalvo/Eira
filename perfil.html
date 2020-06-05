@@ -95,6 +95,81 @@
                 que deseas consultar.</p>
             <img src="images/perfil/datos.svg" alt="datos">
         </div>
+
+        <div class="sub_sub_nav">
+            <button class="ssn_item selected">Hoy</button>
+            <button class="ssn_item">Última semana</button>
+            <button class="ssn_item">Último mes</button>
+        </div>
+
+        <div class="cont row">
+            <!-- <div class="wrap">
+                <div>
+                    <p>ICA</p>
+                    <img src="images/perfil/ica_vel.svg" alt="vel">
+                </div>
+
+                <div>
+                    <p>PM 2.5</p>
+                    <img src="images/perfil/pm2_vel.svg" alt="vel">
+                </div>
+
+                <div>
+                    <p>PM 10</p>
+                    <img src="images/perfil/pm1_vel.svg" alt="vel">
+                </div>
+
+                <div>
+                    <p>CO2</p>
+                    <img src="images/perfil/co2_vel.svg" alt="vel">
+                </div>
+            </div> -->
+
+            <div class="bars">
+                <div class="row">
+                    <p>ICA</p>
+                         <!-- <div class='tits'>
+                            <div style='background-color: rgb(255,81,77)'></div>
+                            <div style='background-color: rgb(255,170,88)'></div>
+                            <div style='background-color: rgb(209,201,91)'></div>
+                            <div style='background-color: rgb(148,204,138)'></div>
+                            <div style='background-color: rgb(2,182,93)'></div>
+                        </div> -->
+                        <input class ='slider' value="6" disabled type="range" id="filterEl" value="1" min='2' max='6'>
+                </div>
+
+                <div class="row">
+                    <p>PM2.5</p>
+                    <input class ='slider' value="3" disabled type="range" id="filterEl" value="1" min='2' max='6'>
+                </div>
+
+                <div class="row">
+                    <p>PM10</p>
+                    <input class ='slider' value="5" disabled type="range" id="filterEl" value="1" min='2' max='6'>
+                </div>
+
+                <div class="row">
+                    <p>CO2</p>
+                    <input class ='slider' value="4" disabled type="range" id="filterEl" value="1" min='2' max='6'>
+                </div>
+                <button class="btn_graf" id="graf_hoy">Ver gráfica</button>
+            </div>
+
+            <div class="colum">
+                <p>¿Qué significa la información que estás viendo?</p>
+                <p class="titl">ICA</p>
+                <p>Índice de calidad del aire. Entre mayor sea el índice, mayor es el nivel de contaminación.</p>
+
+                <p class="titl">PM 2.5</p>
+                <p>Partículas generadas principalmente por vehículos a base de diesel de 2,5 micras de tamaño.</p>
+
+                <p class="titl">PM 10</p>
+                <p>Contaminante de 10 micras de tamaño generado por actividades industriales.</p>
+
+                <p class="titl">CO2</p>
+                <p>Dióxido de carbono. En grandes cantidades puede ser perjudicial.</p>
+            </div>
+        </div>
     </section>
 
     <section class="dash visible" id="retos">

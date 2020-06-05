@@ -98,7 +98,7 @@ if (localStorage.getItem('isCurrentUser') !== 'true') {
 window.addEventListener('load', w => {
     var sn_items = document.querySelectorAll('.sn_item');
     var dashs = document.querySelectorAll('.dash');
-    showDash(2);
+    showDash(1);
     
     sn_items.forEach((sub, i) => {
         sub.onclick = e => showDash(i);
@@ -199,4 +199,18 @@ window.addEventListener('load', w => {
     shareResult.onclick = ()=> {
         redes.style.display = redes.style.display === 'flex'? 'none' : 'flex';
     };
+
+    ////// datos
+    var ssn_btns = document.querySelectorAll('.ssn_item');
+    var inpts = document.querySelectorAll('.slider');
+    var inpts_vals = [[6,5,4,5], [5,4,3,4], [5,2,4,4]];
+
+    ssn_btns.forEach( (btn, i) => {
+        btn.onclick = eb => {
+            inpts.forEach((inpt, j) => {
+                inpt.value = inpts_vals[i][j];
+            })
+        }
+    })
+    
 })

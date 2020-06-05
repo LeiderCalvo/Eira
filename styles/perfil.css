@@ -148,6 +148,124 @@ aside .msj p {
   width: 160px;
 }
 
+#datos .sub_sub_nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 20%;
+}
+
+#datos .sub_sub_nav button {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: normal;
+  background-color: white;
+  color: #094067;
+}
+
+#datos .sub_sub_nav .selected {
+  background-color: #094067;
+  color: white;
+}
+
+#datos .cont {
+  padding: 30px;
+  /*
+        .wrap{
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+
+            div{
+                width: 47%;
+                height: 200px;
+                @include center();
+                flex-direction: column;
+
+                img{
+                    width: 90%;
+                }
+
+                p{
+                    font-weight: bolder;
+                    color: $hard-blue;
+                    margin: 0 5px 5px 0;
+                    @include font-size(20);
+                }
+            }
+        }*/
+}
+
+#datos .cont .bars {
+  width: 70%;
+  padding-right: 40px;
+  text-align: left;
+}
+
+#datos .cont .bars .row {
+  margin-bottom: 60px;
+}
+
+#datos .cont .bars .row p {
+  width: 15%;
+  color: #094067;
+  text-align: left;
+}
+
+#datos .cont .bars .row input[type=range] {
+  width: 80%;
+}
+
+#datos .cont .bars .row input[type=range]::-webkit-slider-runnable-track {
+  background: -webkit-gradient(linear, left top, right top, from(#02b65d), color-stop(20%, #94cc8a), color-stop(50%, #d1c85a), color-stop(80%, #ffaa58), to(#ff514d));
+  background: linear-gradient(90deg, #02b65d 0%, #94cc8a 20%, #d1c85a 50%, #ffaa58 80%, #ff514d 100%);
+  height: 10px;
+}
+
+#datos .cont .bars .row input[type=range]::-webkit-slider-thumb {
+  height: 18px;
+  width: 18px;
+  margin-top: -3px;
+}
+
+#datos .cont .bars :nth-child(4) {
+  margin-bottom: 0;
+}
+
+#datos .cont .bars button {
+  margin-top: 30px;
+  font-size: 0.83622em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: normal;
+}
+
+#datos .cont .colum {
+  width: 30%;
+}
+
+#datos .cont .colum p {
+  text-align: left;
+  width: 100%;
+  font-size: 0.92913em;
+  margin-bottom: 10px;
+}
+
+#datos .cont .colum :first-child, #datos .cont .colum .titl {
+  font-weight: bold;
+  color: #094067;
+}
+
 #recorridos {
   position: relative;
 }
@@ -292,31 +410,6 @@ aside .msj p {
 
 #recorridos .recomendations ul li {
   margin: 10px 0;
-}
-
-#retos .cont {
-  padding: 10px 20px;
-  -webkit-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  background-color: white;
-  border-radius: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
-}
-
-#retos .cont:hover {
-  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 #retos .tt {
@@ -497,6 +590,31 @@ aside .msj p {
 
 #retos .second .hist .row div :last-child {
   font-size: 0.83622em;
+}
+
+.cont {
+  padding: 10px 20px;
+  -webkit-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  background-color: white;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.cont:hover {
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .facebook {

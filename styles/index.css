@@ -625,4 +625,103 @@ footer p {
   cursor: pointer;
   text-decoration: none;
 }
+
+.slider {
+  position: relative;
+}
+
+.slider .tits {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: -13px;
+  width: 100%;
+}
+
+.slider .tits div {
+  height: 15px;
+  width: 15px;
+  content: '';
+}
+
+.slider .marks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 15px;
+  padding: 0 5px;
+}
+
+.slider .marks div {
+  height: 15px;
+  width: 5px;
+  content: '';
+  border-radius: 1px;
+  background-color: #E5E5E5;
+}
+
+.slider input {
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+input[type=range] {
+  position: relative;
+  -webkit-appearance: none;
+  width: 55%;
+}
+
+input[type=range]:hover:after {
+  opacity: .5;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  height: 5px;
+  cursor: pointer;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  background: #E5E5E5;
+  border-radius: 5px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  height: 15px;
+  width: 15px;
+  border-radius: 25px;
+  background: #094067;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -5px;
+  -webkit-transition: all 2s ease-in;
+  transition: all 2s ease-in;
+}
 /*# sourceMappingURL=index.css.map */

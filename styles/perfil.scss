@@ -108,7 +108,106 @@ aside{
 }
 
 #datos{
-    .description img{ width: 160px;}   
+    .description img{ width: 160px;}
+
+    .sub_sub_nav{
+        @include row();
+        margin: 20px 20%;
+        button{
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-weight: normal;
+            background-color: white;
+            color: $hard-blue;
+        }
+
+        .selected{
+            background-color: $hard-blue;
+            color: white;
+        }
+    }
+
+    .cont{
+        padding: 30px;
+        /*
+        .wrap{
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+
+            div{
+                width: 47%;
+                height: 200px;
+                @include center();
+                flex-direction: column;
+
+                img{
+                    width: 90%;
+                }
+
+                p{
+                    font-weight: bolder;
+                    color: $hard-blue;
+                    margin: 0 5px 5px 0;
+                    @include font-size(20);
+                }
+            }
+        }*/
+
+        .bars{
+            width: 70%;
+            padding-right: 40px;
+            text-align: left;
+            .row{
+                margin-bottom: 60px;
+                p{
+                    width: 15%;
+                    color: $hard-blue;
+                    text-align: left;
+                }
+                input[type=range] {
+                    width: 80%;
+                    &::-webkit-slider-runnable-track {
+                        background: linear-gradient(90deg, rgba(2,182,93,1) 0%, rgba(148,204,138,1) 20%, rgba(209,200,90,1) 50%, rgba(255,170,88,1) 80%, rgba(255,81,77,1) 100%);
+                        height: 10px;
+                    }
+
+                    &::-webkit-slider-thumb {
+                        height: 18px;
+                        width: 18px;
+                        margin-top: -3px;
+                    }
+                }
+            }
+
+            :nth-child(4){
+                margin-bottom: 0;
+            }
+
+            button{
+                margin-top: 30px;
+                @include font-size(18);
+                padding-top: 5px;
+                padding-bottom: 5px;
+                font-weight: normal;
+            }
+        }
+
+        .colum{
+            width: 30%;
+            p{
+                text-align: left;
+                width: 100%;
+                @include font-size(20);
+                margin-bottom: 10px;
+            }
+            
+            :first-child, .titl{
+                font-weight: bold;
+                color: $hard-blue;
+            }
+        }
+    }
 }
 
 #recorridos{
@@ -210,13 +309,6 @@ aside{
 }
 
 #retos{
-    .cont{
-        padding: 10px 20px;
-        @include box-shadow();
-        background-color: white;
-        border-radius: 20px;
-        @include center();
-    }
 
     .tt{
         margin: 20px 0;
@@ -335,14 +427,13 @@ aside{
     }    
 }
 
-
-
-
-
-
-
-
-
+.cont{
+    padding: 10px 20px;
+    @include box-shadow();
+    background-color: white;
+    border-radius: 20px;
+    @include center();
+}
 
 .facebook {
     color: #3B5998;
