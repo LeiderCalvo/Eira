@@ -1,3 +1,8 @@
+body nav {
+  position: relative;
+  z-index: 3;
+}
+
 aside {
   overflow: hidden;
   display: -webkit-box;
@@ -15,14 +20,18 @@ aside {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 25%;
-  padding: 95px 0 20px;
+  padding: 30px 0;
   position: fixed;
   top: 0;
   left: 0;
 }
 
 aside .perfil {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+}
+
+aside .perfil #user_id {
+  margin-bottom: 30px;
 }
 
 aside .perfil img {
@@ -35,7 +44,7 @@ aside .perfil p {
 
 aside .sub_nav {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 aside .sub_nav div {
@@ -209,7 +218,6 @@ aside .msj p {
 #datos .cont .bars {
   width: 70%;
   padding-right: 40px;
-  text-align: left;
 }
 
 #datos .cont .bars .row {

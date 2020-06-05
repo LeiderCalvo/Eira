@@ -1,17 +1,25 @@
 @import '../utils/vars';
 
+body nav {
+    position: relative;
+    z-index: 3;
+}
+
 aside{
     overflow: hidden;
     @include center();
     flex-direction: column;
     width: 25%;
-    padding: 95px 0 20px;
+    padding: 30px 0;
     position: fixed;
     top: 0;
     left: 0;
     
     .perfil{
-        margin-bottom: 20px;
+        margin-bottom: 15px;
+        #user_id{
+            margin-bottom: 30px;
+        }
         img{
             width: 120px;
         }
@@ -22,7 +30,7 @@ aside{
 
     .sub_nav{
         width: 100%;
-        margin-bottom: 20px;
+        margin-bottom: 5px;
         div{
             cursor: pointer;
             @include row();
@@ -157,7 +165,7 @@ aside{
         .bars{
             width: 70%;
             padding-right: 40px;
-            text-align: left;
+            //text-align: left;
             .row{
                 margin-bottom: 60px;
                 p{

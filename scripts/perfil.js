@@ -105,6 +105,7 @@ window.addEventListener('load', w => {
     });
 
     let user = JSON.parse(localStorage.getItem('user'));
+    user_id.innerText = '@' + user.id;
     document.querySelectorAll('.user_name').forEach(e => {
         e.innerText = user.user;
     });
@@ -207,6 +208,8 @@ window.addEventListener('load', w => {
 
     ssn_btns.forEach( (btn, i) => {
         btn.onclick = eb => {
+            ssn_btns.forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
             inpts.forEach((inpt, j) => {
                 inpt.value = inpts_vals[i][j];
             })
