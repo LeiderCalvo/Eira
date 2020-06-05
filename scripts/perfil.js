@@ -202,18 +202,173 @@ window.addEventListener('load', w => {
     };
 
     ////// datos
+    var bars = document.querySelector('.bars');
+    var grafs = document.querySelectorAll('.graf');
+    var column = document.querySelector('.colum');
     var ssn_btns = document.querySelectorAll('.ssn_item');
     var inpts = document.querySelectorAll('.slider');
     var inpts_vals = [[6,5,4,5], [5,4,3,4], [5,2,4,4]];
+    var current_ssn_btn = 0;
+
+    (e => grafs.forEach(g => g.style.display = 'none'))()
 
     ssn_btns.forEach( (btn, i) => {
         btn.onclick = eb => {
+            grafs.forEach(g => g.style.display = 'none')
+            
             ssn_btns.forEach(b => b.classList.remove('selected'));
             btn.classList.add('selected');
+
+            bars.style.display = 'block';
+            column.classList.remove('sleyen');
+
             inpts.forEach((inpt, j) => {
                 inpt.value = inpts_vals[i][j];
-            })
+            });
+
+            current_ssn_btn = i;
         }
-    })
+    });
+
+    ver_graf.onclick = btn => {
+        bars.style.display = 'none';
+        column.classList.add('sleyen');
+        grafs[current_ssn_btn].style.display = 'flex';
+    }
     
+    var describers = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+        "data": {
+            "url": "utils/dataCali.json",
+            "format": {
+                "property": "features"
+            }
+        },
+        "transform": [
+            { "calculate": "(datum.properties.mag-2)/(7-2)", "as": "properties.mag2" },
+            {"filter": "datum.properties.time > 1591390391397"}
+        ],
+        "encoding": {
+            "color": {
+                "condition": {
+                    "selection": "hover",
+                    "field": "properties.contaminante",
+                    "type": "nominal",
+                    "legend": null
+                },
+                "value": "grey"
+            },
+            "opacity": {
+                "condition": {
+                    "selection": "hover",
+                    "value": 1
+                },
+                "value": 0.2
+            }
+        },
+        "width": 'container',
+        "layer": [{
+            "description": "transparent layer to make it easier to trigger selection",
+            "selection": {
+                "hover": {
+                    "type": "single",
+                    "on": "mouseover",
+                    "empty": "all",
+                    "fields": ["properties.contaminante"],
+                    "init": { "properties.contaminante": "pm25" }
+                }
+            },
+            "mark": { "type": "line", "strokeWidth": 8, "stroke": "transparent" }
+        },
+        {
+            "mark": "line"
+        },
+        {
+            "encoding": {
+                "x": {
+                    "field": "properties.time", "type": "ordinal", //"timeUnit": "hoursminutes",
+                    "title": "Horas del día",
+                    "sort": "ascending"
+                },
+                "y": { "field": "properties.mag2", "type": "quantitative", "title": "Medición estandarizada" },
+                "color": {
+                    "field": "properties.contaminante", "type": "nominal", "scale": {
+                        "domain": ["pm25", "pm10", "co2", "ICA"],
+                        "range": ["#e7ba52", "#aec7e8", "#1f77b4", "#9467bd"]
+                    }
+                }
+            },
+            "layer": [
+                { "mark": "line" },
+                {
+                    "selection": {
+                        "label": {
+                            "type": "single",
+                            "nearest": true,
+                            "on": "mouseover",
+                            "encodings": ["x"],
+                            "empty": "none"
+                        }
+                    },
+                    "mark": "point",
+                    "encoding": {
+                        "opacity": {
+                            "condition": { "selection": "label", "value": 1 },
+                            "value": 0
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "transform": [{ "filter": { "selection": "label" } }],
+            "selection": { "click": { "encodings": ["color"], "type": "multi" } },
+            "layer": [
+                {
+                    "mark": { "type": "rule", "color": "gray" },
+                    "encoding": {
+                        "x": {
+                            "type": "temporal", "timeUnit": "hoursminutes",
+                            "field": "properties.time", "aggregate": "min"
+                        }
+                    }
+                },
+                {
+                    "encoding": {
+                        "text": { "type": "quantitative", "field": "properties.mag2" },
+                        "x": {
+                            "type": "temporal", //"timeUnit": "hoursminutes",
+                            "field": "properties.time"
+                        },
+                        "y": { "type": "quantitative", "field": "properties.mag2" }
+                    },
+                    "layer": [
+                        {
+                            "mark": {
+                                "type": "text",
+                                "stroke": "white",
+                                "strokeWidth": 2,
+                                "align": "left",
+                                "dx": 5,
+                                "dy": -5
+                            }
+                        },
+                        {
+                            "mark": { "type": "text", "align": "left", "dx": 5, "dy": -5 },
+                            "encoding": {
+                                "color": {
+                                    "type": "nominal",
+                                    "field":
+                                        "properties.contaminante",
+                                    "range": ["#e7ba52", "#aec7e8", "#1f77b4", "#9467bd"]
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+        ]
+    }
+    vegaEmbed('#describers', describers);
 })

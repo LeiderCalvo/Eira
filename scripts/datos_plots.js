@@ -190,8 +190,9 @@ var describers = {
     {
         "encoding": {
             "x": {
-                "field": "properties.time", "type": "temporal", //"timeUnit": "hoursminutes",
-                "title": "Horas del día"
+                "field": "properties.time", "type": "ordinal", //"timeUnit": "hoursminutes",
+                "title": "Horas del día",
+                "sort": "ascending"
             },
             "y": { "field": "properties.mag2", "type": "quantitative", "title": "Medición estandarizada" },
             "color": {

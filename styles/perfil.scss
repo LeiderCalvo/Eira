@@ -201,6 +201,25 @@ aside{
             }
         }
 
+        .descri{
+            @include center();
+            flex-direction: column;
+            width: 70%;
+            margin-right: 40px;
+    
+            h5{
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            
+            #describers{
+                @include center();
+                width: 100%;
+                height: 100%;
+                padding: 0;
+            }
+        }
+
         .colum{
             width: 30%;
             p{
@@ -209,10 +228,31 @@ aside{
                 @include font-size(20);
                 margin-bottom: 10px;
             }
+            .row{
+                justify-content: flex-start;
+                width: 100%;
+                margin-bottom: 10px;
+                div{
+                    display: none;
+                }
+                p{margin: 0;}
+            }
             
             :first-child, .titl{
                 font-weight: bold;
                 color: $hard-blue;
+            }
+        }
+
+        .sleyen{
+            .row{
+                div{
+                    display: block;
+                    content: '';
+                    margin-right: 10px;
+                    width: 15px;
+                    height: 15px;
+                }
             }
         }
     }
