@@ -125,32 +125,44 @@
                 </div>
             </div> -->
 
-            <div class="bars">
-                <div class="row">
-                    <p>ICA</p>
-                        <input class ='slider' value="6" disabled type="range" id="filterEl" value="1" min='2' max='6'>
+            <div class="grafs">
+                <div class="bars">
+                    <div class="row">
+                        <p>ICA</p>
+                            <input class ='slider' value="6" disabled type="range" id="filterEl" value="1" min='2' max='6'>
+                    </div>
+
+                    <div class="row">
+                        <p>PM2.5</p>
+                        <input class ='slider' value="3" disabled type="range" id="filterEl" value="1" min='2' max='6'>
+                    </div>
+
+                    <div class="row">
+                        <p>PM10</p>
+                        <input class ='slider' value="5" disabled type="range" id="filterEl" value="1" min='2' max='6'>
+                    </div>
+
+                    <div class="row">
+                        <p>CO2</p>
+                        <input class ='slider' value="4" disabled type="range" id="filterEl" value="1" min='2' max='6'>
+                    </div>
+                    <button class="btn_graf" id="ver_graf">Ver gráfica</button>
                 </div>
 
-                <div class="row">
-                    <p>PM2.5</p>
-                    <input class ='slider' value="3" disabled type="range" id="filterEl" value="1" min='2' max='6'>
+                <div class="graf descri">
+                    <h5>Tus medicones de calidad del aire de hoy</h5>
+                    <div id="describers"></div>
                 </div>
 
-                <div class="row">
-                    <p>PM10</p>
-                    <input class ='slider' value="5" disabled type="range" id="filterEl" value="1" min='2' max='6'>
+                <div class="graf sem">
+                    <h5>Tus medicones de calidad del aire de la última semana</h5>
+                    <div id="des_sem"></div>
                 </div>
 
-                <div class="row">
-                    <p>CO2</p>
-                    <input class ='slider' value="4" disabled type="range" id="filterEl" value="1" min='2' max='6'>
+                <div class="graf mes">
+                    <h5>Tus medicones de calidad del aire del último mes</h5>
+                    <div id="des_mes"></div>
                 </div>
-                <button class="btn_graf" id="ver_graf">Ver gráfica</button>
-            </div>
-
-            <div class="graf descri">
-                <h5>Tus medicones de calidad del aire de hoy</h5>
-                <div id="describers"></div>
             </div>
 
             <div class="colum">

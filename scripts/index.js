@@ -110,4 +110,7 @@ window.addEventListener('load', e => {
 
 *El texto del paso 2 hay que cambiar especificando los lugares donde se puede acercar y que en el perfil no hay ningún identificador entonces hay que acomodar eso.
 
+[8:56 a. m., 5/6/2020] Daniel: Pana, yo creo que la última cosa por hacer aparte de lo que dijiste, es poner la gráfica principal de datos históricos en el landing principal. Como mostrando un poquito de lo que tenemos y que haya un botón que lo lleve a datos históricos por si quiere saber más
+[8:57 a. m., 5/6/2020] Daniel: Y lo otro es los nombres de los ejes de las gráficas, fijarse en que inicien en mayúscula y estén escritos en español
+
 */

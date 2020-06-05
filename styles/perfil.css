@@ -215,42 +215,46 @@ aside .msj p {
         }*/
 }
 
-#datos .cont .bars {
+#datos .cont .grafs {
   width: 70%;
   padding-right: 40px;
 }
 
-#datos .cont .bars .row {
+#datos .cont .grafs .bars {
+  width: 100%;
+}
+
+#datos .cont .grafs .bars .row {
   margin-bottom: 60px;
 }
 
-#datos .cont .bars .row p {
+#datos .cont .grafs .bars .row p {
   width: 15%;
   color: #094067;
   text-align: left;
 }
 
-#datos .cont .bars .row input[type=range] {
+#datos .cont .grafs .bars .row input[type=range] {
   width: 80%;
 }
 
-#datos .cont .bars .row input[type=range]::-webkit-slider-runnable-track {
+#datos .cont .grafs .bars .row input[type=range]::-webkit-slider-runnable-track {
   background: -webkit-gradient(linear, left top, right top, from(#02b65d), color-stop(20%, #94cc8a), color-stop(50%, #d1c85a), color-stop(80%, #ffaa58), to(#ff514d));
   background: linear-gradient(90deg, #02b65d 0%, #94cc8a 20%, #d1c85a 50%, #ffaa58 80%, #ff514d 100%);
   height: 10px;
 }
 
-#datos .cont .bars .row input[type=range]::-webkit-slider-thumb {
+#datos .cont .grafs .bars .row input[type=range]::-webkit-slider-thumb {
   height: 18px;
   width: 18px;
   margin-top: -3px;
 }
 
-#datos .cont .bars :nth-child(4) {
+#datos .cont .grafs .bars :nth-child(4) {
   margin-bottom: 0;
 }
 
-#datos .cont .bars button {
+#datos .cont .grafs .bars button {
   margin-top: 30px;
   font-size: 0.83622em;
   padding-top: 5px;
@@ -258,7 +262,7 @@ aside .msj p {
   font-weight: normal;
 }
 
-#datos .cont .descri {
+#datos .cont .grafs .graf {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -273,16 +277,15 @@ aside .msj p {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 70%;
-  margin-right: 40px;
+  width: 100%;
 }
 
-#datos .cont .descri h5 {
+#datos .cont .grafs .graf h5 {
   width: 100%;
   margin-bottom: 10px;
 }
 
-#datos .cont .descri #describers {
+#datos .cont .grafs .graf div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

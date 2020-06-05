@@ -210,12 +210,12 @@ window.addEventListener('load', w => {
     var inpts_vals = [[6,5,4,5], [5,4,3,4], [5,2,4,4]];
     var current_ssn_btn = 0;
 
-    (e => grafs.forEach(g => g.style.display = 'none'))()
+    setTimeout( e => grafs.forEach(g => g.style.display = 'none'), 400);
 
     ssn_btns.forEach( (btn, i) => {
         btn.onclick = eb => {
             grafs.forEach(g => g.style.display = 'none')
-            
+
             ssn_btns.forEach(b => b.classList.remove('selected'));
             btn.classList.add('selected');
 
@@ -236,139 +236,152 @@ window.addEventListener('load', w => {
         grafs[current_ssn_btn].style.display = 'flex';
     }
     
-    var describers = {
-        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-        "data": {
-            "url": "utils/dataCali.json",
-            "format": {
-                "property": "features"
-            }
-        },
-        "transform": [
-            { "calculate": "(datum.properties.mag-2)/(7-2)", "as": "properties.mag2" },
-            {"filter": "datum.properties.time > 1591390391397"}
-        ],
-        "encoding": {
-            "color": {
-                "condition": {
-                    "selection": "hover",
-                    "field": "properties.contaminante",
-                    "type": "nominal",
-                    "legend": null
-                },
-                "value": "grey"
-            },
-            "opacity": {
-                "condition": {
-                    "selection": "hover",
-                    "value": 1
-                },
-                "value": 0.2
-            }
-        },
-        "width": 'container',
-        "layer": [{
-            "description": "transparent layer to make it easier to trigger selection",
-            "selection": {
-                "hover": {
-                    "type": "single",
-                    "on": "mouseover",
-                    "empty": "all",
-                    "fields": ["properties.contaminante"],
-                    "init": { "properties.contaminante": "pm25" }
+    var describers = getPlot(1591390391397, "hours");
+    vegaEmbed('#describers', describers);
+
+    var des_sem = getPlot( 1591476791397 - (86400000*7), "days" );
+    vegaEmbed('#des_sem', des_sem);
+
+    var des_mes = getPlot( 1591476791397 - (86400000*30), "months" );
+    vegaEmbed('#des_mes', des_mes);
+
+    function getPlot(time, stamp) {
+        return {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "data": {
+                "url": "utils/dataCali.json",
+                "format": {
+                    "property": "features"
                 }
             },
-            "mark": { "type": "line", "strokeWidth": 8, "stroke": "transparent" }
-        },
-        {
-            "mark": "line"
-        },
-        {
+            "transform": [
+                { "calculate": "(datum.properties.mag-2)/(7-2)", "as": "properties.mag2" },
+                {"filter": `datum.properties.time > ${time}`}
+            ],
             "encoding": {
-                "x": {
-                    "field": "properties.time", "type": "ordinal", //"timeUnit": "hoursminutes",
-                    "title": "Horas del día",
-                    "sort": "ascending"
-                },
-                "y": { "field": "properties.mag2", "type": "quantitative", "title": "Medición estandarizada" },
                 "color": {
-                    "field": "properties.contaminante", "type": "nominal", "scale": {
-                        "domain": ["pm25", "pm10", "co2", "ICA"],
-                        "range": ["#e7ba52", "#aec7e8", "#1f77b4", "#9467bd"]
-                    }
+                    "condition": {
+                        "selection": "hover",
+                        "field": "properties.contaminante",
+                        "type": "nominal",
+                        "legend": null
+                    },
+                    "value": "grey"
+                },
+                "opacity": {
+                    "condition": {
+                        "selection": "hover",
+                        "value": 1
+                    },
+                    "value": 0.2
                 }
             },
-            "layer": [
-                { "mark": "line" },
-                {
-                    "selection": {
-                        "label": {
-                            "type": "single",
-                            "nearest": true,
-                            "on": "mouseover",
-                            "encodings": ["x"],
-                            "empty": "none"
+            "width": 'container',
+            "layer": [{
+                "description": "transparent layer to make it easier to trigger selection",
+                "selection": {
+                    "hover": {
+                        "type": "single",
+                        "on": "mouseover",
+                        "empty": "all",
+                        "fields": ["properties.contaminante"],
+                        "init": { "properties.contaminante": "pm25" }
+                    }
+                },
+                "mark": { "type": "line", "strokeWidth": 8, "stroke": "transparent" }
+            },
+            {
+                "mark": "line"
+            },
+            {
+                "encoding": {
+                    //`${stamp}`
+                    "x": {
+                        "field": "properties.time", "type": "ordinal", //"timeUnit": "hours",
+                        "title": "Horas del día",
+                        "sort": "ascending",
+                        "axis": { "title": null
                         }
                     },
-                    "mark": "point",
-                    "encoding": {
-                        "opacity": {
-                            "condition": { "selection": "label", "value": 1 },
-                            "value": 0
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "transform": [{ "filter": { "selection": "label" } }],
-            "selection": { "click": { "encodings": ["color"], "type": "multi" } },
-            "layer": [
-                {
-                    "mark": { "type": "rule", "color": "gray" },
-                    "encoding": {
-                        "x": {
-                            "type": "temporal", "timeUnit": "hoursminutes",
-                            "field": "properties.time", "aggregate": "min"
+                    "y": { "field": "properties.mag2", "type": "quantitative", "title": "Medición estandarizada" },
+                    "color": {
+                        "field": "properties.contaminante", "type": "nominal", "scale": {
+                            "domain": ["pm25", "pm10", "co2", "ICA"],
+                            "range": ["#e7ba52", "#aec7e8", "#1f77b4", "#9467bd"]
                         }
                     }
                 },
-                {
-                    "encoding": {
-                        "text": { "type": "quantitative", "field": "properties.mag2" },
-                        "x": {
-                            "type": "temporal", //"timeUnit": "hoursminutes",
-                            "field": "properties.time"
-                        },
-                        "y": { "type": "quantitative", "field": "properties.mag2" }
-                    },
-                    "layer": [
-                        {
-                            "mark": {
-                                "type": "text",
-                                "stroke": "white",
-                                "strokeWidth": 2,
-                                "align": "left",
-                                "dx": 5,
-                                "dy": -5
+                "layer": [
+                    { "mark": "line" },
+                    {
+                        "selection": {
+                            "label": {
+                                "type": "single",
+                                "nearest": true,
+                                "on": "mouseover",
+                                "encodings": ["x"],
+                                "empty": "none"
                             }
                         },
-                        {
-                            "mark": { "type": "text", "align": "left", "dx": 5, "dy": -5 },
-                            "encoding": {
-                                "color": {
-                                    "type": "nominal",
-                                    "field":
-                                        "properties.contaminante",
-                                    "range": ["#e7ba52", "#aec7e8", "#1f77b4", "#9467bd"]
+                        "mark": "point",
+                        "encoding": {
+                            "opacity": {
+                                "condition": { "selection": "label", "value": 1 },
+                                "value": 0
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "transform": [{ "filter": { "selection": "label" } }],
+                "selection": { "click": { "encodings": ["color"], "type": "multi" } },
+                "layer": [
+                    {
+                        "mark": { "type": "rule", "color": "gray" },
+                        "encoding": {
+                            "x": {
+                                "type": "temporal", "timeUnit": "hoursminutes",
+                                "field": "properties.time", "aggregate": "min"
+                            }
+                        }
+                    },
+                    {
+                        "encoding": {
+                            "text": { "type": "quantitative", "field": "properties.mag2" },
+                            "x": {
+                                "type": "temporal", //"timeUnit": "hoursminutes",
+                                "field": "properties.time"
+                            },
+                            "y": { "type": "quantitative", "field": "properties.mag2" }
+                        },
+                        "layer": [
+                            {
+                                "mark": {
+                                    "type": "text",
+                                    "stroke": "white",
+                                    "strokeWidth": 2,
+                                    "align": "left",
+                                    "dx": 5,
+                                    "dy": -5
+                                }
+                            },
+                            {
+                                "mark": { "type": "text", "align": "left", "dx": 5, "dy": -5 },
+                                "encoding": {
+                                    "color": {
+                                        "type": "nominal",
+                                        "field":
+                                            "properties.contaminante",
+                                        "range": ["#e7ba52", "#aec7e8", "#1f77b4", "#9467bd"]
+                                    }
                                 }
                             }
-                        }
-                    ]
-                }
+                        ]
+                    }
+                ]
+            }
             ]
         }
-        ]
     }
-    vegaEmbed('#describers', describers);
 })
