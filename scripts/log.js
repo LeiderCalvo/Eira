@@ -24,6 +24,18 @@ window.addEventListener('load', e => {
             }
         })
     }
+
+    /////// reg User
+    btn_reg_user.onclick = e => {
+        Login({ email: regU_email.value, password: regU_pass.value, user: regU_name.value }, true, (success, response) => {
+            if (success) {
+                regU_email.value = '';
+                regU_pass.value = '';
+                regU_name.value = '';
+                localStorage.setItem('log_display', 'none');
+            }
+        })
+    }
 });
 
 function setRigthForm(param) {

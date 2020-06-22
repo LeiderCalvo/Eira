@@ -39,7 +39,7 @@ var mediciones = {
                     "type": "quantitative"
                 },
                 "x": {
-                    "axis": { "title": "fecha", "format": "%d" },
+                    "axis": { "title": "Fecha", "format": "%d" },
                     "field": "properties.time",
                     //"timeUnit": "monthdatehours",
                     "type": "temporal",
@@ -70,8 +70,8 @@ var mediciones = {
                     },
                     "value": "lightgray"
                 },
-                "x": { "aggregate": "count", "type": "quantitative" },
-                "y": { "title": "tipo de contaminante", "field": "properties.contaminante", "type": "nominal" }
+                "x": { "aggregate": "count", "type": "quantitative", "title": "Cantidad de mediciones", },
+                "y": { "title": "Tipo de contaminante", "field": "properties.contaminante", "type": "nominal" }
             },
             "mark": "bar",
             "selection": { "click": { "encodings": ["color"], "type": "multi" } },

@@ -54,17 +54,22 @@ window.addEventListener('load', w => {
         volunteers.appendChild(div);
     }
 
-    ManageData('get', 'collection', 'posts', undefined, undefined, (success, response) => {
-        //console.log(success, response);
-        if(success){
-            for (let i = 0; i < response.docs.length; i++) {
-                //console.log(response.docs[i].id, " => ", response.docs[i].data());
-                posts.push(response.docs[i].data())   
+    callPostsFromDB();
+
+    function callPostsFromDB() {
+        ManageData('get', 'collection', 'posts', undefined, undefined, (success, response) => {
+            //console.log(success, response);
+            if(success){
+                for (let i = 0; i < response.docs.length; i++) {
+                    //console.log(response.docs[i].id, " => ", response.docs[i].data());
+                    posts.push(response.docs[i].data())   
+                }
+                posts.forEach(e => addNewPost(e));
             }
-            posts.forEach(e => addNewPost(e));
-        }
-        //console.log(response.docs[0].data())
-    })
+            //console.log(response.docs[0].data())
+        })
+    }
+
 
     function addNewPost(post) {
         let postCont = document.createElement('div');
@@ -199,7 +204,13 @@ window.addEventListener('load', w => {
         }
 
         let idd = createID('posts');
-        ManageData('set', 'doc', 'posts/'+idd.id, post, undefined, (success, response) => console.log(success, response));
+        ManageData('set', 'doc', 'posts/'+idd.id, post, undefined, (success, response) => {
+            post_wrapper.innerHTML = '';
+            npc.value = '';
+            posts = [];
+            callPostsFromDB();
+            console.log(success, response);
+        });
     }
 })
 
