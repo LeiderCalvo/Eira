@@ -1,0 +1,100 @@
+#retos .description img {
+  width: 140px;
+}
+
+#retos #reportTable {
+  width: 100%;
+  margin-top: 20px;
+}
+
+#datos .inp_finder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  margin: 20px auto;
+  border-radius: 20px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+#datos .inp_finder img {
+  height: 20px;
+  padding: 0 20px;
+}
+
+#datos .inp_finder input {
+  background: none;
+  margin: 0;
+  width: 350px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#datos .comp_vol {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#datos .comp_vol section {
+  width: 32%;
+  padding: 20px 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#datos .comp_vol section img {
+  width: 50%;
+  margin-right: 20px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+#datos .comp_vol section div {
+  text-align: left;
+}
+
+#datos .comp_vol section div h4 {
+  font-size: 1.16141em;
+}
+
+#datos .comp_vol section div h6 {
+  font-size: 0.92913em;
+  font-weight: normal;
+}
+
+#datos .comp_vol section div p {
+  font-size: 0.83622em;
+  margin-bottom: 15px;
+}
+
+#datos .comp_vol section div button {
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 5px 15px;
+}
+/*# sourceMappingURL=perfil_comp.css.map */

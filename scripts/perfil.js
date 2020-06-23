@@ -95,6 +95,11 @@ if (localStorage.getItem('isCurrentUser') !== 'true') {
     window.location.href = '/';
 }
 
+let user = JSON.parse(localStorage.getItem('user'));
+if (user.sector) {
+    window.location.href = '/perfil_comp.html';
+}
+
 window.addEventListener('load', w => {
     var sn_items = document.querySelectorAll('.sn_item');
     var dashs = document.querySelectorAll('.dash');
@@ -104,7 +109,6 @@ window.addEventListener('load', w => {
         sub.onclick = e => showDash(i);
     });
 
-    let user = JSON.parse(localStorage.getItem('user'));
     user_id.innerText = '@' + user.id;
     document.querySelectorAll('.user_name').forEach(e => {
         e.innerText = user.user;

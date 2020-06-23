@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eira</title>
+
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/perfil.css">
+    <link rel="stylesheet" href="styles/perfil_comp.css">
+</head>
+
+<body>
+    <iframe id='if_log' src="log.html" frameborder="0"></iframe>
+    <nav class="row">
+        <a href='index.html'><img src="images/eira_blue.svg" alt="logo"></a>
+        <div>
+            <a href="mapa.html">Mapa en tiempo real</a>
+            <a href="voluntario.html">Ser voluntario</a>
+            <a href="empresas.html">Para empresas</a>
+            <a href="donacion.html">Haz una donación</a>
+            <a href="datos.html">Datos históricos</a>
+            <a href="comunidad.html">Nuestra comunidad</a>
+            <div id='init_sesion' class="log selected">Iniciar sesión</div>
+        </div>
+    </nav>
+
+    <aside>
+        <div class="perfil">
+            <p id="user_id">@e8l3c473</p>
+            <img src="images/perfil_comp/comp_profile.svg" alt="user">
+            <h6 class='user_name'>dsjksdkj</h6>
+            <p id="user_sector">Compañía</p>
+        </div>
+
+        <div class="sub_nav">
+            <div class="sn_item selected">
+                <img src="images/perfil/bike_icon.svg" alt="actividad">
+                <p>Actividad en el proyecto</p>
+            </div>
+
+            <div class="sn_item">
+                <img src="images/perfil_comp/empl_icon.svg" alt="Empleados">
+                <p>Empleados voluntarios</p>
+            </div>
+
+            <div class="sn_item">
+                <img src="images/perfil_comp/report_icon.svg" alt="reportes">
+                <p>Reportes</p>
+            </div>
+        </div>
+
+        <div class="msj">
+            <h5 class='user_name'>Alvro</h5>
+            <p>Estamos orgullosos del aporte a la ciudadanía.</p>
+            <h5>¡Gracias!</h5>
+        </div>
+    </aside>
+
+    <section class="dash visible" id="recorridos">
+        <div class="description">
+            <h6>Actividad en el proyecto</h6>
+            <p>En esta sección puedes encontrar un balance de la participación de la empresa en el proyecto EIRA.</p>
+        </div>
+        <p>Últimos recorridos</p>
+        <div class="recorridos"></div>
+        <div id="map"></div>
+        <div class="recomendations">
+            <div class='mark'></div>
+            <h6>Recomendaciones</h6>
+            <p>A partir de los recorridos realizados, te hacemos las siguientes recomendaciones:</p>
+            <ul>
+                <li>Tomar rutas alternativas a la Calle 25 durante las mañanas de los días martes y jueves.</li>
+                <li>Recuerda usar tapabocas o balaclava entre las 4 p.m. y las 6.pm.</li>
+                <li>La Calle 5 y Calle 50 tienen bajos niveles de riesgo. Puedes circular más por ahí.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="dash visible" id="datos">
+        <div class="description">
+            <h6>Empleados voluntarios</h6>
+            <p>En esta sección puedes encontrar información acerca de los empleados de tu empresa vinculados al proyecto y su respectiva participación.</p>
+            <img src="images/perfil/recoriidos.svg">
+        </div>
+
+        <div class="inp_finder">
+            <img src="images/lupa.svg" alt="lupa">
+            <input type="text" placeholder="Ingresa el nombre del empleado de interés" id="finder">
+        </div>
+
+        <div class="comp_vol"></div>
+
+    </section>
+
+    <section class="dash visible" id="retos">
+        <div class="description">
+            <h6>Reportes</h6>
+            <p>En esta sección puedes encontrar toda la documentación requerida que te permita acceder a los diferentes incentivos tributarios que brinda el gobierno por participación en proyectos ambientales.</p>
+            <img src="images/perfil/datos.svg" alt="datos">
+        </div>
+
+        <img id='reportTable' src="images/perfil_comp/report.svg" alt="report">
+
+    </section>
+
+    <script src="scripts/index.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.12.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.13.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.8.0"></script>
+    <script src="scripts/perfil_comp.js"></script>
+</body>
+
+</html>

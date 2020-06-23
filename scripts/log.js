@@ -36,6 +36,24 @@ window.addEventListener('load', e => {
             }
         })
     }
+
+    /////// reg Comp
+    btn_reg_comp.onclick = e => {
+        Login({
+            email: regC_email.value,
+            password: regC_pass.value,
+            user: regC_name.value,
+            sector: regC_sector.value
+        }, true, (success, response) => {
+            if (success) {
+                regC_email.value = '';
+                regC_pass.value = '';
+                regC_name.value = '';
+                regC_sector.value = '';
+                localStorage.setItem('log_display', 'none');
+            }
+        })
+    }
 });
 
 function setRigthForm(param) {

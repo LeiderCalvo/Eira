@@ -1,0 +1,78 @@
+@import '../utils/vars';
+
+#retos{
+
+    .description{
+        img{
+            width: 140px;
+        }
+    }
+    #reportTable{
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
+#datos{
+    .inp_finder{
+        @include row();
+        background-color: white;
+        margin: 20px auto;
+        border-radius: 20px;
+        width: fit-content;
+
+        img{
+            height: 20px;
+            padding:0 20px;
+        }
+
+        input{
+            background: none;
+            margin: 0;
+            width: 350px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+
+    .comp_vol{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        section{
+            width: 32%;
+            padding: 20px 10px;
+            //align-items: flex-start;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            align-items: center;
+            img{
+                width: 50%;
+                margin-right: 20px;
+                align-self: flex-start;
+            }
+
+            div{
+                text-align: left;
+                h4{
+                    @include font-size(25);
+                }
+                h6{
+                    @include font-size(20);
+                    font-weight: normal;
+                }
+                p{
+                    @include font-size(18);
+                    margin-bottom: 15px;
+                }
+
+                button{
+                    min-width: fit-content;
+                    width: fit-content;
+                    padding: 5px 15px;
+                }
+            }
+        }
+    }
+}
