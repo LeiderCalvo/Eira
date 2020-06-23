@@ -101,6 +101,11 @@ if (user.sector) {
 }
 
 window.addEventListener('load', w => {
+    logout.onclick = e => {
+        localStorage.clear();
+        window.location.href = '/';
+    };
+    
     var sn_items = document.querySelectorAll('.sn_item');
     var dashs = document.querySelectorAll('.dash');
     showDash(1);

@@ -76,3 +76,30 @@
         }
     }
 }
+
+#recorridos .contActv{
+    margin-top: 20px;
+    align-items: flex-start;
+    width: 100%;
+    .f{
+        width: 58%;
+        .cont{
+            width: 100%;
+        }
+        #volComs{padding: 0; width: 100%;}
+        .row{
+            width: 100%;
+            margin-top: 10px;
+            img{
+                width: 49%;
+            }
+        }
+    }
+
+    .cont{
+        width: 40%;
+        #medComps{
+            width: 100%;
+        }
+    }
+}

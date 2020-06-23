@@ -97,4 +97,42 @@
   width: fit-content;
   padding: 5px 15px;
 }
+
+#recorridos .contActv {
+  margin-top: 20px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 100%;
+}
+
+#recorridos .contActv .f {
+  width: 58%;
+}
+
+#recorridos .contActv .f .cont {
+  width: 100%;
+}
+
+#recorridos .contActv .f #volComs {
+  padding: 0;
+  width: 100%;
+}
+
+#recorridos .contActv .f .row {
+  width: 100%;
+  margin-top: 10px;
+}
+
+#recorridos .contActv .f .row img {
+  width: 49%;
+}
+
+#recorridos .contActv .cont {
+  width: 40%;
+}
+
+#recorridos .contActv .cont #medComps {
+  width: 100%;
+}
 /*# sourceMappingURL=perfil_comp.css.map */

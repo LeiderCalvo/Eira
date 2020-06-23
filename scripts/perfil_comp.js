@@ -1,32 +1,38 @@
 const volsDB = [{
     date: '12/03/2020',
     name: 'Daniel Arboleda',
-    meditions: 20
+    meditions: 20,
+    kms: 24
 },
 {
     date: '20/03/2020',
     name: 'Alvaro vasquez',
-    meditions: 17
+    meditions: 17,
+    kms: 80
 },
 {
     date: '07/04/2020',
     name: 'Lucia Ramirez',
-    meditions: 15
+    meditions: 15,
+    kms: 67
 },
 {
     date: '22/06/2020',
     name: 'Andrea Torres',
-    meditions: 15
+    meditions: 15,
+    kms: 33
 },
 {
     date: '13/05/2020',
     name: 'Pablo Garzon',
-    meditions: 10
+    meditions: 10,
+    kms: 16
 },
 {
     date: '06/04/2020',
     name: 'Lina Bustamante',
-    meditions: 9
+    meditions: 9,
+    kms: 12
 }]
 
 if (localStorage.getItem('isCurrentUser') !== 'true') {
@@ -34,9 +40,14 @@ if (localStorage.getItem('isCurrentUser') !== 'true') {
 }
 
 window.addEventListener('load', w => {
+    logout.onclick = e => {
+        localStorage.clear();
+        window.location.href = '/';
+    };
+
     var sn_items = document.querySelectorAll('.sn_item');
     var dashs = document.querySelectorAll('.dash');
-    showDash(1);
+    showDash(0);
     
     sn_items.forEach((sub, i) => {
         sub.onclick = e => showDash(i);
@@ -80,13 +91,78 @@ window.addEventListener('load', w => {
         sect.innerHTML = `<img src="images/community/perf_min_${vol.name.replace(' ', '').toLowerCase()}.svg" alt="">
         <div>
             <h4>${vol.name}</h4>
-            <h6>${vol.meditions} medicones</h6>
             <p>Vinculado al proyecto desde ${vol.date}</p>
-            <button>Ver más</button>
+            <h6>${vol.meditions} medicones</h6>
+            <h6>${vol.kms} kms recorridos</h6>
         </div>`;
 
         cont.appendChild(sect);
-
     }
 
+    ///////////plots
+    var volComs = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+        "data": {
+            "values": [
+                { "comp": "Celsia", "amoung": 20 },
+                { "comp": "Emcali", "amoung": 15 },
+                { "comp": "Alcaldía de Cali", "amoung": 47 },
+                { "comp": "Panadería La Kuty", "amoung": 9 },
+                { "comp": "Juan Sangría", "amoung": 4 },
+                { "comp": "Gases de Occidente", "amoung": 29 },
+                { "comp": "Comfandi", "amoung": 30 },
+                { "comp": "Bavaria", "amoung": 16 },
+            ]
+        },
+        "mark": {"type": "line", "color": '#3DA9FC'},
+        "height": { "step": 60 },
+        "width": "container",
+        "encoding": {
+          "x": {"field": "comp", "type": "nominal", "title": null},
+          "y": {"field": "amoung", "type": "quantitative", "title": "Nº de voluntarios"}
+        }
+    }
+    vegaEmbed('#volComs', volComs);
+
+    var medComps = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+        //"width": "container",
+        "data": {
+            "values": [
+                { "Activity": "Celsia", "amoung": 25 },
+                { "Activity": "Emcali", "amoung": 13 },
+                { "Activity": "Alcaldía de Cali", "amoung": 17 },
+                { "Activity": "Panadería La Kuty", "amoung": 9 },
+                { "Activity": "Juan Sangría", "amoung": 12 },
+                { "Activity": "Gases de Occidente", "amoung": 17 },
+                { "Activity": "Comfandi", "amoung": 9 },
+                { "Activity": "Bavaria", "amoung": 5 },
+            ]
+        },
+        "height": { "step": 60 },
+        "width": "container",
+        "encoding": {
+            "x": { "field": "amoung", "type": "quantitative", "title": null },
+            "y": { "field": "Activity", "type": "nominal", "sort": "-x", "title": null, "axis": null }
+        },
+        "layer": [{
+            "mark": {"type": "bar", "color": '#3DA9FC'},
+            "encoding": {
+              "x": {
+                "field": "amoung",
+                "type": "quantitative",
+                "scale": {"domain": [0, 30]},
+              }
+            }
+          }, {
+            "mark": {"type": "text", "align": "left", "x": 5},
+            "encoding": {
+              "text": {
+                "field": "Activity",
+                "type": "nominal"
+              }
+            }
+        }]
+    }
+    vegaEmbed('#medComps', medComps);
 });

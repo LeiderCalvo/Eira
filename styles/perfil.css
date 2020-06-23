@@ -30,8 +30,9 @@ aside .perfil {
   margin-bottom: 15px;
 }
 
-aside .perfil #user_id {
-  margin-bottom: 30px;
+aside .perfil #logout {
+  margin-bottom: 20px;
+  cursor: pointer;
 }
 
 aside .perfil img {
