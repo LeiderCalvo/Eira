@@ -185,7 +185,61 @@ article .cards-wrapper .card:nth-child(2n) p {
     width: 44% !important;
   }
   .messaje {
-    margin: 30px 0;
+    margin: 30px auto;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .banner2 {
+    padding: 50px 30px;
+  }
+  .banner2 h1 {
+    font-size: 2.09054em;
+    line-height: normal;
+  }
+  .cards-wrapper .card {
+    width: 100% !important;
+    margin: 0 !important;
+    margin-bottom: 20px !important;
+  }
+  .cards-wrapper .card h1 {
+    font-size: 2.32282em;
+  }
+  .form {
+    padding: 0 20px !important;
+    margin-bottom: 20px !important;
+  }
+  .form > p {
+    padding: 0 !important;
+    margin-bottom: 20px;
+  }
+  .form > .row section {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-top: 0;
+  }
+  .form > .row section > * {
+    width: 100% !important;
+    margin-bottom: 15px !important;
+    text-align: center;
+  }
+  .form > .row section .row {
+    width: 46% !important;
+    margin-bottom: 15px !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+  }
+  .form > .row section .row img {
+    margin-bottom: 15px;
+    margin-right: 0;
+  }
+  .form > .row section .row * {
+    text-align: center !important;
+  }
+  .logos {
+    margin-top: 0px;
   }
 }
 /*# sourceMappingURL=donate.css.map */

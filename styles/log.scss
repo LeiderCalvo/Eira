@@ -92,3 +92,20 @@ body{
         flex-direction: row !important;
     }
 }
+
+@media screen and (max-width: 450px) {
+    .container {
+        .row{
+            width: 80% !important;
+            flex-wrap: wrap;
+            justify-content: center !important;
+            button{
+                margin: 5px 10px;
+            }
+        }
+
+        input{
+            width: 80% !important;
+        }
+    }
+}

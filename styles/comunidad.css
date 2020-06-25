@@ -651,4 +651,38 @@ body .container .posts .pags > button {
     margin-bottom: 20px;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .other_actions {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+    margin-bottom: 0 !important;
+  }
+  .other_actions section {
+    width: 100% !important;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .other_actions section button, .other_actions section a {
+    margin: 0 auto;
+  }
+  .input_opinion {
+    margin: 20px 0 50px !important;
+  }
+  .input_opinion h5 {
+    text-align: center;
+    width: 100% !important;
+  }
+  .input_opinion section .upload_file {
+    left: 0 !important;
+  }
+  .input_opinion section #newPostCreatorBtn {
+    right: 0 !important;
+  }
+  .container .posts .post {
+    width: 100%;
+  }
+}
 /*# sourceMappingURL=comunidad.css.map */

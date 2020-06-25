@@ -18,6 +18,12 @@ iframe{
     display: none;
 }
 
+#hamb_menu{
+    width: 30px;
+    margin-right: 0;
+    display: none;
+}
+
 .colum{@include colum()}    .row{@include row()}
 
 h1{ @include font-size(60);}
@@ -566,6 +572,12 @@ input[type=range] {
         }
     }
 
+    .messaje{
+        br{
+            display: none;
+        }
+    }
+
     .testimony{
         div {
             margin-bottom: 30px;
@@ -608,8 +620,12 @@ input[type=range] {
 
     .logos{
         flex-direction: row !important;
-        justify-content: space-between !important;
         padding: 20px;
+        flex-wrap: wrap;
+        width: 100%;
+        img{
+            margin: 20px;
+        }
     }
 
     footer .row{
@@ -687,98 +703,179 @@ input[type=range] {
     }
 
 }
-/*
+
+
 @media screen and (max-width: 450px) {
-    .banner {
-        padding: 40px 20px;
-        div{
-            width: fit-content;
-            h1{
-                @include font-size(40);
+
+    nav{
+        flex-direction: row !important;
+        padding: 20px;
+        &:hover{
+            &>div{display: flex;}
+        }
+        &>div{
+            &:hover{
+                display: flex;
+            }
+            z-index: 3;
+            display: none;
+            flex-direction: column;
+            justify-content: flex-end !important;;
+            width: 80%;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background-color: white;
+            @include box-shadow();
+            padding: 20px;
+            border-radius: 20px;
+
+            a{
+                text-align: right;
+                @include font-size(25);
+                margin-right: 0;
             }
 
-            h4{
+            div{
+                position: relative;
+                order: 1;
+                width: fit-content;
+                align-self: flex-end;
+                right: unset;
+                top: unset;
                 @include font-size(25);
             }
-
-            button{
-                margin-top: 30px;
-            }
         }
-        img{
-            width: 80%;
-        }
-    }
 
-    .messaje{
-        margin: 30px 0;
-    }
-
-    .cards-wrapper{
-        justify-content: center;
-        padding: 10px;
-
-        .card{
-            margin-bottom: 20px;
+        &>a, &>img{
+            position: relative;
+            top: unset;
+            left: unset;
+            margin-right: auto;
         }
     }
 
-    .testimony{
-        margin: 0;
-        padding: 20px;
-        img{
-            width: 80%;
-        }
-
-        .tickMarks{
-            div{
-                width: 30px !important;
-            }
+  .banner{
+    img{
+        width: 100%;
+    }
+    div{
+        width: 100% !important;
+        h1{
+            @include font-size(30);
         }
     }
+  }
 
-    .testimonies{
-        justify-content: center;
-        padding: 0 10px;
-        div{
-            width: 100%;
-            margin-bottom: 30px;
-        }
+  .benefits{
+      .row{
+          margin: 15px 0;
+          flex-direction: column;
+          height: fit-content;
+          *{width: 100% !important; text-align: center;}
+          img{
+              margin: 0;
+              margin-bottom: 15px;
+              order: 1;
+          }
+          div{
+              order: 2;
+          }
+      }
+  }
+
+  .messaje{
+      width: 90%;
+      margin: 30px auto;
+  }
+
+  .testimony{
+      margin: 20px 0;
+      width: 100%;
+      img{
+          width: 100%;
+      }
+      h2{
+          @include font-size(40);
+      }
+  }
+
+  .companies{
+      padding-top: 30px;
+      padding-bottom: 30px;
+  }
+
+  .action_block{
+      margin-top: 20px;
+      margin-bottom: 20px;
+
+      h1{
+          @include font-size(40);
+      }
+
+      .shearch_bar{
+          width: 90%;
+          min-width: unset !important;
+          p{
+              text-align: center;
+          }
+          .row{
+              width: 100%;
+          }
+      }
+  }
+
+  .ab_group{
+      flex-direction: column;
+      padding: 0 30px;
+      section {
+          width: 100%;
+      }
+  }
+
+  .cards-wrapper section{
+      width: 100% !important;
+  }
+
+  footer{
+      flex-direction: column !important;;
+      justify-content: center !important;;
+      .row {
+          order: 2;
+          width: 100%;
+          p{
+              width: 100%;
+              margin: 0;
+              text-align: center;
+              padding: 0;
+          }
+      }
+
+      img{
+          order: 1;
+          margin-bottom: 20px;
+      }
+  }
+
+
+  #hamb_menu{
+    display: block;
+}
+
+
+    #map{
+        height: 90vh;
     }
 
-    .gallery{
-        padding: 0 30px;
-        div{
-            width: 100% !important;
-
-            p{
-                font-size: 24px !important; 
-            }
-        }
-    }
-
-    .form{
-        margin-top: 30px;
-        padding: 0 10px;
-        margin-bottom: 30px;
-
-        &>p{
-            padding: 0 20px;
-        }
-
+    .gen_rec{
+        bottom: 15px !important;
         .row{
-            section{
-                margin-top: 0;
-                flex-direction: column !important;
-                &>*{
-                    min-width: 90% !important;
-                    margin-bottom: 20px !important;
-                }
-                .row:nth-child(2){
-                    margin-bottom: 20px !important;
-                }
-            }
+            flex-direction: row;
+            justify-content: space-between;
         }
+    }
+
+    iframe{
+        padding: 0 !important;
     }
 }
-*/

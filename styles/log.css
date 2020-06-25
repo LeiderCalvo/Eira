@@ -134,4 +134,21 @@ body .container .c_action {
             flex-direction: row !important;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .container .row {
+    width: 80% !important;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+            justify-content: center !important;
+  }
+  .container .row button {
+    margin: 5px 10px;
+  }
+  .container input {
+    width: 80% !important;
+  }
+}
 /*# sourceMappingURL=log.css.map */

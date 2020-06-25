@@ -421,3 +421,38 @@ body{
         .posts{order: 1; margin-bottom: 20px;}
     }
 }
+
+@media screen and (max-width: 450px) {
+    .other_actions{
+        flex-direction: column !important;
+        margin-bottom: 0 !important;;
+
+        section{
+            width: 100% !important;
+            text-align: center;
+            margin-bottom: 20px;
+            button, a{
+                margin: 0 auto;
+            }
+        }
+    }
+
+    .input_opinion{
+        margin: 20px 0 50px !important;
+        h5{
+            text-align: center;
+            width: 100% !important;;
+        }
+
+        section{
+            .upload_file {
+                left: 0 !important;
+            }
+            #newPostCreatorBtn{right: 0 !important;}
+        }
+    }
+
+    .container {
+        .posts .post{width: 100%;}
+    }
+}

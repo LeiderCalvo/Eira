@@ -127,3 +127,7 @@
         }
     }
 }
+
+@media screen and (max-width: 450px) {
+    .steps section{width: 100%;}
+}
