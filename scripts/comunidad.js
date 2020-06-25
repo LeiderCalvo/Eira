@@ -110,7 +110,7 @@ window.addEventListener('load', w => {
             <div class="commets">${createComments(post.comments, 0)}</div>`;
 
         let x_closer = document.createElement('img');
-        x_closer.src = "../images/close.svg";
+        x_closer.src = "./images/close.svg";
         x_closer.classList.add('close');
         x_closer.onclick = e => {
             see_interactions.style.display  =  'none';
@@ -160,9 +160,9 @@ window.addEventListener('load', w => {
         <div class="reactions row">
             <p class="likes_count">${com.likes} Me gusta</p>
             <div class="row">
-                <p><img src="../images/like_hard.svg" alt="like"> Me gusta</p>
+                <p><img src="./images/like_hard.svg" alt="like"> Me gusta</p>
                 ${type>0? '<p><img src="images/comment.svg" alt="comment"> Comentar</p>' : ''}
-                <p><img src="../images/share.svg" alt="share"> Compartir</p>
+                <p><img src="./images/share.svg" alt="share"> Compartir</p>
             </div>
         </div>
 
