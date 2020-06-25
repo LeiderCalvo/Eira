@@ -3,6 +3,7 @@
 .body_map{
     @include scrollBar();
     overflow-y: auto;
+    min-width: 949px;
 }
 
 iframe{z-index: 4;}

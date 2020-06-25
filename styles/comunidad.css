@@ -664,6 +664,9 @@ body .container .posts .pags > button {
     width: 100% !important;
     text-align: center;
     margin-bottom: 20px;
+    min-height: -webkit-fit-content !important;
+    min-height: -moz-fit-content !important;
+    min-height: fit-content !important;
   }
   .other_actions section button, .other_actions section a {
     margin: 0 auto;
@@ -677,12 +680,46 @@ body .container .posts .pags > button {
   }
   .input_opinion section .upload_file {
     left: 0 !important;
+    width: 50px;
+    overflow: hidden;
+    min-width: unset;
+  }
+  .input_opinion section .upload_file img {
+    margin-left: 100px;
   }
   .input_opinion section #newPostCreatorBtn {
     right: 0 !important;
   }
   .container .posts .post {
     width: 100%;
+  }
+  #see_interactions {
+    width: 100% !important;
+    padding: 20px;
+  }
+  #see_interactions #see_int_cont {
+    padding: 20px;
+  }
+  #see_interactions .close {
+    top: 10px !important;
+    right: 10px !important;
+  }
+  #see_interactions .commets {
+    width: 100% !important;
+    padding: 15px 0 0 !important;
+  }
+  #see_interactions .commets .post .reactions {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100% !important;
+  }
+  #see_interactions .commets .post .reactions .row {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100% !important;
+    -webkit-box-pack: end !important;
+        -ms-flex-pack: end !important;
+            justify-content: flex-end !important;
   }
 }
 /*# sourceMappingURL=comunidad.css.map */

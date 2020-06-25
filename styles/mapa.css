@@ -1,6 +1,7 @@
 .body_map {
   overflow-y: hidden;
   overflow-y: auto;
+  min-width: 949px;
 }
 
 .body_map:hover {
