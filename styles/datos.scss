@@ -288,3 +288,80 @@ body{
         }
     }
 }
+
+////////////
+@media screen and (max-width: 950px) {
+    #description .row{
+        flex-direction: row;
+        justify-content: space-between;
+
+        div p {
+            width: 90%;
+        }
+
+        button{
+            min-width: 180px !important;
+        }
+    }
+
+    .sub_nav{
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        margin: 20px 30px;
+    }
+
+    .dash {
+        .row{
+            &>*{
+                width: 100% !important;
+                margin-bottom: 20px;
+            }
+    
+            section{
+                margin-bottom: 0;
+                &>*{
+                    margin-bottom: 20px !important;
+                }
+                #redes_cont{
+                    margin-bottom: 0 !important;
+                }
+            }
+    
+    
+            ///////
+            #filterCont{
+                margin-bottom: 20px;
+                width: 50% !important;
+                align-self: flex-start;
+            }
+    
+            .slider{
+                margin-bottom: 35px;
+            }
+    
+        }
+        .tils{display: none;}
+        .gen_rec{
+            #x_close_esp_Rec{
+                width: 30px !important;
+                align-self: flex-end;
+                margin-top: -15px !important;
+            }
+
+            .close{
+                width: 30px !important;
+                align-self: flex-end;
+            }
+        }
+
+        .colums{
+            flex-wrap: wrap;
+            justify-content: center !important;
+
+            section{
+                min-width: 250px;
+                margin: 20px;
+            }
+        }
+    }
+}

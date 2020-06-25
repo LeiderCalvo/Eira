@@ -122,4 +122,16 @@ body .container .c_action {
   width: -moz-fit-content;
   width: fit-content;
 }
+
+@media screen and (max-width: 950px) {
+  .row {
+    -webkit-box-pack: justify !important;
+        -ms-flex-pack: justify !important;
+            justify-content: space-between !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+  }
+}
 /*# sourceMappingURL=log.css.map */

@@ -115,3 +115,15 @@
 .action_block#dos{
     background-image: url('../images/voluntario/ab_data.svg');
 }
+
+////////////
+@media screen and (max-width: 950px) {
+    .steps{
+        flex-wrap: wrap;
+        justify-content: center;
+        section{
+            min-width: 200px;
+            margin: 0 20px 20px;
+        }
+    }
+}

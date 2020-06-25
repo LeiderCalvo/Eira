@@ -585,4 +585,70 @@ body .container .posts .pags > button {
 #see_interactions .cont .commets .post .reactions * {
   color: #575759;
 }
+
+@media screen and (max-width: 950px) {
+  .row {
+    -webkit-box-pack: justify !important;
+        -ms-flex-pack: justify !important;
+            justify-content: space-between !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+  }
+  nav div {
+    margin: 0 auto;
+  }
+  .other_actions section {
+    height: 300px !important;
+  }
+  hr {
+    display: none;
+  }
+  .input_opinion {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+  }
+  .input_opinion > * {
+    width: 100% !important;
+  }
+  .input_opinion h5 {
+    margin-bottom: 20px;
+    width: 80% !important;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+  }
+  .container {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+    margin-top: 20px !important;
+  }
+  .container section {
+    width: 100% !important;
+  }
+  .container .ranking {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .container .ranking * {
+    text-align: center;
+  }
+  .container .ranking p {
+    margin-bottom: 20px;
+  }
+  .container .ranking h5 {
+    margin-bottom: 10px !important;
+  }
+  .container .posts {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    margin-bottom: 20px;
+  }
+}
 /*# sourceMappingURL=comunidad.css.map */

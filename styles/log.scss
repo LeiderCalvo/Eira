@@ -84,3 +84,11 @@ body{
     }
 
 }
+
+////////////
+@media screen and (max-width: 950px) {
+    .row{
+        justify-content: space-between !important;
+        flex-direction: row !important;
+    }
+}
